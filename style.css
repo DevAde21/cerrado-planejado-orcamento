@@ -1,0 +1,851 @@
+/* Importando a fonte novecento */
+@import url(https://db.onlinewebfonts.com/c/c2988552206031b82497c4a05a393759?family=Novecento+WideMedium);
+
+@font-face {
+    font-family: "Novecento WideMedium";
+    src: url("https://db.onlinewebfonts.com/t/c2988552206031b82497c4a05a393759.eot");
+    src: url("https://db.onlinewebfonts.com/t/c2988552206031b82497c4a05a393759.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/c2988552206031b82497c4a05a393759.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/c2988552206031b82497c4a05a393759.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/c2988552206031b82497c4a05a393759.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/c2988552206031b82497c4a05a393759.svg#Novecento WideMedium")format("svg");
+}
+
+/* #region General Styles */
+body, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(#11b411, #005200);
+    color: white;
+    font-family: "Novecento WideMedium";
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 5rem; /* Altura do header */
+}
+
+/* Estilos para o fundo escurecido */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999; 
+    display: none;
+}
+
+.section-title {
+    font-size: 4rem;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* #endregion */
+
+/* #region Header */
+header {
+    background: linear-gradient(to right, #008300, #003d00);
+    width: 100%;
+    height: 5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.container-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.logo img {
+    height: 3.5rem;
+}
+
+.logo-text {
+    color: white;
+    font-size: 1.8rem;
+    margin-left: 1rem;
+    font-family: "Novecento WideMedium";
+}
+
+.nav {
+    margin-left: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.nav ul {
+    display: flex;
+}
+
+.nav ul li {
+    margin-left: 1.5rem;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: .1rem;
+    transition: color 0.3s;
+    font-family: "Novecento WideMedium";
+}
+
+.nav ul li a:hover {
+    color: #ffff06;
+}
+
+.header-contacts {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: .9rem;
+    margin-right: 1rem;
+    width: 170px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.header-contacts button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: #006200;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.header-contacts-icon {
+    width: auto;
+    height: 26px;
+}
+
+.header-contacts button:hover {
+    background-color: #009200;
+    transform: scale(1.1);
+}
+
+/* Media Queries do Header */
+
+/* Media Query -2: ... - 419px*/
+@media (max-width: 419px) {
+
+    /* Estilos do Header */
+    header {
+        height: 2.5rem;
+    }
+
+    .container-header{
+        margin: 0;
+        padding: 0;
+        justify-content: space-between; 
+    }
+
+    .header-contacts {
+        display: none;
+    }
+
+    .logo-area {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0; 
+        padding: 0; 
+        width: fit-content;
+    }
+
+    .logo img {
+        height: 1.6rem;
+        margin: .5rem;
+    }
+
+    .logo-text {
+        margin: 0;
+        font-size: .6rem;
+        padding: 0;
+        white-space: nowrap;
+    }
+
+    .nav ul li a {
+        display: none;
+    }
+
+    .header-contact {
+        height: 3rem;
+    }
+
+    .contact-icon {
+        max-height: 3rem;
+    }
+}
+
+/* Media Query -1: 419px - 677px*/
+@media (min-width: 419px) and (max-width: 677px) {
+
+    /* Estilos do Header */
+    header {
+        height: 2.5rem;
+    }
+
+    .container-header{
+        margin: 0;
+        padding: 0;
+        justify-content: space-between; 
+    }
+
+    .header-contacts {
+        display: none;
+    }
+
+    .logo-area {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0; 
+        padding: 0; 
+        width: fit-content;
+    }
+
+    .logo img {
+        height: 1.6rem;
+        margin: .5rem;
+    }
+
+    .logo-text {
+        margin: 0;
+        font-size: .8rem;
+        padding: 0;
+        white-space: nowrap;
+    }
+
+    .nav ul li a {
+        display: none;
+    }
+
+    .header-contact {
+        height: 3rem;
+    }
+
+    .contact-icon {
+        max-height: 3rem;
+    }
+}    
+
+/* Media Query 0: 678px - 849px */
+@media (min-width: 678px) and (max-width: 849px) {
+
+    /* Estilos do Header */
+    header {
+        height: 5rem;
+    }
+
+    .container-header{
+        justify-content: space-between;
+    }
+
+    .header-contacts {
+        display: none;
+    }
+
+    .logo-area {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0; 
+        padding: 0; 
+        width: fit-content;
+    }
+
+    .logo img {
+        margin: .5rem;
+    }
+
+    .logo-text {
+        margin: 0;
+        white-space: nowrap;
+    }
+
+    .nav ul li a {
+        display: none;
+    }
+
+    .header-contact {
+        height: 3rem;
+    }
+
+    .contact-icon {
+        max-height: 3rem;
+    }
+}
+
+/* Media Query 1 (Telefone XS - Tablet L): 850px - 1023px */
+@media (min-width: 850px) and (max-width: 1023px) {
+
+    /* Estilos do Header */
+    header {
+        height: 5rem;
+    }
+
+    .container-header{
+        justify-content: space-between;
+    }
+
+    .logo-area {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0; 
+        padding: 0; 
+        width: fit-content;
+    }
+
+    .logo img {
+        margin: .5rem;
+    }
+
+    .logo-text {
+        margin: 0;
+        white-space: nowrap;
+    }
+
+    .nav ul li a {
+        display: none;
+    }
+
+    .header-contact {
+        height: 3rem;
+    }
+
+    .contact-icon {
+        max-height: 3rem;
+    }
+}
+
+/* Media Query 2 (PC XS e Tablets XL): 1024px - 1389px */
+@media (min-width: 1024px) and (max-width: 1389px) {
+
+    /* Estilos do Header */
+    header {
+        height: 5rem;
+    }
+
+    .container-header{
+        justify-content: space-between;
+    }
+
+    .logo-area {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0; 
+        padding: 0; 
+        width: fit-content;
+    }
+
+    .logo img {
+        margin: .5rem;
+    }
+
+    .logo-text {
+        margin: 0;
+        white-space: nowrap;
+    }
+
+    /* Menu de Navegação */
+    .secondary-menu-toggle {
+        width: 2.5rem;
+        height: 2.5rem;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        margin-left: 1rem;
+    }
+
+    .nav ul li a {
+        display: none;
+    }
+
+    .header-contact {
+        height: 3rem;
+    }
+
+    .contact-icon {
+        max-height: 3rem;
+    }
+}
+
+/* Media Query 3 (PC S - PC XL): 1390px - ... */
+@media (min-width: 1390px) {
+    /* Estilos do Header */
+    header {
+        height: 5rem;
+    }
+
+    .logo img {
+        height: 3.15rem;
+    }
+
+    .logo-text {
+        font-size: 1.8rem;
+    }
+
+    .nav ul li a {
+        font-size: .9rem;
+    }
+
+    .header-contact {
+        height: 3rem;
+    }
+
+    .contact-icon {
+        max-height: 3rem;
+    }
+}
+/*#endregion*/
+
+/* #region Content */
+
+.content-container {
+    position: relative; /* Importante para o posicionamento do pseudo-elemento */
+    width: 80rem;
+    height: 30rem;
+    background-color: white;
+    border-radius: 5px; /* Mantém o border-radius do container */
+    margin-bottom: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1; /* Garante que o container fique acima do pseudo-elemento */
+}
+
+.content-container::before {
+    content: '';
+    position: absolute;
+    top: -5px; /* Mesma espessura da borda */
+    left: -5px; /* Mesma espessura da borda */
+    right: -5px; /* Mesma espessura da borda */
+    bottom: -5px; /* Mesma espessura da borda */
+    border: 5px solid transparent; /* Borda transparente */
+    border-radius: 10px; /* Dobro do border-radius do container, para compensar */
+    background: linear-gradient(to top, #005100, #11B211) border-box; /* Gradiente aplicado */
+    -webkit-mask:
+      linear-gradient(#fff 0 0) padding-box, 
+      linear-gradient(#fff 0 0); /* Máscara para o gradiente */
+    -webkit-mask-composite: destination-out; /* Define como a máscara será aplicada */
+    mask-composite: exclude; /* Define como a máscara será aplicada (alternativa) */
+    z-index: 0; /* Garante que o pseudo-elemento fique abaixo do container */
+}
+
+/* #endregion*/
+
+/* #region Footer */
+footer {
+    width: 100%;
+    background-color: #005200;
+    color: white;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    position: static;
+    bottom: 0;
+    margin-top: auto; /* Empurra o footer para baixo */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-text {
+    line-height: 1.5;
+    margin-bottom: 0;
+    font-family: "Novecento WideMedium";
+    margin-top: 0;
+}
+
+.footer-social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 3px;
+}
+
+.footer-social-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    font-family: "Novecento WideMedium";
+}
+
+.footer-social-icon {
+    width: 20px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.footer-copyright {
+    /* ... suas outras propriedades ... */
+    font-family: Arial, sans-serif; /* Define a fonte como Arial */
+    text-align: center; /* Centraliza o texto (opcional, mas comum em footers) */
+    font-size: 0.8rem; /* Ajuste o tamanho da fonte conforme necessário */
+    margin: 1.5rem 0 -1rem; /* Ajuste as margens conforme necessário */
+}
+
+/* Media Queries do Footer */
+
+/* Media Query -2: ... - 419px*/
+@media (max-width: 419px) {
+
+    /* Estilos do Footer */
+    footer {
+        font-size: .77rem;
+    }
+
+    .footer-social-icon {
+        width: 1.12rem;
+    }
+
+    .footer-text, .footer-social-link, .footer-copyright {
+        font-size: .77rem;
+    }
+
+    .footer-social {
+        gap: 1.12rem;
+    }
+
+    footer {
+        padding: 1 0;
+    }
+}
+
+/* Media Query -1: 419px - 677px*/
+@media (min-width: 419px) and (max-width: 677px) {
+
+    /* Estilos do Footer */
+    footer {
+        font-size: .77rem;
+    }
+
+    .footer-social-icon {
+        width: 1.12rem;
+    }
+
+    .footer-text, .footer-social-link, .footer-copyright {
+        font-size: .77rem;
+    }
+
+    .footer-social {
+        gap: 1.12rem;
+    }
+
+    footer {
+        padding: 1 0;
+    }
+}
+
+/* Media Query 0: 678px - 849px */
+@media (min-width: 678px) and (max-width: 849px) {
+    /* Estilos do Footer */
+    footer {
+        font-size: .77rem;
+    }
+
+    .footer-social-icon {
+        width: 1.12rem;
+    }
+
+    .footer-text, .footer-social-link, .footer-copyright {
+        font-size: .77rem;
+    }
+
+    .footer-social {
+        gap: 1.12rem;
+    }
+
+    footer {
+        padding: 1 0;
+    }
+}
+
+/* Media Query 1 (Telefone XS - Tablet L): 850px - 1023px */
+@media (min-width: 850px) and (max-width: 1023px) {
+
+    /* Estilos do Footer */
+    footer {
+        font-size: .8rem;
+    }
+
+    .footer-social-icon {
+        width: 1.12rem;
+    }
+
+    .footer-text, .footer-social-link, .footer-copyright {
+        font-size: .8rem;
+    }
+
+    .footer-social {
+        gap: 1.12rem;
+    }
+
+    footer {
+        padding: 1 0;
+    }
+}
+
+/* Media Query 2 (PC XS e Tablets XL): 1024px - 1389px */
+@media (min-width: 1024px) and (max-width: 1389px) {
+
+    /* Estilos do Footer */
+    footer {
+        font-size: .8rem;
+    }
+
+    .footer-social-icon {
+        width: 1.12rem;
+    }
+
+    .footer-text, .footer-social-link, .footer-copyright {
+        font-size: .8rem;
+    }
+
+    .footer-social {
+        gap: 1.12rem;
+    }
+
+    footer {
+        padding: 1 0;
+    }
+}
+
+/* Media Query 3 (PC S - PC XL): 1390px - ... */
+@media (min-width: 1390px) {
+
+    /* Estilos do Footer */
+    footer {
+        font-size: .8rem;
+    }
+
+    .footer-social-icon {
+        width: 1.12rem;
+    }
+
+    .footer-text, .footer-social-link, .footer-copyright {
+        font-size: .8rem;
+    }
+
+    .footer-social {
+        gap: 1.12rem;
+    }
+
+    footer {
+        padding: 1 0;
+    }
+}
+/* #endregion */
+
+/* #region Seconday Menu */
+
+@media (min-width: 320px) and (max-width: 678px) {
+
+    .secondary-menu-toggle {
+        width: 2.5rem;
+        height: 2.5rem;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        margin: 0;
+    }
+
+    .secondary-menu-icon {
+        width: 1.2rem;
+        height: auto;
+        transition: 0.2s ease; /* Animação de entrada e saída */
+    }
+
+    .secondary-menu-icon:hover {
+        transform: scale(1.1);
+    }
+
+    .secondary-menu {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Começa fora da tela */
+        width: 20rem;
+        height: 21rem;
+        border-radius: 0 0 1rem 0;
+        background-color: white;
+        z-index: 10001; /* Acima do header */
+        transition: left 0.2s ease; /* Animação de entrada e saída */
+        overflow-y: hidden;
+    }
+
+    .secondary-menu.active {
+        left: 0; /* Move para a tela quando ativo */
+    }
+
+    .secondary-menu ul {
+        padding: 1rem;
+    }
+
+    .secondary-menu ul li {
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #ccc; /* Linha separadora */
+        padding-bottom: 1rem;
+    }
+
+    .secondary-menu ul li a {
+        text-decoration: none;
+        color: #005200; /* Cor do texto do menu */
+        font-size: 1rem;
+        font-family: "Novecento WideMedium";
+        display: block;
+    }
+
+    .secondary-menu ul li a:hover {
+        color: #009200;
+    }
+
+    /* Adição de Estilos para os Contatos do Menu Secundário */
+    .secondary-menu-contacts {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 0 3rem 0rem 3rem;
+        margin-top: -.5rem;
+    }
+
+    .secondary-menu-contacts a {
+        display: flex;
+    }
+
+    .secondary-menu-contacts-icon {
+        width: 2rem;
+        height: auto;
+    }
+
+}
+
+    @media (min-width: 678px) and (max-width: 1390px) {
+
+    /* Menu de Navegação */
+    .secondary-menu-toggle {
+        width: 2.5rem;
+        height: 2.5rem;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        margin-left: 1rem;
+    }
+
+    .secondary-menu-icon {
+        width: 100%;
+        height: auto;
+        transition: 0.2s ease; /* Animação de entrada e saída */
+    }
+
+    .secondary-menu-icon:hover {
+        transform: scale(1.1);
+    }
+
+    .secondary-menu {
+        position: fixed;
+        top: 0;
+        left: -50%; /* Começa fora da tela */
+        width: 20rem;
+        height: 21rem;
+        border-radius: 0 0 1rem 0;
+        background-color: white;
+        z-index: 10001; /* Acima do header */
+        transition: left 0.2s ease; /* Animação de entrada e saída */
+        overflow-y: hidden;
+    }
+
+    .secondary-menu.active {
+        left: 0; /* Move para a tela quando ativo */
+    }
+
+    .secondary-menu ul {
+        padding: 1rem;
+    }
+
+    .secondary-menu ul li {
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #ccc; /* Linha separadora */
+        padding-bottom: 1rem;
+    }
+
+    .secondary-menu ul li a {
+        text-decoration: none;
+        color: #005200; /* Cor do texto do menu */
+        font-size: 1rem;
+        font-family: "Novecento WideMedium";
+        display: block;
+    }
+
+    .secondary-menu ul li a:hover {
+        color: #009200;
+    }
+
+    /* Adição de Estilos para os Contatos do Menu Secundário */
+    .secondary-menu-contacts {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 0 3rem 0rem 3rem;
+        margin-top: -.5rem;
+    }
+
+    .secondary-menu-contacts a {
+        display: flex;
+    }
+
+    .secondary-menu-contacts-icon {
+        width: 2rem;
+        height: auto;
+    }
+}
+
+@media (min-width: 1390px) {
+    .secondary-menu-toggle, .secondary-menu{
+        display: none;
+    }
+}
+
+/* #endregion */
