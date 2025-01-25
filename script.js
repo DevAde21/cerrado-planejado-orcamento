@@ -755,7 +755,7 @@ function createStep4Content(container, isSubtitleVisible) {
                 <div class="S4-movel-image"></div> <!-- Container para a imagem do móvel -->
                 <p class="S4-movel-name">${movelAtual}</p>
             </div>
-            <img src="../../assets/medidas.png" alt="Medidas" class="S4-medidas-image">
+            <img src="assets/medidas.png" alt="Medidas" class="S4-medidas-image">
             <div class="S4-form-container">
                 <p class="S4-form-title">Medidas:</p>
                 <div class="S4-input-group">
