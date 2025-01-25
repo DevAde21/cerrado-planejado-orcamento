@@ -18,13 +18,13 @@ document.addEventListener('DOMContentLoaded', function () {
         </ul>
         <div class="secondary-menu-contacts">
             <a href="https://www.instagram.com/cerradoplanejado/" target="_blank" rel="noopener noreferrer">
-                <img class="secondary-menu-contacts-icon" src="../../assets/instagram2.png" alt="Instagram">
+                <img class="secondary-menu-contacts-icon" src="assets/instagram2.png" alt="Instagram">
             </a>
             <a href="https://wa.me/+5561981002114" target="_blank" rel="noopener noreferrer">
-                <img class="secondary-menu-contacts-icon" src="../../assets/whatsapp2.png" alt="WhatsApp">
+                <img class="secondary-menu-contacts-icon" src="assets/whatsapp2.png" alt="WhatsApp">
             </a>
             <a href="mailto:contato@cerradoplanejado.com.br">
-                <img class="secondary-menu-contacts-icon" src="../../assets/email2.png" alt="E-mail">
+                <img class="secondary-menu-contacts-icon" src="assets/email2.png" alt="E-mail">
             </a>
         </div>
     `;
@@ -516,56 +516,56 @@ function createStep1Content(container, isSubtitleVisible) {
         <div class="S1-grid-container">
             <div class="S1-grid-item">
                 <div class="S1-square" data-comodo="cozinha">
-                    <img src="../../assets/ambientes/cozinha.webp" alt="Cozinha" class="S1-square-image">
+                    <img src="assets/ambientes/cozinha.webp" alt="Cozinha" class="S1-square-image">
                     <div class="S1-selection-layer"></div>
                 </div>
                 <p class="S1-square-text">Cozinha</p>
             </div>
             <div class="S1-grid-item">
                 <div class="S1-square" data-comodo="sala">
-                    <img src="../../assets/ambientes/sala.webp" alt="Sala" class="S1-square-image">
+                    <img src="assets/ambientes/sala.webp" alt="Sala" class="S1-square-image">
                     <div class="S1-selection-layer"></div>
                 </div>
                 <p class="S1-square-text">Sala</p>
             </div>
             <div class="S1-grid-item">
                 <div class="S1-square" data-comodo="quarto">
-                    <img src="../../assets/ambientes/quarto.webp" alt="Quarto" class="S1-square-image">
+                    <img src="assets/ambientes/quarto.webp" alt="Quarto" class="S1-square-image">
                     <div class="S1-selection-layer"></div>
                 </div>
                 <p class="S1-square-text">Quarto</p>
             </div>
             <div class="S1-grid-item">
                 <div class="S1-square" data-comodo="banheiro">
-                    <img src="../../assets/ambientes/banheiro.webp" alt="Banheiro" class="S1-square-image">
+                    <img src="assets/ambientes/banheiro.webp" alt="Banheiro" class="S1-square-image">
                     <div class="S1-selection-layer"></div>
                 </div>
                 <p class="S1-square-text">Banheiro</p>
             </div>
             <div class="S1-grid-item">
                 <div class="S1-square" data-comodo="varanda">
-                    <img src="../../assets/ambientes/varanda.webp" alt="Varanda" class="S1-square-image">
+                    <img src="assets/ambientes/varanda.webp" alt="Varanda" class="S1-square-image">
                     <div class="S1-selection-layer"></div>
                 </div>
                 <p class="S1-square-text">Varanda</p>
             </div>
             <div class="S1-grid-item">
                 <div class="S1-square" data-comodo="escritorio">
-                    <img src="../../assets/ambientes/escritorio.webp" alt="Escritório" class="S1-square-image">
+                    <img src="assets/ambientes/escritorio.webp" alt="Escritório" class="S1-square-image">
                     <div class="S1-selection-layer"></div>
                 </div>
                 <p class="S1-square-text">Escritório</p>
             </div>
             <div class="S1-grid-item">
                 <div class="S1-square" data-comodo="closet">
-                    <img src="../../assets/ambientes/closet.webp" alt="Closet" class="S1-square-image">
+                    <img src="assets/ambientes/closet.webp" alt="Closet" class="S1-square-image">
                     <div class="S1-selection-layer"></div>
                 </div>
                 <p class="S1-square-text">Closet</p>
             </div>
             <div class="S1-grid-item">
                 <div class="S1-square" data-comodo="lavanderia">
-                    <img src="../../assets/ambientes/lavanderia.webp" alt="Lavanderia" class="S1-square-image">
+                    <img src="assets/ambientes/lavanderia.webp" alt="Lavanderia" class="S1-square-image">
                     <div class="S1-selection-layer"></div>
                 </div>
                 <p class="S1-square-text">Lavanderia</p>
