@@ -1,4 +1,7 @@
-/* Importando a fonte novecento */
+/* Geral */
+
+/* #region General Styles */
+
 @import url(https://db.onlinewebfonts.com/c/c2988552206031b82497c4a05a393759?family=Novecento+WideMedium);
 
 @font-face {
@@ -11,7 +14,6 @@
     url("https://db.onlinewebfonts.com/t/c2988552206031b82497c4a05a393759.svg#Novecento WideMedium")format("svg");
 }
 
-/* #region General Styles */
 body, ul {
     margin: 0;
     padding: 0;
@@ -44,11 +46,100 @@ body {
 }
 
 .section-title {
-    font-size: 4rem;
+    font-size: 3rem;
     text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: .7rem;
+    margin-bottom: .7rem;
 }
+
+.content-container-title1 {
+    color: black;
+    font-size: 1.7rem;
+    padding: 1.5rem 0 0 3rem;
+}
+
+.content-container-title2 {
+    display: none;
+}
+
+/* Estilos para o novo container wrapper */
+.container-wrapper {
+    position: relative; /* Importante para o posicionamento das imagens */
+    width: fit-content;
+    height: auto;
+    margin: 0 auto; /* Centraliza o wrapper na página */
+    padding: 0;
+}
+
+/* Estilos para as imagens */
+.padrao {
+    position: absolute;
+    height: 100%; /* Ajusta a altura ao container */
+    z-index: -1; /* Coloca as imagens atrás do container */
+    pointer-events: none; /* Faz as imagens não interceptarem eventos */
+}
+
+.padrao1 {
+    height: 20rem;
+    bottom: 0;
+    left: -10rem; /* Ajuste este valor conforme necessário */
+}
+
+.padrao2 {
+    height: 20rem;
+    top: -2rem;
+    right: -2rem; /* Ajuste este valor conforme necessário */
+}
+
+/* Estilos para o container de conteúdo */
+.content-container {
+    position: relative; /* Importante para o posicionamento do pseudo-elemento */
+    width: 60rem;
+    height: 30rem;
+    background-color: white;
+    border-radius: 5px; /* Mantém o border-radius do container */
+    margin-bottom: 5rem;
+    z-index: 1; /* Garante que o container fique acima do pseudo-elemento e das imagens */
+}
+
+.content-container::before {
+    content: '';
+    position: absolute;
+    top: -5px; /* Mesma espessura da borda */
+    left: -5px; /* Mesma espessura da borda */
+    right: -5px; /* Mesma espessura da borda */
+    bottom: -5px; /* Mesma espessura da borda */
+    border: 5px solid transparent; /* Borda transparente */
+    border-radius: 10px; /* Dobro do border-radius do container, para compensar */
+    background: linear-gradient(to top, #005100, #11B211) border-box; /* Gradiente aplicado */
+    -webkit-mask:
+      linear-gradient(#fff 0 0) padding-box, 
+      linear-gradient(#fff 0 0); /* Máscara para o gradiente */
+    -webkit-mask-composite: destination-out; /* Define como a máscara será aplicada */
+    mask-composite: exclude; /* Define como a máscara será aplicada (alternativa) */
+    z-index: -5; /* Garante que o pseudo-elemento fique abaixo do container */
+}
+
+/* Estilos para o botão "Próximo" */
+.next-button {
+    position: absolute;
+    bottom: -1.5rem; /* Distância em relação à borda inferior do container */
+    right: -1rem; /* Distância em relação à borda esquerda do container */
+    background-color: white; /* Fundo branco */
+    color: black;
+    border: 3.5px solid black; /* Borda preta de 5px */
+    border-radius: 50px; /* Border-radius de 100% */
+    padding: .5rem 2rem; /* Espaçamento interno */
+    font-family: "Novecento WideMedium";
+    font-size: 1.2rem; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor em forma de mão ao passar por cima */
+    transition: 0.3s;
+    z-index: 2;
+}
+
+.next-button:hover {
+    background-color: #0c980c; /* Fundo preto ao passar o mouse */
+}   
 
 /* #endregion */
 
@@ -427,40 +518,6 @@ header {
     }
 }
 /*#endregion*/
-
-/* #region Content */
-
-.content-container {
-    position: relative; /* Importante para o posicionamento do pseudo-elemento */
-    width: 80rem;
-    height: 30rem;
-    background-color: white;
-    border-radius: 5px; /* Mantém o border-radius do container */
-    margin-bottom: 5rem;
-    margin-left: auto;
-    margin-right: auto;
-    z-index: 1; /* Garante que o container fique acima do pseudo-elemento */
-}
-
-.content-container::before {
-    content: '';
-    position: absolute;
-    top: -5px; /* Mesma espessura da borda */
-    left: -5px; /* Mesma espessura da borda */
-    right: -5px; /* Mesma espessura da borda */
-    bottom: -5px; /* Mesma espessura da borda */
-    border: 5px solid transparent; /* Borda transparente */
-    border-radius: 10px; /* Dobro do border-radius do container, para compensar */
-    background: linear-gradient(to top, #005100, #11B211) border-box; /* Gradiente aplicado */
-    -webkit-mask:
-      linear-gradient(#fff 0 0) padding-box, 
-      linear-gradient(#fff 0 0); /* Máscara para o gradiente */
-    -webkit-mask-composite: destination-out; /* Define como a máscara será aplicada */
-    mask-composite: exclude; /* Define como a máscara será aplicada (alternativa) */
-    z-index: 0; /* Garante que o pseudo-elemento fique abaixo do container */
-}
-
-/* #endregion*/
 
 /* #region Footer */
 footer {
@@ -849,3 +906,818 @@ footer {
 }
 
 /* #endregion */
+
+/* Etapas do Orçamento */
+
+/* #region Content - Step 1 - "Escolha o cômodo" */
+
+/* Estilos para os quadrados e texto */
+.S1-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+    gap: 1rem 2rem; /* Espaçamento entre os quadrados */
+    padding: 1.5rem 6rem; /* Espaçamento interno */
+}
+
+.S1-grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.S1-square {
+    position: relative; /* Permite posicionar a camada de seleção dentro dele */
+    width: 8rem;
+    height: 8rem;
+    border-radius: 5px;
+    background-color: gray;
+    overflow: hidden; /* Garante que a camada de seleção não ultrapasse as bordas do square */
+}
+
+.S1-square-image {
+    width: 100%; /* Ajusta a imagem para preencher a largura do quadrado */
+    height: 100%; /* Ajusta a imagem para preencher a altura do quadrado */
+    border-radius: 5px;
+    object-fit: cover; /* Garante que a imagem cubra o quadrado mantendo sua proporção */
+    transition: transform 0.3s ease; /* Transição suave ao passar o mouse */
+    cursor: pointer; /* Cursor em forma de mão ao passar por cima */
+    pointer-events: none;
+}
+
+.S1-square-image:hover {
+    transform: scale(1.1);
+}
+
+.S1-square-text {
+    color: black; /* Cor do texto */
+    font-family: "Novecento WideMedium";
+    margin-top: 0.5rem; /* Espaçamento acima do texto */
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Estilos para a camada de seleção */
+.S1-selection-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/selected.png'); /* Caminho para a imagem de seleção */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.3s ease; /* Transição suave */
+    border-radius: 5px; /* Respeita o border-radius do square */
+    pointer-events: none; /* Impede que a camada de seleção intercepte eventos de clique */
+    z-index: 1; /* Coloca a camada de seleção acima da imagem do square */
+}
+
+.S1-selection-layer.S1-selected {
+    opacity: 0.6; /* Visível quando selecionado */
+}
+
+/* #endregion */
+
+/* #region Content - Step 2 - "Escolha o plano de acabamento" */
+
+.S2-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+    padding: 1.5rem 2rem; /* Espaçamento interno */
+}
+
+.S2-grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.S2-square {
+    position: relative; /* Permite posicionar a camada de seleção dentro dele */
+    width: 16.5rem;
+    height: 20rem;
+    border-radius: 10px;
+    background-color: white;
+    overflow: hidden; /* Garante que a camada de seleção não ultrapasse as bordas do square */
+}
+
+.S2-square::before {
+    content: '';
+    position: absolute;
+    top: 0; /* Mesma espessura da borda */
+    left: 0; /* Mesma espessura da borda */
+    right: 0; /* Mesma espessura da borda */
+    bottom: 0; /* Mesma espessura da borda */
+    border: 5px solid transparent; /* Borda transparente */
+    border-radius: 10px; /* Dobro do border-radius do container, para compensar */
+    background: linear-gradient(to top, #005100, #11B211) border-box; /* Gradiente aplicado */
+    -webkit-mask:
+      linear-gradient(#fff 0 0) padding-box, 
+      linear-gradient(#fff 0 0); /* Máscara para o gradiente */
+    -webkit-mask-composite: destination-out; /* Define como a máscara será aplicada */
+    mask-composite: exclude; /* Define como a máscara será aplicada (alternativa) */
+    z-index: 0; /* Garante que o pseudo-elemento fique abaixo do container */
+}
+
+.S2-plan-name {
+    position: absolute;
+    top: 2rem; /* Distância em relação ao topo do quadrado */
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza o nome do plano */
+    color: black;
+    font-family: "Novecento WideMedium";
+    font-size: 1.2rem;
+    font-weight: 600;
+    z-index: 2; /* Acima da camada de seleção */
+}
+
+/* Estilos para a camada de seleção */
+.S2-selection-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/selected.png'); /* Caminho para a imagem de seleção */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.3s ease; /* Transição suave */
+    border-radius: 5px; /* Respeita o border-radius do square */
+    pointer-events: none; /* Impede que a camada de seleção intercepte eventos de clique */
+    z-index: 1; /* Coloca a camada de seleção acima do conteúdo do square */
+}
+
+.S2-selection-layer.S2-selected {
+    opacity: 0.6; /* Visível quando selecionado */
+}
+
+/* #endregion */
+
+/* #region Content - Step 3 - "Escolha o móvel" */
+
+.S3-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+    gap: 1rem 2rem; /* Espaçamento entre os quadrados */
+    padding: 1.5rem 6rem; /* Espaçamento interno */
+}
+
+.S3-grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.S3-square {
+    position: relative; /* Permite posicionar a camada de seleção dentro dele */
+    width: 8rem;
+    height: 8rem;
+    border-radius: 5px;
+    background-color: gray;
+    overflow: hidden; /* Garante que a camada de seleção não ultrapasse as bordas do square */
+}
+
+.S3-square-text {
+    color: black; /* Cor do texto */
+    font-family: "Novecento WideMedium";
+    margin-top: 0.5rem; /* Espaçamento acima do texto */
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Estilos para a camada de seleção */
+.S3-selection-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/selected.png'); /* Caminho para a imagem de seleção */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.3s ease; /* Transição suave */
+    border-radius: 5px; /* Respeita o border-radius do square */
+    pointer-events: none; /* Impede que a camada de seleção intercepte eventos de clique */
+    z-index: 1; /* Coloca a camada de seleção acima do conteúdo do square */
+}
+
+.S3-selection-layer.S3-selected {
+    opacity: 0.6; /* Visível quando selecionado */
+}
+
+/* Estilos para o subtítulo da etapa 3 */
+.content-container-title2 {
+    font-size: .85rem; /* Metade do tamanho do título (2rem / 2 = 1rem) */
+    padding: 0 0 0 3rem; /* Mesmo padding do título */
+    color: black;
+}
+
+/* #endregion */
+
+/* #region Content - Step 4 - "Forneça mais detalhes do móvel - Pt.1" */
+
+.S4-content {
+    display: flex;
+    align-items: center;
+    padding: 2rem 3rem;
+}
+
+.S4-movel-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20rem;
+    height: 20rem;
+    margin-right: 1rem;
+}
+
+.S4-movel-image {
+    width: 100%;
+    height: 100%;
+    background-color: gray; /* Cor temporária até ter as imagens dos móveis */
+    border-radius: 10px;
+}
+
+.S4-movel-name {
+    position: absolute;
+    margin-top: 25rem;
+    color: black;
+    font-size: 1.5rem;
+}
+
+.S4-medidas-image {
+    position: absolute;
+    top: 5rem; /* Distância em relação ao topo do content-container */
+    right: 2rem; /* Distância em relação à borda direita do content-container */
+    height: 10rem;
+    width: auto;
+}
+
+.S4-form-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    text-align: right;
+}
+
+.S4-form-title {
+    color: black;
+    font-family: "Novecento WideMedium";
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    margin-top: -1rem;
+}
+
+.S4-form-title-color {
+    margin-top: 2rem;
+}
+
+.S4-input-group {
+    width: 60%;
+    margin-bottom: .5rem;
+    gap: 2rem;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.S4-input-group label {
+    color: black;
+    font-family: "Novecento WideMedium";
+    margin-right: -1rem;
+    text-align: right;
+}
+
+.S4-input-with-unit {
+   display: flex;
+    align-items: center;
+    text-align: right; /* Alinha o texto à direita */
+    gap: 0.2rem
+}
+
+.S4-unit {
+    color: black; /* Cor da unidade */
+    font-family: "Novecento WideMedium";
+    font-size: 1rem;
+}
+
+.S4-input {
+    width: 5rem;
+    border: 0;
+    background-color: rgb(189, 189, 189);
+    padding: 0.2rem;
+    text-align: center; /* Alinha o texto à direita dentro do input */
+}
+
+.S4-input::placeholder {
+    color: black;
+}
+
+.S4-radio-group {
+    display: flex;
+    align-items: center;
+    margin-left: 1.5rem;
+}
+
+.S4-radio-group label {
+    color: black;
+    font-family: "Novecento WideMedium";
+    margin-right: 2rem;
+}
+
+.S4-radio {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid black;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    margin-right: .5rem;
+}
+
+.S4-radio:checked {
+    background-color: black;
+}
+
+/* #endregion */
+
+/* #region Content - Step 5 - "Forneça mais detalhes do móvel" */
+
+.S5-content {
+    display: flex;
+    align-items: center;
+    padding: 2rem 3rem;
+}
+
+.S5-movel-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20rem;
+    height: 20rem;
+    margin-right: 1rem;
+}
+
+.S5-movel-image {
+    width: 100%;
+    height: 100%;
+    background-color: gray; /* Cor temporária até ter as imagens dos móveis */
+    border-radius: 10px;
+}
+
+.S5-movel-name {
+    position: absolute;
+    margin-top: 25rem;
+    color: black;
+    font-size: 1.5rem;
+}
+
+.S5-form-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    text-align: right;
+}
+
+.S5-form-title-main {
+    color: black;
+    font-family: "Novecento WideMedium";
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+    text-align: left;
+}
+
+.S5-input-group {
+    width: 60%;
+    margin-bottom: .5rem;
+    gap: 2rem;
+    text-align: left;
+}
+
+.S5-input-group label {
+    color: black;
+    font-family: "Novecento WideMedium";
+    margin-right: 1rem;
+    width: 7.7rem; /* Largura fixa para os labels */
+}
+
+.S5-input {
+    width: 5rem;
+    border: 0;
+    background-color: rgb(189, 189, 189);
+    padding: 0.2rem;
+    text-align: center;
+}
+
+.S5-radio-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.7rem;
+}
+
+.S5-radio-group label {
+    color: black;
+    font-family: "Novecento WideMedium";
+    margin-right: 2rem;
+}
+
+.S5-radio {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid black;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    margin-right: .5rem;
+    margin-left: 0;
+}
+
+.S5-radio:checked {
+    background-color: black;
+}
+
+/* #endregion */
+
+/* #region Content - Step 6 - "Cadastro" */
+
+.S6-content {
+    display: flex;
+    flex-direction: column; /* Altera para coluna */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+    padding: 2rem 3rem;
+}
+
+.S6-form-container {
+    display: flex;
+    flex-direction: column; /* Mantém a direção da coluna para os itens do formulário */
+    width: 70%;
+    margin: 0; /* Remove a margem automática */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.S6-input-group {
+    display: flex; /* Mantém o flexbox para alinhamento interno */
+    flex-direction: column; /* Alinha label e input em coluna */
+    margin-bottom: 0.7rem; /* Adiciona espaço entre os grupos de inputs */
+    width: 100%; /* Garante que o grupo preencha a largura do container */
+}
+
+.S6-input-group label {
+    color: black;
+    font-family: "Novecento WideMedium";
+    margin-bottom: 0.2rem; /* Espaçamento entre o label e o input */
+    text-align: left; /* Alinha o texto à esquerda */
+    font-size: 1.3rem; /* Garante que o label não estique */
+}
+
+.S6-input {
+    width: 100%; /* Garante que os inputs ocupem a largura do container */
+    border: 0; /* Remove a borda */
+    background-color: rgb(189, 189, 189); /* Cor de fundo padrão */
+    padding: 0.2rem; /* Pequeno padding interno */
+    margin-bottom: 2rem;
+}
+
+/* #endregion */
+
+/* #region Content - Step 7 - "Orçamento finalizado" */
+
+.S7-content {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100%; /* Garante que o conteúdo centralize dentro do container */
+}
+
+.S7-final-text {
+    color: black;
+    font-family: "Novecento WideMedium";
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* #endregion */
+
+/* Media Queries */
+
+/* Media Query 1: 925px - 1389px */
+@media (min-width: 925px) and (max-width: 1389px) {
+
+    /* Estilos do Header */
+    header {
+        height: 5rem;
+    }
+
+    .container-header{
+        justify-content: space-between;
+    }
+
+    .logo-area {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0; 
+        padding: 0; 
+        width: fit-content;
+    }
+
+    .logo img {
+        margin: .5rem;
+    }
+
+    .logo-text {
+        margin: 0;
+        white-space: nowrap;
+    }
+
+    /* Menu de Navegação */
+    .secondary-menu-toggle {
+        width: 2.5rem;
+        height: 2.5rem;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        margin-left: 1rem;
+    }
+
+    .nav ul li a {
+        display: none;
+    }
+
+    .header-contact {
+        height: 3rem;
+    }
+
+    .contact-icon {
+        max-height: 3rem;
+    }
+
+    /* Estilos do Footer */
+    footer {
+        font-size: .8rem;
+    }
+
+    .footer-social-icon {
+        width: 1.12rem;
+    }
+
+    .footer-text, .footer-social-link, .footer-copyright {
+        font-size: .8rem;
+    }
+
+    .footer-social {
+        gap: 1.12rem;
+    }
+
+    footer {
+        padding: 1 0;
+    }
+
+    /* --- Container Principal e Conteúdo --- */
+
+    /* Container Principal */
+    .content-container {
+        width: 54rem; /* 60rem * 0.9 = 54rem */
+        height: 27rem; /* 30rem * 0.9 = 27rem */
+        margin-bottom: 4.5rem; /* 5rem * 0.9 = 4.5rem */
+    }
+
+    .content-container::before {
+        top: -4.5px; /* 5px * 0.9 = 4.5px */
+        left: -4.5px; /* 5px * 0.9 = 4.5px */
+        right: -4.5px; /* 5px * 0.9 = 4.5px */
+        bottom: -4.5px; /* 5px * 0.9 = 4.5px */
+        border: 4.5px solid transparent; /* 5px * 0.9 = 4.5px */
+        border-radius: 9px; /* 10px * 0.9 = 9px */
+    }
+    
+    /* Botão Próximo */
+    .next-button {
+        bottom: -1.35rem; /* 1.5rem * 0.9 = 1.35rem */
+        right: -0.9rem; /* 1rem * 0.9 = 0.9rem */
+        border: 3.15px solid black; /* 3.5px * 0.9 = 3.15px */
+        padding: 0.45rem 1.8rem; /* 0.5rem * 0.9 = 0.45rem, 2rem * 0.9 = 1.8rem */
+        font-size: 1.08rem; /* 1.2rem * 0.9 = 1.08rem */
+    }
+
+    /* Títulos */
+    .content-container-title1 {
+        font-size: 1.53rem; /* 1.7rem * 0.9 = 1.53rem */
+        padding: 1.35rem 0 0 2.7rem; /* 1.5rem * 0.9 = 1.35rem, 3rem * 0.9 = 2.7rem */
+    }
+
+    .content-container-title2 {
+        font-size: 0.765rem; /* 0.85rem * 0.9 = 0.765rem */
+        padding: 0 0 0 2.7rem; /* 3rem * 0.9 = 2.7rem */
+    }
+
+    /* --- Etapa 1 --- */
+    .S1-grid-container {
+        gap: 0.9rem 1.8rem; /* 1rem * 0.9 = 0.9rem, 2rem * 0.9 = 1.8rem */
+        padding: 1.35rem 5.4rem; /* 1.5rem * 0.9 = 1.35rem, 6rem * 0.9 = 5.4rem */
+    }
+
+    .S1-square {
+        width: 7.2rem; /* 8rem * 0.9 = 7.2rem */
+        height: 7.2rem; /* 8rem * 0.9 = 7.2rem */
+    }
+
+    .S1-square-text {
+        margin-top: 0.45rem; /* 0.5rem * 0.9 = 0.45rem */
+        font-size: 0.9rem; /* 1rem * 0.9 = 0.9rem */
+    }
+
+    /* --- Etapa 2 --- */
+    .S2-grid-container {
+        padding: 1.35rem 1.8rem; /* 1.5rem * 0.9 = 1.35rem, 2rem * 0.9 = 1.8rem */
+    }
+
+    .S2-square {
+        width: 14.85rem; /* 16.5rem * 0.9 = 14.85rem */
+        height: 18rem; /* 20rem * 0.9 = 18rem */
+    }
+
+    .S2-plan-name {
+        top: 1.8rem; /* 2rem * 0.9 = 1.8rem */
+        font-size: 1.08rem; /* 1.2rem * 0.9 = 1.08rem */
+    }
+
+    /* --- Etapa 3 --- */
+    .S3-grid-container {
+        gap: 0.9rem 1.8rem; /* 1rem * 0.9 = 0.9rem, 2rem * 0.9 = 1.8rem */
+        padding: 1.35rem 5.4rem; /* 1.5rem * 0.9 = 1.35rem, 6rem * 0.9 = 5.4rem */
+    }
+
+    .S3-square {
+        width: 7.2rem; /* 8rem * 0.9 = 7.2rem */
+        height: 7.2rem; /* 8rem * 0.9 = 7.2rem */
+    }
+
+    .S3-square-text {
+        margin-top: 0.45rem; /* 0.5rem * 0.9 = 0.45rem */
+        font-size: 0.9rem; /* 1rem * 0.9 = 0.9rem */
+    }
+
+    /* --- Etapa 4 --- */
+    .S4-content {
+        padding: 1.8rem 2.7rem; /* 2rem * 0.9 = 1.8rem, 3rem * 0.9 = 2.7rem */
+    }
+
+    .S4-movel-image-container {
+        width: 18rem; /* 20rem * 0.9 = 18rem */
+        height: 18rem; /* 20rem * 0.9 = 18rem */
+        margin-right: 0.9rem; /* 1rem * 0.9 = 0.9rem */
+    }
+
+    .S4-movel-name {
+        margin-top: 23rem;
+    }
+
+    .S4-medidas-image {
+        top: 4.5rem; /* 5rem * 0.9 = 4.5rem */
+        right: 1.8rem; /* 2rem * 0.9 = 1.8rem */
+        height: 9rem; /* 10rem * 0.9 = 9rem */
+    }
+
+    .S4-form-container {
+        margin-left: 1rem;
+    }
+
+    .S4-form-title {
+        font-size: 1.35rem; /* 1.5rem * 0.9 = 1.35rem */
+        margin-bottom: 0.9rem; /* 1rem * 0.9 = 0.9rem */
+        margin-top: -0.9rem; /* -1rem * 0.9 = -0.9rem */
+        margin-left: -.5rem;
+    }
+
+    .S4-form-title-color {
+        margin-top: 1.8rem; /* 2rem * 0.9 = 1.8rem */
+    }
+
+    .S4-input-group {
+        margin-bottom: 0.45rem; /* 0.5rem * 0.9 = 0.45rem */
+        margin-left: .4rem;
+    }
+
+    .S4-input-group label {
+        margin-right: -0.9rem; /* -1rem * 0.9 = -0.9rem */
+    }
+
+    .S4-unit {
+        font-size: 0.9rem; /* 1rem * 0.9 = 0.9rem */
+    }
+
+    .S4-input {
+        width: 4.5rem; /* 5rem * 0.9 = 4.5rem */
+        padding: 0.18rem; /* 0.2rem * 0.9 = 0.18rem */
+    }
+
+    .S4-radio-group {
+        margin-left: 1.35rem; /* 1.5rem * 0.9 = 1.35rem */
+    }
+
+    .S4-radio-group label {
+        margin-right: 1.8rem; /* 2rem * 0.9 = 1.8rem */
+    }
+
+    .S4-radio {
+        width: 0.9rem; /* 1rem * 0.9 = 0.9rem */
+        height: 0.9rem; /* 1rem * 0.9 = 0.9rem */
+        border: 1.8px solid black; /* 2px * 0.9 = 1.8px */
+        margin-right: 0.45rem; /* 0.5rem * 0.9 = 0.45rem */
+    }
+
+    /* --- Etapa 5 --- */
+    .S5-content {
+        padding: 1.8rem 2.7rem; /* 2rem * 0.9 = 1.8rem, 3rem * 0.9 = 2.7rem */
+    }
+
+    .S5-movel-image-container {
+        width: 18rem; /* 20rem * 0.9 = 18rem */
+        height: 18rem; /* 20rem * 0.9 = 18rem */
+        margin-right: 0.9rem; /* 1rem * 0.9 = 0.9rem */
+    }
+
+    .S5-movel-name {
+        margin-top: 23rem;
+    }
+    
+    .S5-form-title-main {
+        font-size: 1.17rem; /* 1.3rem * 0.9 = 1.17rem */
+        margin-bottom: 0.63rem; /* 0.7rem * 0.9 = 0.63rem */
+    }
+    
+    .S5-input-group {
+        margin-bottom: 0.45rem; /* 0.5rem * 0.9 = 0.45rem */
+        gap: 1.8rem; /* 2rem * 0.9 = 1.8rem */
+        width: auto;
+    }
+
+     .S5-input-group label{
+        width: 6.93rem;
+    }
+
+    .S5-input {
+        width: 4.5rem; /* 5rem * 0.9 = 4.5rem */
+        padding: 0.18rem; /* 0.2rem * 0.9 = 0.18rem */
+    }
+    
+    .S5-radio-group {
+        margin-bottom: 0.63rem; /* 0.7rem * 0.9 = 0.63rem */
+    }
+
+    .S5-radio-group label {
+        margin-right: 1.8rem; /* 2rem * 0.9 = 1.8rem */
+    }
+    
+    .S5-radio {
+        width: 0.9rem; /* 1rem * 0.9 = 0.9rem */
+        height: 0.9rem; /* 1rem * 0.9 = 0.9rem */
+        border: 1.8px solid black; /* 2px * 0.9 = 1.8px */
+        margin-right: 0.45rem; /* 0.5rem * 0.9 = 0.45rem */
+    }
+
+    /* --- Etapa 6 --- */
+
+    .S6-content {
+        padding: 1.8rem 2.7rem; /* 2rem * 0.9 = 1.8rem, 3rem * 0.9 = 2.7rem */
+    }
+
+    .S6-input-group {
+        margin-bottom: 0.63rem; /* 0.7rem * 0.9 = 0.63rem */
+    }
+
+    .S6-input-group label {
+        margin-bottom: 0.18rem; /* 0.2rem * 0.9 = 0.18rem */
+        font-size: 1.17rem; /* 1.3rem * 0.9 = 1.17rem */
+    }
+
+    .S6-input {
+        padding: 0.18rem; /* 0.2rem * 0.9 = 0.18rem */
+        margin-bottom: 1.8rem;
+    }
+
+    /* --- Etapa 7 --- */
+
+    .S7-final-text {
+        font-size: 1.35rem; /* 1.5rem * 0.9 = 1.35rem */
+    }
+}
+
