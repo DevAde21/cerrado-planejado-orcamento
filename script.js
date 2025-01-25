@@ -699,7 +699,7 @@ function createStep3Content(container, isSubtitleVisible) {
     for (let i = 1; i <= moveisDisponiveis; i++) {
         gridContent += `
             <div class="S3-grid-item">
-                <div class="S3-square" data-movel="Movel ${i}">
+                <div class="S3-square" data-movel="Móvel ${i}">
                     <div class="S3-selection-layer"></div>
                 </div>
                 <p class="S3-square-text">Móvel ${i}</p>
