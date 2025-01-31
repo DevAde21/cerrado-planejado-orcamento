@@ -112,58 +112,6 @@ const totalSteps = 7; // Número total de etapas (1, 2, 3, 4, 5, 6, 7)
 let moveisSelecionados = []; // Array para armazenar os móveis selecionados
 let movelAtualIndex = 0; // Índice do móvel atual nas etapas 4 e 5
 
-// #region Debug Visual
-
-// Cria a área de debug visual
-const debugArea = document.createElement('div');
-debugArea.classList.add('debug-area');
-const containerWrapper = document.querySelector('.container-wrapper'); // Seleciona o wrapper
-containerWrapper.parentNode.insertBefore(debugArea, containerWrapper); // Insere a área de debug antes do wrapper
-
-// Estilos para a área de debug
-const style = document.createElement('style');
-style.textContent = `
-    .debug-area {
-        padding: 10px;
-        background-color: #f0f0f0;
-        border: 1px solid #ccc;
-        margin-bottom: 1rem;
-        margin-left: auto;
-        margin-right: auto;
-        width: fit-content;
-        border-radius: 5px;
-        color: black;
-        position: absolute
-    }
-    .debug-area p {
-        margin: 5px 0;
-        font-size: 0.9rem;
-        font-family: sans-serif;
-    }
-`;
-document.head.appendChild(style);
-
-// Função para atualizar o debug visual
-function updateDebugInfo() {
-    const comodoSelecionado = localStorage.getItem('comodoSelecionado') || 'N/A';
-    const planoSelecionado = localStorage.getItem('planoSelecionado') || 'N/A';
-    const moveisSelecionados = JSON.parse(localStorage.getItem('moveisSelecionados') || '[]');
-    const moveisSelecionadosStr = moveisSelecionados.length > 0 ? moveisSelecionados.join(', ') : 'N/A';
-
-    debugArea.innerHTML = `
-        <p><b>Cômodo:</b> ${comodoSelecionado}</p>
-        <p><b>Plano:</b> ${planoSelecionado}</p>
-        <p><b>Móveis:</b> ${moveisSelecionadosStr}</p>
-        <p><b>Etapa atual:</b> ${currentStep}</p>
-        <p><b>Móvel atual:</b> ${moveisSelecionados[movelAtualIndex] || 'N/A'}</p>
-    `;
-}
-
-//  Chama a função para exibir as informações iniciais
-updateDebugInfo();
-
-// #endregion
-
 // Função para atualizar a exibição da etapa
 function updateStepDisplay() {
     const contentContainer = document.querySelector('.container-wrapper .content-container'); 
@@ -794,7 +742,7 @@ function createStep4Content(container, isSubtitleVisible) {
   setupNextButton();
 }
 
-// Etapa 5 - "Forneça mais detalhes do móvel - Pt.2" (Continuação)
+// Etapa 5 - "Forneça mais detalhes do móvel - Pt.2"
 function createStep5Content(container, isSubtitleVisible) {
     const movelAtual = moveisSelecionados[movelAtualIndex];
     container.innerHTML = `
