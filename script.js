@@ -100,6 +100,80 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // #endregion
 
+// #region Valores dos elementos
+const elementValues = {
+    moveis: {
+        cozinha: {
+            "Móvel 1": 100,
+            "Móvel 2": 150,
+            "Móvel 3": 120,
+            "Móvel 4": 180,
+            "Móvel 5": 90,
+            "Móvel 6": 200
+        },
+        sala: {
+            "Móvel 1": 250,
+            "Móvel 2": 180,
+            "Móvel 3": 300,
+            "Móvel 4": 220,
+            "Móvel 5": 280,
+            "Móvel 6": 200,
+            "Móvel 7": 260,
+            "Móvel 8": 230
+        },
+        quarto: {
+            "Móvel 1": 180,
+            "Móvel 2": 220,
+            "Móvel 3": 150,
+            "Móvel 4": 200
+        },
+        banheiro: {
+            "Móvel 1": 80,
+            "Móvel 2": 120,
+            "Móvel 3": 100
+        },
+        varanda: {
+            "Móvel 1": 130,
+            "Móvel 2": 160,
+            "Móvel 3": 110,
+            "Móvel 4": 140,
+            "Móvel 5": 100
+        },
+        escritorio: {
+            "Móvel 1": 200,
+            "Móvel 2": 150
+        },
+        closet: {
+            "Móvel 1": 300
+        },
+        lavanderia: {
+            "Móvel 1": 90,
+            "Móvel 2": 110,
+            "Móvel 3": 70
+        }
+    },
+    unidades: {
+        porta: 50,
+        gaveta: 30
+    },
+    cores: {
+        branco: 0, // Branco não adiciona valor
+        outro: 20  // Outra cor adiciona um valor fixo
+    },
+    medidas: {
+        altura: 0.5, // Valor por cm
+        largura: 0.7, // Valor por cm
+        comprimento: 0.6 // Valor por cm
+    },
+    acabamentos: {
+        essencial: 100,
+        intermediario: 200,
+        premium: 300
+    }
+};
+
+// #endregion
+
 // #region Sistema de Etapas do Orçamento
 
 // **1. Limpeza do localStorage no início**
@@ -146,12 +220,15 @@ function updateStepDisplay() {
             console.error("Etapa inválida.");
             break;
     }
-    
+
     // Adiciona o event listener aos inputs após a criação do conteúdo
     if (currentStep === 4 || currentStep === 5 || currentStep === 6) {
        setupInputMasks(contentContainer);
        setupRadioEvents(contentContainer);
     }
+  // Atualiza o debug visual após cada etapa, aqui, a função é chamada por último.
+    updateDebugInfo();
+
 }
 
 // Função do botão "Próximo"
@@ -197,12 +274,21 @@ function setupNextButton() {
             movelAtualIndex = 0; // Inicia o índice do móvel atual
             currentStep = 4; // Vai para a etapa 4
         }  else if (currentStep === 4) {
+            // Etapa 4: Salvar altura, largura, comprimento e cor no localStorage
+    const altura = document.getElementById('altura').value;
+    const largura = document.getElementById('largura').value;
+    const comprimento = document.getElementById('comprimento').value;
+    const corBranco = document.getElementById('branco');
+    const corOutro = document.getElementById('outro');
+    const cor = corBranco.checked ? 'branco' : corOutro.checked ? 'outro' : null;
+
+    // Salvar os valores no localStorage
+    localStorage.setItem(`altura_movel_${movelAtualIndex}`, altura);
+    localStorage.setItem(`largura_movel_${movelAtualIndex}`, largura);
+    localStorage.setItem(`comprimento_movel_${movelAtualIndex}`, comprimento);
+    localStorage.setItem(`cor_movel_${movelAtualIndex}`, cor);
            // Etapa 4: Validar dados
-            const altura = document.getElementById('altura').value;
-            const largura = document.getElementById('largura').value;
-            const comprimento = document.getElementById('comprimento').value;
-           const corBranco = document.getElementById('branco');
-            const corOutro = document.getElementById('outro');
+            
 
             if (!altura) {
              alert('Por favor, preencha a altura.');
@@ -251,6 +337,13 @@ function setupNextButton() {
              alert('Por favor, especifique o número de portas.');
               return;
             }
+        // Etapa 5: Salvar quantidade de gavetas e portas no localStorage
+        const numGavetas = gavetaSimRadio.checked ? document.getElementById('num_gavetas').value : 0;
+        const numPortas = portasSimRadio.checked ? document.getElementById('num_portas').value : 0;
+
+        // Salvar os valores no localStorage
+        localStorage.setItem(`num_gavetas_movel_${movelAtualIndex}`, numGavetas);
+        localStorage.setItem(`num_portas_movel_${movelAtualIndex}`, numPortas);
 
             // Etapa 5: Verifica se há mais móveis para detalhar
             if (movelAtualIndex < moveisSelecionados.length - 1) {
@@ -300,8 +393,7 @@ function setupNextButton() {
         }
 
         updateStepDisplay();
-        // Atualiza o debug visual após cada etapa
-        updateDebugInfo();
+        
     });
 
     // Inserir o botão dentro do content-container, antes do final
@@ -835,3 +927,102 @@ function createStep7Content(container, isSubtitleVisible) {
 }
 
 // #endregion
+
+// #region Seção de Debug
+
+// Função para atualizar as informações de debug visual
+function updateDebugInfo() {
+    let debugContainer = document.querySelector('#debug-info');
+    if (!debugContainer) {
+        debugContainer = document.createElement('div');
+        debugContainer.id = 'debug-info';
+        document.body.appendChild(debugContainer);
+    }
+
+    // Informações Gerais
+    const comodoSelecionado = localStorage.getItem('comodoSelecionado') || 'Nenhum cômodo selecionado';
+    const planoSelecionado = localStorage.getItem('planoSelecionado') || 'Nenhum plano selecionado';
+    const moveis = JSON.parse(localStorage.getItem('moveisSelecionados') || '[]');
+    const moveisArray = Array.isArray(moveis) ? moveis : [moveis];
+    const valorAcabamento = elementValues.acabamentos[planoSelecionado] || 0;
+
+    debugContainer.innerHTML = `
+        <p class="section-title">INF. GERAIS:</p> 
+        <p>Ambiente: ${comodoSelecionado}</p>
+        <p>Acabamento: ${planoSelecionado}</p>
+        <p>Móveis: ${moveisArray.join(', ') || 'Nenhum móvel selecionado'}</p>
+        <p class="section-title">INF. ESPECÍFICAS:</p>
+    `;
+
+    // Informações Específicas (para cada móvel) e Calcula valor total
+    let valorTotal = 0;
+    valorTotal += valorAcabamento;
+
+    moveisSelecionados.forEach((movel, index) => {
+        const altura = localStorage.getItem(`altura_movel_${index}`) || 'N/A';
+        const largura = localStorage.getItem(`largura_movel_${index}`) || 'N/A';
+        const comprimento = localStorage.getItem(`comprimento_movel_${index}`) || 'N/A';
+        const cor = localStorage.getItem(`cor_movel_${index}`) || 'N/A';
+        const numGavetas = localStorage.getItem(`num_gavetas_movel_${index}`) || '0';
+        const numPortas = localStorage.getItem(`num_portas_movel_${index}`) || '0';
+        const valorMovel = calcularValorMovel(comodoSelecionado, movel, altura, largura, comprimento, cor, numGavetas, numPortas);
+        valorTotal += valorMovel;
+
+        debugContainer.innerHTML += `
+            <div class="movel-info">
+                <p>Móvel: ${movel}</p>
+                <p>Altura: ${altura}</p>
+                <p>Largura: ${largura}</p>
+                <p>Comprimento: ${comprimento}</p>
+                <p>Cor: ${cor}</p>
+                <p>Qnt. Gavetas: ${numGavetas}</p>
+                <p>Qnt. Portas: ${numPortas}</p>
+                <p>Valor do Móvel: R$ ${valorMovel.toFixed(2)}</p>
+            </div>
+        `;
+    });
+
+    debugContainer.innerHTML += `<p style="margin-top: 10px;">Valor Total: R$ ${valorTotal.toFixed(2)}</p>`;
+}
+
+function calcularValorMovel(comodo, movel, altura, largura, comprimento, cor, numGavetas, numPortas) {
+    let valor = 0;
+
+    // Valor base do móvel
+    if (elementValues.moveis[comodo] && elementValues.moveis[comodo][movel]) {
+        valor += elementValues.moveis[comodo][movel];
+    }
+
+    // Adiciona valor baseado nas medidas
+    valor += altura * elementValues.medidas.altura;
+    valor += largura * elementValues.medidas.largura;
+    valor += comprimento * elementValues.medidas.comprimento;
+
+    // Adiciona valor baseado na cor
+    if (cor === 'outro') {
+        valor += elementValues.cores.outro;
+    }
+
+    // Adiciona valor baseado na quantidade de gavetas e portas
+    valor += parseInt(numGavetas) * elementValues.unidades.gaveta;
+    valor += parseInt(numPortas) * elementValues.unidades.porta;
+
+    return valor;
+}
+
+// #endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

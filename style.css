@@ -2368,7 +2368,6 @@ footer {
 
 
 
-
 /* Media Query: 600px - 680px */
 @media (min-width: 600px) and (max-width: 680px) {
 
@@ -3508,3 +3507,66 @@ footer {
         font-size: 0.6rem;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* #region Debug */
+#debug-info {
+    background-color: black;
+    color: #00ff00; /* Verde Matrix */
+    font-family: 'Courier New', Courier, monospace; /* Fonte monoespaçada */
+    padding: 50px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+#debug-info p {
+    margin: 0 0 5px 0; /* Espaçamento inferior */
+}
+
+#debug-info .section-title {
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    text-decoration: underline; /* Sublinhado para destacar */
+}
+
+#debug-info .movel-info {
+    margin-bottom: 15px; /* Espaçamento entre informações de cada móvel */
+    padding-left: 10px;
+    border-left: 2px solid #00ff00; /* Linha vertical para separar */
+}
+
+/* #endregion */
