@@ -52,7 +52,7 @@ function enviarOrcamento() {
     generalInfo.push(valorTotal.toFixed(2)); // Adiciona o valor total às informações gerais
 
     // Envia os dados para o Google Apps Script
-    const scriptURL = "https://script.google.com/macros/s/AKfycbz3LXvGyhXsOOmvX8lr2hI_OXLLKBuePoH4LBQP3WvNXnin_FBzMpggHNle4zq3H-WT/exec"; // Substitua pela URL do seu web app
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxK9exFV4vei1YdMJWIvH2n4HvytPKCeueF4w0WJe0o9xCIwg38oMpgAg61yfYnJTD-/exec"; // Substitua pela URL do seu web app
 
     // Estrutura os dados para envio
     const postData = {

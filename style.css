@@ -2384,19 +2384,24 @@ footer {
 
     /* Container Principal */
     .content-container {
-        width: 100%; /* Ajustado para uma porcentagem, melhorando a responsividade */
-        max-width: 34rem; /* Limita a largura máxima */
+        width: 90vw; /* 90% da largura da viewport */
+        max-width: none; /* Remove a largura máxima anterior */
         height: auto;
         margin-bottom: 3rem;
+        margin-left: 5vw; /* Centraliza o container */
+    }
+
+    .padrao {
+        display: none; /* Remove os padrões do fundo */
     }
 
     .content-container::before {
-        top: -2.25px; /* 5px * 0.65 = 3.25px */
-        left: -2.25px; /* 5px * 0.65 = 3.25px */
-        right: -2.25px; /* 5px * 0.65 = 3.25px */
-        bottom: -2.25px; /* 5px * 0.65 = 3.25px */
-        border: 2.75px solid transparent; /* 5px * 0.65 = 3.25px */
-        border-radius: 6.5px; /* 10px * 0.65 = 6.5px */
+        border-radius: 6px;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        border: 5px solid transparent;
     }
 
     /* Altura dinâmica para as etapas com grades */
@@ -2408,8 +2413,8 @@ footer {
     }
 
     .S1-square, .S3-square {
-        width: 5rem; /* Reduzido para acomodar 3 itens */
-        height: 5rem; /* Reduzido para acomodar 3 itens */
+        width: calc((90vw - 10vw - 6rem) / 3); /* Ajusta a largura dos quadrados */
+        height: calc((90vw - 10vw - 6rem) / 3); /* Ajusta a altura dos quadrados */
     }
     
     .S2-grid-container {
@@ -2420,13 +2425,9 @@ footer {
 
      .S2-square {
          width: 100%;
-         max-width: 16.5rem;
-        height: 20rem;
-    }
-
-    /* Borda do container */
-    .content-container::before {
-        border-radius: 6px;
+         max-width: calc(90vw - 10vw - 3rem); /* Ajusta a largura máxima */
+         height: auto; /* Altura automática para manter a proporção */
+         padding-bottom: 1rem; /* Espaçamento na parte inferior para o texto */
     }
 
     /* Botão Próximo */
@@ -2461,6 +2462,7 @@ footer {
     .S2-plan-name {
         top: 1.5rem;
         font-size: 1rem;
+        margin: 0 1rem;
     }
 
     /* --- Etapa 4 --- */
@@ -2474,26 +2476,26 @@ footer {
         height: auto;
         margin-right: 0;
         margin-bottom: 1rem;
+        display: flex;
+        justify-content: center;
     }
 
     .S4-movel-image {
-       width: 18rem;
-        height: 18rem;
+       width: calc(90vw - 10vw - 3.6rem); /* Ajusta a largura da imagem */
+       height: calc(90vw - 10vw - 3.6rem); /* Ajusta a altura da imagem */
+       max-width: 18rem;
+       max-height: 18rem;
     }
 
     .S4-movel-name {
-        margin-top: 22rem;
+        margin-top: 1rem;
         margin-bottom: 1rem;
         font-size: 1.3rem;
+        text-align: center;
     }
 
     .S4-medidas-image {
-        top: auto;
-        right: auto;
-        height: 12rem;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-        position: relative;
+        display: none; /* Oculta a imagem de medidas */
     }
 
     .S4-form-container {
@@ -2519,7 +2521,7 @@ footer {
         gap: .4rem;
         margin-left: 0;
         width: 100%;
-        margin-left: -7rem;
+        justify-content: space-between;
     }
 
     .S4-input-group label {
@@ -2540,7 +2542,8 @@ footer {
     .S4-radio-group {
         margin-left: 0;
         width: 100%;
-         margin-bottom: 2rem;
+        margin-bottom: 2rem;
+        justify-content: space-between;
     }
 
     .S4-radio-group label {
@@ -2566,18 +2569,21 @@ footer {
         height: auto;
         margin-right: 0;
         margin-bottom: 1rem;
-        justify-content: flex-start;
+        justify-content: center;
     }
 
     .S5-movel-image {
-       width: 18rem;
-        height: 18rem;
+        width: calc(90vw - 10vw - 3.6rem); /* Ajusta a largura da imagem */
+        height: calc(90vw - 10vw - 3.6rem); /* Ajusta a altura da imagem */
+        max-width: 18rem;
+        max-height: 18rem;
     }
 
     .S5-movel-name {
        margin-top: 0;
         margin-bottom: 1rem;
         font-size: 1.3rem;
+        text-align: center;
     }
 
     .S5-form-container {
@@ -2598,6 +2604,7 @@ footer {
         margin-bottom: 0.3rem;
         gap: 1.2rem;
         width: 100%;
+        justify-content: space-between;
     }
      .S5-input-group label{
          font-size: .9rem;
@@ -2613,6 +2620,7 @@ footer {
         margin-bottom: 0.42rem;
         margin-left: -.5rem;
         width: 100%;
+        justify-content: space-between;
     }
 
     .S5-radio-group label {
@@ -2669,19 +2677,24 @@ footer {
 
     /* Container Principal */
     .content-container {
-        width: 100%; /* Mantém a largura responsiva */
-        max-width: 28rem; /* Reduz a largura máxima */
+        width: 90vw; /* Mantém a largura responsiva */
+        max-width: none; /* Reduz a largura máxima */
         height: auto;
         margin-bottom: 2.5rem;
+        margin-left: 5vw; /* Centraliza o container */
+    }
+
+    .padrao {
+        display: none; /* Remove os padrões do fundo */
     }
 
     .content-container::before {
-        top: -2.25px; /* 5px * 0.65 = 3.25px */
-        left: -2.25px; /* 5px * 0.65 = 3.25px */
-        right: -2.25px; /* 5px * 0.65 = 3.25px */
-        bottom: -2.25px; /* 5px * 0.65 = 3.25px */
-        border: 2.75px solid transparent; /* 5px * 0.65 = 3.25px */
-        border-radius: 6.5px; /* 10px * 0.65 = 6.5px */
+        border-radius: 5px;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        border: 5px solid transparent;
     }
 
     /* Altura dinâmica para as etapas com grades */
@@ -2693,13 +2706,8 @@ footer {
     }
 
     .S1-square, .S3-square {
-        width: 6rem; /* Mantém o tamanho dos quadrados */
-        height: 6rem; /* Mantém o tamanho dos quadrados */
-    }
-
-    /* Borda do container */
-    .content-container::before {
-        border-radius: 5px;
+        width: calc((90vw - 10vw - 9rem) / 2); /* Mantém o tamanho dos quadrados */
+        height: calc((90vw - 10vw - 9rem) / 2); /* Mantém o tamanho dos quadrados */
     }
 
     .S2-grid-container {
@@ -2708,19 +2716,20 @@ footer {
          padding: 1.5rem 3rem; /* Ajuste no padding */
     }
 
-     .S2-square {
+    .S2-square {
          width: 100%;
-         max-width: 16.5rem;
-        height: 20rem;
+         max-width: calc(90vw - 10vw - 2rem); /* Ajusta a largura máxima */
+         height: auto; /* Altura automática para manter a proporção */
+         padding-bottom: 1rem; /* Espaçamento na parte inferior para o texto */
     }
 
     /* Botão Próximo */
     .next-button {
-        bottom: -1.05rem; /* 1.5rem * 0.7 = 1.05rem */
-        right: -0.7rem; /* 1rem * 0.7 = 0.7rem */
-        border: 2.45px solid black; /* 3.5px * 0.7 = 2.45px */
-        padding: 0.30rem 1.4rem; /* 0.5rem * 0.7 = 0.35rem, 2rem * 0.7 = 1.4rem */
-        font-size: 0.64rem; /* 1.2rem * 0.7 = 0.84rem */
+        bottom: -1.05rem; 
+        right: -0.7rem; 
+        border: 2.45px solid black; 
+        padding: 0.30rem 1.4rem; 
+        font-size: 0.64rem; 
     }
 
     /* Títulos */
@@ -2746,6 +2755,7 @@ footer {
     .S2-plan-name {
         top: 1.6rem;
         font-size: 1rem;
+        margin: 0 .5rem;
     }
 
     /* --- Etapa 4 --- */
@@ -2759,26 +2769,26 @@ footer {
         height: auto;
         margin-right: 0;
         margin-bottom: 0.8rem;
+        display: flex;
+        justify-content: center;
     }
 
     .S4-movel-image {
-       width: 15rem;
-        height: 15rem;
+        width: calc(90vw - 10vw - 3rem); /* Ajusta a largura da imagem */
+        height: calc(90vw - 10vw - 3rem); /* Ajusta a altura da imagem */
+        max-width: 15rem;
+        max-height: 15rem;
     }
 
     .S4-movel-name {
-        margin-top: 18.5rem;
+        margin-top: 1rem;
         margin-bottom: 0.8rem;
         font-size: 1.2rem;
+        text-align: center;
     }
 
     .S4-medidas-image {
-        top: auto;
-        right: auto;
-        height: 10rem;
-        margin-top: 2rem;
-        margin-bottom: 0.8rem;
-        position: relative;
+        display: none; /* Oculta a imagem de medidas */
     }
 
     .S4-form-container {
@@ -2804,7 +2814,7 @@ footer {
         gap: .3rem;
         margin-left: 0;
         width: 100%;
-        margin-left: -5.5rem;
+        justify-content: space-between;
     }
 
     .S4-input-group label {
@@ -2824,8 +2834,9 @@ footer {
 
     .S4-radio-group {
         margin-left: 0;
-         width: 100%;
-          margin-bottom: 1.5rem;
+        width: 100%;
+        margin-bottom: 1.5rem;
+        justify-content: space-between;
     }
 
     .S4-radio-group label {
@@ -2851,18 +2862,21 @@ footer {
         height: auto;
         margin-right: 0;
         margin-bottom: 0.8rem;
-        justify-content: flex-start;
+        justify-content: center;
     }
 
     .S5-movel-image {
-       width: 15rem;
-        height: 15rem;
+        width: calc(90vw - 10vw - 3rem); /* Ajusta a largura da imagem */
+        height: calc(90vw - 10vw - 3rem); /* Ajusta a altura da imagem */
+        max-width: 15rem;
+        max-height: 15rem;
     }
 
     .S5-movel-name {
        margin-top: 0;
         margin-bottom: 0.8rem;
         font-size: 1.2rem;
+        text-align: center;
     }
 
     .S5-form-container {
@@ -2882,6 +2896,7 @@ footer {
         margin-bottom: 0.25rem;
         gap: 1rem;
          width: 100%;
+         justify-content: space-between;
     }
     
     .S5-input-group label{
@@ -2896,8 +2911,9 @@ footer {
 
     .S5-radio-group {
         margin-bottom: 0.35rem;
-         margin-left: -.5rem;
-         width: 100%;
+        margin-left: -.5rem;
+        width: 100%;
+        justify-content: space-between;
     }
 
     .S5-radio-group label {
@@ -2954,19 +2970,24 @@ footer {
 
     /* Container Principal */
     .content-container {
-        width: 100%; /* Mantém a largura responsiva */
-        max-width: 23rem; /* Reduz ainda mais a largura máxima */
+        width: 90vw; /* Mantém a largura responsiva */
+        max-width: none; /* Reduz ainda mais a largura máxima */
         height: auto;
         margin-bottom: 2rem;
+        margin-left: 5vw;
+    }
+
+    .padrao {
+        display: none; /* Remove os padrões do fundo */
     }
 
     .content-container::before {
-        top: -2.25px; /* 5px * 0.65 = 3.25px */
-        left: -2.25px; /* 5px * 0.65 = 3.25px */
-        right: -2.25px; /* 5px * 0.65 = 3.25px */
-        bottom: -2.25px; /* 5px * 0.65 = 3.25px */
-        border: 2.75px solid transparent; /* 5px * 0.65 = 3.25px */
-        border-radius: 6.5px; /* 10px * 0.65 = 6.5px */
+        border-radius: 4px;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        border: 5px solid transparent;
     }
 
     /* Altura dinâmica para as etapas com grades */
@@ -2978,13 +2999,8 @@ footer {
     }
 
     .S1-square, .S3-square {
-        width: 5rem; /* Reduz o tamanho dos quadrados */
-        height: 5rem; /* Reduz o tamanho dos quadrados */
-    }
-
-    /* Borda do container */
-    .content-container::before {
-        border-radius: 4px;
+        width: calc((90vw - 10vw - 8rem) / 2); /* Reduz o tamanho dos quadrados */
+        height: calc((90vw - 10vw - 8rem) / 2); /* Reduz o tamanho dos quadrados */
     }
 
     .S2-grid-container {
@@ -2995,17 +3011,18 @@ footer {
 
      .S2-square {
          width: 100%;
-         max-width: 16.5rem;
-        height: 20rem;
+         max-width: calc(90vw - 10vw - 1rem); /* Ajusta a largura máxima */
+         height: auto;
+         padding-bottom: .8rem;
     }
 
     /* Botão Próximo */
     .next-button {
-        bottom: -1.05rem; /* 1.5rem * 0.7 = 1.05rem */
-        right: -0.7rem; /* 1rem * 0.7 = 0.7rem */
-        border: 2.45px solid black; /* 3.5px * 0.7 = 2.45px */
-        padding: 0.30rem 1.4rem; /* 0.5rem * 0.7 = 0.35rem, 2rem * 0.7 = 1.4rem */
-        font-size: 0.64rem; /* 1.2rem * 0.7 = 0.84rem */
+        bottom: -1.05rem; 
+        right: -0.7rem; 
+        border: 2.45px solid black;
+        padding: 0.30rem 1.4rem; 
+        font-size: 0.64rem; 
     }
 
     /* Títulos */
@@ -3031,6 +3048,7 @@ footer {
     .S2-plan-name {
         top: 1.6rem;
         font-size: 0.9rem;
+        margin: 0 .5rem;
     }
 
     /* --- Etapa 4 --- */
@@ -3044,26 +3062,26 @@ footer {
         height: auto;
         margin-right: 0;
         margin-bottom: 0.7rem;
+        display: flex;
+        justify-content: center;
     }
 
     .S4-movel-image {
-       width: 13rem;
-        height: 13rem;
+        width: calc(90vw - 10vw - 2.4rem); /* Ajusta a largura da imagem */
+        height: calc(90vw - 10vw - 2.4rem); /* Ajusta a altura da imagem */
+        max-width: 13rem;
+        max-height: 13rem;
     }
 
     .S4-movel-name {
-        margin-top: 16.5rem;
+        margin-top: 1rem;
         margin-bottom: 0.7rem;
         font-size: 1rem;
+        text-align: center;
     }
 
     .S4-medidas-image {
-        top: auto;
-        right: auto;
-        height: 10rem;
-        margin-top: 2rem;
-        margin-bottom: 0.7rem;
-        position: relative;
+       display: none;
     }
 
     .S4-form-container {
@@ -3089,7 +3107,7 @@ footer {
         gap: .2rem;
         margin-left: 0;
         width: 100%;
-        margin-left: -5.5rem;
+        justify-content: space-between;
     }
 
     .S4-input-group label {
@@ -3111,6 +3129,7 @@ footer {
          margin-left: 0;
          width: 100%;
          margin-bottom: 1.5rem;
+         justify-content: space-between;
     }
 
     .S4-radio-group label {
@@ -3136,18 +3155,21 @@ footer {
         height: auto;
         margin-right: 0;
         margin-bottom: 0.7rem;
-        justify-content: flex-start;
+        justify-content: center;
     }
 
     .S5-movel-image {
-       width: 13rem;
-        height: 13rem;
+        width: calc(90vw - 10vw - 2.4rem); /* Ajusta a largura da imagem */
+        height: calc(90vw - 10vw - 2.4rem); /* Ajusta a altura da imagem */
+        max-width: 13rem;
+        max-height: 13rem;
     }
 
     .S5-movel-name {
         margin-top: 0;
         margin-bottom: 0.7rem;
         font-size: 1rem;
+        text-align: center;
     }
 
     .S5-form-container {
@@ -3167,11 +3189,12 @@ footer {
         margin-bottom: 0.2rem;
         gap: 0.8rem;
         width: 100%;
+        justify-content: space-between;
     }
     
     .S5-input-group label{
         font-size: .7rem;
-        width: 5.5rem;
+         width: 5.5rem;
     }
 
     .S5-input {
@@ -3183,6 +3206,7 @@ footer {
         margin-bottom: 0.3rem;
          margin-left: -.5rem;
          width: 100%;
+         justify-content: space-between;
     }
 
     .S5-radio-group label {
@@ -3239,58 +3263,59 @@ footer {
 
     /* Container Principal */
     .content-container {
-        width: 100%; /* Mantém a largura responsiva */
-        max-width: 20rem; /* Reduz ainda mais a largura máxima */
+        width: 90vw; /* Mantém a largura responsiva */
+        max-width: none; /* Reduz ainda mais a largura máxima */
         height: auto;
         margin-bottom: 1.5rem;
+        margin-left: 5vw;
+    }
+
+    .padrao {
+        display: none;
     }
 
     .content-container::before {
-        top: -2.25px; /* 5px * 0.65 = 3.25px */
-        left: -2.25px; /* 5px * 0.65 = 3.25px */
-        right: -2.25px; /* 5px * 0.65 = 3.25px */
-        bottom: -2.25px; /* 5px * 0.65 = 3.25px */
-        border: 2.75px solid transparent; /* 5px * 0.65 = 3.25px */
-        border-radius: 6.5px; /* 10px * 0.65 = 6.5px */
+        border-radius: 3px;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        border: 5px solid transparent;
     }
 
     /* Altura dinâmica para as etapas com grades */
     .S1-grid-container, .S3-grid-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr); /* Mantém 2 colunas */
-        gap: 1rem 2rem;
-        padding: 0.5rem 3rem;
+        gap: 1rem;
+        padding: 0.5rem 2rem;
     }
 
     .S1-square, .S3-square {
-        width: 4.5rem; /* Reduz o tamanho dos quadrados */
-        height: 4.5rem; /* Reduz o tamanho dos quadrados */
-    }
-
-    /* Borda do container */
-    .content-container::before {
-        border-radius: 3px;
+        width: calc((90vw - 10vw - 4rem - 2rem) / 2); /* Reduz o tamanho dos quadrados */
+        height: calc((90vw - 10vw - 4rem - 2rem) / 2); /* Reduz o tamanho dos quadrados */
     }
 
     .S2-grid-container {
          grid-template-columns: repeat(1, 1fr); /* Mantém 1 coluna */
          gap: 1rem;
-         padding: 1.5rem 1.5rem; /* Ajuste no padding */
+         padding: 1rem; /* Ajuste no padding */
     }
 
      .S2-square {
          width: 100%;
-         max-width: 14.5rem;
-        height: 18rem;
+         max-width: calc(90vw - 10vw - 2rem);
+        height: auto;
+        padding-bottom: .5rem;
     }
 
     /* Botão Próximo */
     .next-button {
-        bottom: -1.05rem; /* 1.5rem * 0.7 = 1.05rem */
-        right: -0.7rem; /* 1rem * 0.7 = 0.7rem */
-        border: 2.45px solid black; /* 3.5px * 0.7 = 2.45px */
-        padding: 0.30rem 1.4rem; /* 0.5rem * 0.7 = 0.35rem, 2rem * 0.7 = 1.4rem */
-        font-size: 0.64rem; /* 1.2rem * 0.7 = 0.84rem */
+        bottom: -1.05rem; 
+        right: -0.7rem; 
+        border: 2.45px solid black; 
+        padding: 0.30rem 1.4rem;
+        font-size: 0.64rem; 
     }
 
     /* Títulos */
@@ -3314,8 +3339,9 @@ footer {
     /* --- Etapa 2 --- */
 
     .S2-plan-name {
-        top: 1.6rem;
+        top: 1rem;
         font-size: 0.8rem;
+        margin: 0 .3rem;
     }
 
     /* --- Etapa 4 --- */
@@ -3328,27 +3354,27 @@ footer {
         width: 100%;
         height: auto;
         margin-right: 0;
-        margin-bottom: 0.6rem;
+	        margin-bottom: 0.6rem;
+        display: flex;
+        justify-content: center;
     }
 
     .S4-movel-image {
-       width: 12rem;
-        height: 12rem;
+        width: calc(90vw - 10vw - 1.8rem); /* Ajusta a largura da imagem */
+        height: calc(90vw - 10vw - 1.8rem); /* Ajusta a altura da imagem */
+        max-width: 12rem;
+        max-height: 12rem;
     }
 
     .S4-movel-name {
-        margin-top: 15rem;
+        margin-top: .5rem;
         margin-bottom: 0.6rem;
         font-size: 0.9rem;
+        text-align: center;
     }
 
     .S4-medidas-image {
-        top: auto;
-        right: auto;
-        height: 8rem;
-        margin-top: 1.5rem;
-        margin-bottom: 0.6rem;
-        position: relative;
+        display: none;
     }
 
     .S4-form-container {
@@ -3374,7 +3400,7 @@ footer {
         gap: 0.1rem;
         margin-left: 0;
         width: 100%;
-        margin-left: -5rem;
+        justify-content: space-between;
     }
 
     .S4-input-group label {
@@ -3394,8 +3420,9 @@ footer {
 
     .S4-radio-group {
         margin-left: 0;
-         width: 100%;
-         margin-bottom: 1.5rem;
+        width: 100%;
+        margin-bottom: 1.5rem;
+        justify-content: space-between;
     }
 
     .S4-radio-group label {
@@ -3421,18 +3448,21 @@ footer {
         height: auto;
         margin-right: 0;
         margin-bottom: 0.6rem;
-        justify-content: flex-start;
+        justify-content: center;
     }
 
     .S5-movel-image {
-       width: 12rem;
-        height: 12rem;
+        width: calc(90vw - 10vw - 1.8rem); /* Ajusta a largura da imagem */
+        height: calc(90vw - 10vw - 1.8rem); /* Ajusta a altura da imagem */
+        max-width: 12rem;
+        max-height: 12rem;
     }
 
     .S5-movel-name {
         margin-top: 0;
         margin-bottom: 0.6rem;
         font-size: 0.9rem;
+        text-align: center;
     }
 
     .S5-form-container {
@@ -3452,6 +3482,7 @@ footer {
         margin-bottom: 0.15rem;
         gap: 0.6rem;
         width: 100%;
+        justify-content: space-between;
     }
     
     .S5-input-group label{
@@ -3468,6 +3499,7 @@ footer {
         margin-bottom: 0.2rem;
          margin-left: -.5rem;
          width: 100%;
+         justify-content: space-between;
     }
 
     .S5-radio-group label {
