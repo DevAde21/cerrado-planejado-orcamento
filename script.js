@@ -1,3 +1,128 @@
+// #region Envio do orçamento
+function enviarOrcamento() {
+    // Recupera os dados do localStorage
+    const comodoSelecionado = localStorage.getItem('comodoSelecionado') || 'N/A';
+    const planoSelecionado = localStorage.getItem('planoSelecionado') || 'N/A';
+    const moveis = JSON.parse(localStorage.getItem('moveisSelecionados') || '[]');
+    const moveisArray = Array.isArray(moveis) ? moveis : [moveis];
+    const valorAcabamento = elementValues.acabamentos[planoSelecionado] || 0;
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const telefone = document.getElementById('telefone').value;
+
+    // Informações Gerais e do Usuário
+    const generalInfo = [
+        comodoSelecionado,
+        planoSelecionado,
+        moveisArray.join(', '),
+        valorAcabamento,
+        nome,
+        email,
+        telefone
+    ];
+
+    // Informações Específicas de cada móvel
+    const moveisInfo = moveisSelecionados.map((movel, index) => {
+        const altura = localStorage.getItem(`altura_movel_${index}`) || 'N/A';
+        const largura = localStorage.getItem(`largura_movel_${index}`) || 'N/A';
+        const comprimento = localStorage.getItem(`comprimento_movel_${index}`) || 'N/A';
+        const cor = localStorage.getItem(`cor_movel_${index}`) || 'N/A';
+        const numGavetas = localStorage.getItem(`num_gavetas_movel_${index}`) || '0';
+        const numPortas = localStorage.getItem(`num_portas_movel_${index}`) || '0';
+        const valorMovel = calcularValorMovel(comodoSelecionado, movel, altura, largura, comprimento, cor, numGavetas, numPortas);
+
+        return [
+            movel,
+            altura,
+            largura,
+            comprimento,
+            cor,
+            numGavetas,
+            numPortas,
+            valorMovel.toFixed(2)
+        ];
+    });
+
+    // Calcula o Valor Total
+    let valorTotal = valorAcabamento;
+    moveisInfo.forEach(movel => {
+        valorTotal += parseFloat(movel[7]); // 'Valor do Móvel' é o oitavo elemento (índice 7)
+    });
+
+    generalInfo.push(valorTotal.toFixed(2)); // Adiciona o valor total às informações gerais
+
+    // Envia os dados para o Google Apps Script
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxdz22_DjJpF2AexaJ2qZ-W5XUYYx5mCjUwbSYb9aFk7lVPBfH_MuW8tzj8hjibr8Z5/exec"; // Substitua pela URL do seu web app
+
+    // Estrutura os dados para envio
+    const postData = {
+        generalInfo: generalInfo,
+        moveisInfo: moveisInfo,
+        email: email // Adicione o e-mail do usuário aos dados enviados
+    };
+
+    fetch(scriptURL, {
+        method: 'POST',
+        mode: 'no-cors', // 'cors' é o padrão, 'no-cors' para apps web sem autorização
+        cache: 'no-cache',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        redirect: 'follow',
+        body: JSON.stringify(postData)
+    })
+    .then(response => {
+        if (response.ok || response.status === 0) {
+            // A resposta com status 0 ou ok indica que a requisição foi enviada (no-cors não permite verificar a resposta real)
+            console.log("Orçamento enviado com sucesso!");
+            // Aqui você pode adicionar ações após o envio bem-sucedido
+        } else {
+            throw new Error('Erro na resposta do servidor.');
+        }
+    })
+    .catch(error => {
+        console.error('Erro ao enviar requisição:', error);
+        // Trate o erro aqui, exibindo uma mensagem de erro ou tentando novamente
+    });
+}
+// #endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // #region Base
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -375,6 +500,19 @@ function setupNextButton() {
              }
 
            currentStep = 7;
+
+
+
+
+
+            // Envia o orçamento
+            enviarOrcamento();
+
+
+
+
+
+
             // Aqui você pode adicionar a lógica para enviar os dados do orçamento, por exemplo:
              //  alert('Orçamento finalizado! Implemente a lógica de envio aqui.');
           }
