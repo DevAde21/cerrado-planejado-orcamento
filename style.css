@@ -300,12 +300,12 @@ header {
 
     .logo img {
         height: 1.6rem;
-        margin: .5rem;
+        margin-right: .5rem;
     }
 
     .logo-text {
         margin: 0;
-        font-size: .6rem;
+        font-size: 1rem;
         padding: 0;
         white-space: nowrap;
     }
@@ -352,12 +352,12 @@ header {
 
     .logo img {
         height: 1.6rem;
-        margin: .5rem;
+        margin-right: .5rem;
     }
 
     .logo-text {
         margin: 0;
-        font-size: .8rem;
+        font-size: 1rem;
         padding: 0;
         white-space: nowrap;
     }
@@ -999,6 +999,43 @@ footer {
     .secondary-menu {
         display: none;
     }
+}
+
+/* #endregion */
+
+/* #region Debug */
+#debug-info {
+    display: none;
+    background-color: black;
+    color: #00ff00;
+    /* Verde Matrix */
+    font-family: 'Courier New', Courier, monospace;
+    /* Fonte monoespaçada */
+    padding: 50px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+#debug-info p {
+    margin: 0 0 5px 0;
+    /* Espaçamento inferior */
+}
+
+#debug-info .section-title {
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    text-decoration: underline;
+    /* Sublinhado para destacar */
+}
+
+#debug-info .movel-info {
+    margin-bottom: 15px;
+    /* Espaçamento entre informações de cada móvel */
+    padding-left: 10px;
+    border-left: 2px solid #00ff00;
+    /* Linha vertical para separar */
 }
 
 /* #endregion */
@@ -2889,20 +2926,6 @@ footer {
 
 /* #endregion*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* #region Media Queries Gerais - Menores */
 
 /* Media Query: 600px - 680px */
@@ -3054,12 +3077,12 @@ footer {
     }
 
     .S4-form-container {
-        width: 9.3rem;
+        width: auto;
         text-align: left;
         align-items: left;
         padding-right: 65%;
         margin-top: 2rem;
-        margin-left: 2rem;
+        margin-left: 3rem;
     }
 
     .S4-form-title {
@@ -3074,12 +3097,9 @@ footer {
     }
 
     .S4-input-group {
-        margin-bottom: 0.3rem;
-        gap: .4rem;
-        margin-left: 2rem;
-        width: 100%;
+        width: 88%;
         justify-content: right;
-
+        gap: .3rem;
     }
 
     .S4-input-group label {
@@ -3364,17 +3384,17 @@ footer {
     }
 
     .S4-medidas-image {
-        height: 28vw;
+        height: 26vw;
         top: 20rem;
         right: 1rem;
     }
 
     .S4-form-container {
-        width: 10.5rem;
+        width: auto;
         text-align: left;
         margin-top: 2rem;
         margin-right: 60%;
-        margin-left: 3rem;
+        margin-left: 1.5rem;
         align-items: flex-start;
     }
 
@@ -3390,7 +3410,7 @@ footer {
     }
 
     .S4-input-group {
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.5rem;
         gap: .3rem;
         margin-left: 0;
         width: 100%;
@@ -3678,7 +3698,7 @@ footer {
     }
 
     .S4-medidas-image {
-        margin-top: 23.5rem;
+        margin-top: 24.5rem;
         right: auto;
     }
 
@@ -3693,7 +3713,7 @@ footer {
 
     .S4-form-title {
         font-size: 1.1rem;
-        margin-bottom: 0.4rem;
+        margin-bottom: 0.5rem;
         margin-top: 0;
         margin-left: 0;
     }
@@ -3703,7 +3723,7 @@ footer {
     }
 
     .S4-input-group {
-        margin-bottom: 0.2rem;
+        margin-bottom: 0.5rem;
         gap: .2rem;
         margin-left: 0;
         width: 100%;
@@ -3989,7 +4009,7 @@ footer {
     }
 
     .S4-medidas-image {
-        margin-top: 22.5rem;
+        margin-top: 24rem;
         right: auto;
     }
 
@@ -3997,14 +4017,14 @@ footer {
         width: auto;
         text-align: left;
         margin-left: 0;
-        margin-top: 1.5rem;
+        margin-top: 2rem;
         margin-bottom: 10rem;
         align-items: flex-start;
     }
 
     .S4-form-title {
         font-size: 1.1rem;
-        margin-bottom: 0.3rem;
+        margin-bottom: 0.5rem;
         margin-top: 0;
         margin-left: 0;
     }
@@ -4014,7 +4034,7 @@ footer {
     }
 
     .S4-input-group {
-        margin-bottom: 0.15rem;
+        margin-bottom: 0.4rem;
         gap: 0.1rem;
         margin-left: 0;
         width: 100%;
@@ -4157,74 +4177,6 @@ footer {
     .S7-final-text {
         font-size: 1rem;
     }
-}
-
-/* #endregion */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* #region Debug */
-#debug-info {
-    display: none;
-    background-color: black;
-    color: #00ff00;
-    /* Verde Matrix */
-    font-family: 'Courier New', Courier, monospace;
-    /* Fonte monoespaçada */
-    padding: 50px;
-    margin-top: 20px;
-    font-size: 0.9rem;
-}
-
-#debug-info p {
-    margin: 0 0 5px 0;
-    /* Espaçamento inferior */
-}
-
-#debug-info .section-title {
-    text-align: left;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-    text-decoration: underline;
-    /* Sublinhado para destacar */
-}
-
-#debug-info .movel-info {
-    margin-bottom: 15px;
-    /* Espaçamento entre informações de cada móvel */
-    padding-left: 10px;
-    border-left: 2px solid #00ff00;
-    /* Linha vertical para separar */
 }
 
 /* #endregion */
