@@ -3004,8 +3004,9 @@ footer {
     }
 
     .content-container-title2 {
+        text-align: center;
         font-size: 0.7rem;
-        padding: 0 0 0 1.8rem;
+        padding: 0;
     }
 
     /* --- Etapa 1 e 3 --- */
@@ -3309,8 +3310,9 @@ footer {
     }
 
     .content-container-title2 {
+        text-align: center;
         font-size: 0.6rem;
-        padding: 0 0 0 1.5rem;
+        padding: 0;
     }
 
     /* --- Etapa 1 e 3 --- */
@@ -3623,8 +3625,9 @@ footer {
     }
 
     .content-container-title2 {
-        font-size: 0.6rem;
-        padding: 0 0 0 1.2rem;
+        text-align: center;
+        font-size: 0.5rem;
+        padding: 0;
     }
 
     /* --- Etapa 1 e 3 --- */
@@ -3933,8 +3936,9 @@ footer {
     }
 
     .content-container-title2 {
-        font-size: 0.55rem;
-        padding: 0 0 0 0.9rem;
+        text-align: center;
+        font-size: 0.6rem;
+        padding: 0;
     }
 
     /* --- Etapa 1 e 3 --- */
