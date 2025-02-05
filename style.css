@@ -14,7 +14,8 @@
     url("https://db.onlinewebfonts.com/t/c2988552206031b82497c4a05a393759.svg#Novecento WideMedium")format("svg");
 }
 
-body, ul {
+body,
+ul {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -30,7 +31,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    padding-top: 5rem; /* Altura do header */
+    padding-top: 5rem;
+    /* Altura do header */
 }
 
 /* Estilos para o fundo escurecido */
@@ -41,7 +43,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 9999; 
+    z-index: 9999;
     display: none;
 }
 
@@ -64,82 +66,111 @@ body {
 
 /* Estilos para o novo container wrapper */
 .container-wrapper {
-    position: relative; /* Importante para o posicionamento das imagens */
+    position: relative;
+    /* Importante para o posicionamento das imagens */
     width: fit-content;
     height: auto;
-    margin: 0 auto; /* Centraliza o wrapper na página */
+    margin: 0 auto;
+    /* Centraliza o wrapper na página */
     padding: 0;
 }
 
 /* Estilos para as imagens */
 .padrao {
     position: absolute;
-    height: 100%; /* Ajusta a altura ao container */
-    z-index: -1; /* Coloca as imagens atrás do container */
-    pointer-events: none; /* Faz as imagens não interceptarem eventos */
+    height: 100%;
+    /* Ajusta a altura ao container */
+    z-index: -1;
+    /* Coloca as imagens atrás do container */
+    pointer-events: none;
+    /* Faz as imagens não interceptarem eventos */
 }
 
 .padrao1 {
     height: 20rem;
     bottom: 0;
-    left: -10rem; /* Ajuste este valor conforme necessário */
+    left: -10rem;
+    /* Ajuste este valor conforme necessário */
 }
 
 .padrao2 {
     height: 20rem;
     top: -2rem;
-    right: -2rem; /* Ajuste este valor conforme necessário */
+    right: -2rem;
+    /* Ajuste este valor conforme necessário */
 }
 
 /* Estilos para o container de conteúdo */
 .content-container {
-    position: relative; /* Importante para o posicionamento do pseudo-elemento */
+    position: relative;
+    /* Importante para o posicionamento do pseudo-elemento */
     width: 60rem;
     height: 30rem;
     background-color: white;
-    border-radius: 5px; /* Mantém o border-radius do container */
+    border-radius: 5px;
+    /* Mantém o border-radius do container */
     margin-bottom: 5rem;
-    z-index: 1; /* Garante que o container fique acima do pseudo-elemento e das imagens */
+    z-index: 1;
+    /* Garante que o container fique acima do pseudo-elemento e das imagens */
 }
 
 .content-container::before {
     content: '';
     position: absolute;
-    top: -5px; /* Mesma espessura da borda */
-    left: -5px; /* Mesma espessura da borda */
-    right: -5px; /* Mesma espessura da borda */
-    bottom: -5px; /* Mesma espessura da borda */
-    border: 5px solid transparent; /* Borda transparente */
-    border-radius: 10px; /* Dobro do border-radius do container, para compensar */
-    background: linear-gradient(to top, #005100, #11B211) border-box; /* Gradiente aplicado */
-    -webkit-mask:
-      linear-gradient(#fff 0 0) padding-box, 
-      linear-gradient(#fff 0 0); /* Máscara para o gradiente */
-    -webkit-mask-composite: destination-out; /* Define como a máscara será aplicada */
-    mask-composite: exclude; /* Define como a máscara será aplicada (alternativa) */
-    z-index: -5; /* Garante que o pseudo-elemento fique abaixo do container */
+    top: -5px;
+    /* Mesma espessura da borda */
+    left: -5px;
+    /* Mesma espessura da borda */
+    right: -5px;
+    /* Mesma espessura da borda */
+    bottom: -5px;
+    /* Mesma espessura da borda */
+    border: 5px solid transparent;
+    /* Borda transparente */
+    border-radius: 10px;
+    /* Dobro do border-radius do container, para compensar */
+    background: linear-gradient(to top, #005100, #11B211) border-box;
+    /* Gradiente aplicado */
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+    /* Máscara para o gradiente */
+    -webkit-mask-composite: destination-out;
+    /* Define como a máscara será aplicada */
+    mask-composite: exclude;
+    /* Define como a máscara será aplicada (alternativa) */
+    z-index: -5;
+    /* Garante que o pseudo-elemento fique abaixo do container */
 }
 
 /* Estilos para o botão "Próximo" */
 .next-button {
     position: absolute;
-    bottom: -1.5rem; /* Distância em relação à borda inferior do container */
-    right: -1rem; /* Distância em relação à borda esquerda do container */
-    background-color: white; /* Fundo branco */
+    bottom: -1.5rem;
+    /* Distância em relação à borda inferior do container */
+    right: -1rem;
+    /* Distância em relação à borda esquerda do container */
+    background-color: white;
+    /* Fundo branco */
     color: black;
-    border: 3.5px solid black; /* Borda preta de 5px */
-    border-radius: 50px; /* Border-radius de 100% */
-    padding: .5rem 2rem; /* Espaçamento interno */
+    border: 3.5px solid black;
+    /* Borda preta de 5px */
+    border-radius: 50px;
+    /* Border-radius de 100% */
+    padding: .5rem 2rem;
+    /* Espaçamento interno */
     font-family: "Novecento WideMedium";
-    font-size: 1.2rem; /* Tamanho da fonte */
-    cursor: pointer; /* Cursor em forma de mão ao passar por cima */
+    font-size: 1.2rem;
+    /* Tamanho da fonte */
+    cursor: pointer;
+    /* Cursor em forma de mão ao passar por cima */
     transition: 0.3s;
     z-index: 2;
 }
 
 .next-button:hover {
-    background-color: #0c980c; /* Fundo preto ao passar o mouse */
-}   
+    background-color: #0c980c;
+    /* Fundo preto ao passar o mouse */
+}
 
 /* #endregion */
 
@@ -197,7 +228,7 @@ header {
 .nav ul li a {
     text-decoration: none;
     color: white;
-    font-size: .1rem;
+    font-size: .9rem;
     transition: color 0.3s;
     font-family: "Novecento WideMedium";
 }
@@ -248,10 +279,10 @@ header {
         height: 2.5rem;
     }
 
-    .container-header{
+    .container-header {
         margin: 0;
         padding: 0;
-        justify-content: space-between; 
+        justify-content: space-between;
     }
 
     .header-contacts {
@@ -262,8 +293,8 @@ header {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        margin: 0; 
-        padding: 0; 
+        margin: 0;
+        padding: 0;
         width: fit-content;
     }
 
@@ -300,10 +331,10 @@ header {
         height: 2.5rem;
     }
 
-    .container-header{
+    .container-header {
         margin: 0;
         padding: 0;
-        justify-content: space-between; 
+        justify-content: space-between;
     }
 
     .header-contacts {
@@ -314,8 +345,8 @@ header {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        margin: 0; 
-        padding: 0; 
+        margin: 0;
+        padding: 0;
         width: fit-content;
     }
 
@@ -342,7 +373,7 @@ header {
     .contact-icon {
         max-height: 3rem;
     }
-}    
+}
 
 /* Media Query 0: 678px - 849px */
 @media (min-width: 678px) and (max-width: 849px) {
@@ -352,7 +383,7 @@ header {
         height: 5rem;
     }
 
-    .container-header{
+    .container-header {
         justify-content: space-between;
     }
 
@@ -364,8 +395,8 @@ header {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        margin: 0; 
-        padding: 0; 
+        margin: 0;
+        padding: 0;
         width: fit-content;
     }
 
@@ -375,6 +406,7 @@ header {
 
     .logo-text {
         margin: 0;
+        font-size: 1.5rem;
         white-space: nowrap;
     }
 
@@ -399,7 +431,7 @@ header {
         height: 5rem;
     }
 
-    .container-header{
+    .container-header {
         justify-content: space-between;
     }
 
@@ -407,8 +439,8 @@ header {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        margin: 0; 
-        padding: 0; 
+        margin: 0;
+        padding: 0;
         width: fit-content;
     }
 
@@ -418,6 +450,7 @@ header {
 
     .logo-text {
         margin: 0;
+        font-size: 1.5rem;
         white-space: nowrap;
     }
 
@@ -442,7 +475,7 @@ header {
         height: 5rem;
     }
 
-    .container-header{
+    .container-header {
         justify-content: space-between;
     }
 
@@ -450,8 +483,8 @@ header {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        margin: 0; 
-        padding: 0; 
+        margin: 0;
+        padding: 0;
         width: fit-content;
     }
 
@@ -461,6 +494,7 @@ header {
 
     .logo-text {
         margin: 0;
+        font-size: 1.5rem;
         white-space: nowrap;
     }
 
@@ -517,6 +551,7 @@ header {
         max-height: 3rem;
     }
 }
+
 /*#endregion*/
 
 /* #region Footer */
@@ -531,7 +566,8 @@ footer {
     font-size: 17px;
     position: static;
     bottom: 0;
-    margin-top: auto; /* Empurra o footer para baixo */
+    margin-top: auto;
+    /* Empurra o footer para baixo */
 }
 
 .footer-content {
@@ -545,6 +581,7 @@ footer {
     line-height: 1.5;
     margin-bottom: 0;
     font-family: "Novecento WideMedium";
+    font-size: 1rem;
     margin-top: 0;
 }
 
@@ -561,7 +598,7 @@ footer {
     align-items: center;
     text-decoration: none;
     color: white;
-    font-size: 17px;
+    font-size: 1rem;
     font-family: "Novecento WideMedium";
 }
 
@@ -573,33 +610,65 @@ footer {
 
 .footer-copyright {
     /* ... suas outras propriedades ... */
-    font-family: Arial, sans-serif; /* Define a fonte como Arial */
-    text-align: center; /* Centraliza o texto (opcional, mas comum em footers) */
-    font-size: 0.8rem; /* Ajuste o tamanho da fonte conforme necessário */
-    margin: 1.5rem 0 -1rem; /* Ajuste as margens conforme necessário */
+    font-family: Arial, sans-serif;
+    /* Define a fonte como Arial */
+    text-align: center;
+    /* Centraliza o texto (opcional, mas comum em footers) */
+    font-size: 0.8rem;
+    /* Ajuste o tamanho da fonte conforme necessário */
+    margin: 1.5rem 0 -1rem;
+    /* Ajuste as margens conforme necessário */
 }
 
 /* Media Queries do Footer */
 
-/* Media Query -2: ... - 419px*/
-@media (max-width: 419px) {
+/* Media Query -3: ... - 380px*/
+@media (max-width: 380px) {
 
     /* Estilos do Footer */
     footer {
-        font-size: .77rem;
-        margin-top: 5rem;
+        font-size: .57rem;
     }
 
     .footer-social-icon {
         width: 1.12rem;
     }
 
-    .footer-text, .footer-social-link, .footer-copyright {
-        font-size: .77rem;
+    .footer-text,
+    .footer-social-link,
+    .footer-copyright {
+        font-size: .57rem;
     }
 
     .footer-social {
-        gap: 1.12rem;
+        gap: .62rem;
+    }
+
+    footer {
+        padding: .5 0;
+    }
+}
+
+/* Media Query -2: ... - 419px*/
+@media (min-width: 381px) and (max-width: 419px) {
+
+    /* Estilos do Footer */
+    footer {
+        font-size: .67rem;
+    }
+
+    .footer-social-icon {
+        width: 1.12rem;
+    }
+
+    .footer-text,
+    .footer-social-link,
+    .footer-copyright {
+        font-size: .67rem;
+    }
+
+    .footer-social {
+        gap: .62rem;
     }
 
     footer {
@@ -613,14 +682,15 @@ footer {
     /* Estilos do Footer */
     footer {
         font-size: .77rem;
-        margin-top: 5rem;
     }
 
     .footer-social-icon {
         width: 1.12rem;
     }
 
-    .footer-text, .footer-social-link, .footer-copyright {
+    .footer-text,
+    .footer-social-link,
+    .footer-copyright {
         font-size: .77rem;
     }
 
@@ -637,14 +707,16 @@ footer {
 @media (min-width: 680px) and (max-width: 849px) {
     /* Estilos do Footer */
     footer {
-        font-size: .77rem;
+        font-size: 1rem;
     }
 
     .footer-social-icon {
         width: 1.12rem;
     }
 
-    .footer-text, .footer-social-link, .footer-copyright {
+    .footer-text,
+    .footer-social-link,
+    .footer-copyright {
         font-size: .77rem;
     }
 
@@ -662,14 +734,16 @@ footer {
 
     /* Estilos do Footer */
     footer {
-        font-size: .8rem;
+        font-size: 1rem;
     }
 
     .footer-social-icon {
         width: 1.12rem;
     }
 
-    .footer-text, .footer-social-link, .footer-copyright {
+    .footer-text,
+    .footer-social-link,
+    .footer-copyright {
         font-size: .8rem;
     }
 
@@ -687,14 +761,16 @@ footer {
 
     /* Estilos do Footer */
     footer {
-        font-size: .8rem;
+        font-size: 1rem;
     }
 
     .footer-social-icon {
         width: 1.12rem;
     }
 
-    .footer-text, .footer-social-link, .footer-copyright {
+    .footer-text,
+    .footer-social-link,
+    .footer-copyright {
         font-size: .8rem;
     }
 
@@ -712,14 +788,16 @@ footer {
 
     /* Estilos do Footer */
     footer {
-        font-size: .8rem;
+        font-size: 1rem;
     }
 
     .footer-social-icon {
         width: 1.12rem;
     }
 
-    .footer-text, .footer-social-link, .footer-copyright {
+    .footer-text,
+    .footer-social-link,
+    .footer-copyright {
         font-size: .8rem;
     }
 
@@ -731,6 +809,7 @@ footer {
         padding: 1 0;
     }
 }
+
 /* #endregion */
 
 /* #region Seconday Menu */
@@ -752,7 +831,8 @@ footer {
     .secondary-menu-icon {
         width: 1.2rem;
         height: auto;
-        transition: 0.2s ease; /* Animação de entrada e saída */
+        transition: 0.2s ease;
+        /* Animação de entrada e saída */
     }
 
     .secondary-menu-icon:hover {
@@ -762,18 +842,22 @@ footer {
     .secondary-menu {
         position: fixed;
         top: 0;
-        left: -100%; /* Começa fora da tela */
+        left: -100%;
+        /* Começa fora da tela */
         width: 20rem;
         height: 21rem;
         border-radius: 0 0 1rem 0;
         background-color: white;
-        z-index: 10001; /* Acima do header */
-        transition: left 0.2s ease; /* Animação de entrada e saída */
+        z-index: 10001;
+        /* Acima do header */
+        transition: left 0.2s ease;
+        /* Animação de entrada e saída */
         overflow-y: hidden;
     }
 
     .secondary-menu.active {
-        left: 0; /* Move para a tela quando ativo */
+        left: 0;
+        /* Move para a tela quando ativo */
     }
 
     .secondary-menu ul {
@@ -782,13 +866,15 @@ footer {
 
     .secondary-menu ul li {
         margin-bottom: 1rem;
-        border-bottom: 1px solid #ccc; /* Linha separadora */
+        border-bottom: 1px solid #ccc;
+        /* Linha separadora */
         padding-bottom: 1rem;
     }
 
     .secondary-menu ul li a {
         text-decoration: none;
-        color: #005200; /* Cor do texto do menu */
+        color: #005200;
+        /* Cor do texto do menu */
         font-size: 1rem;
         font-family: "Novecento WideMedium";
         display: block;
@@ -818,7 +904,7 @@ footer {
 
 }
 
-    @media (min-width: 678px) and (max-width: 1390px) {
+@media (min-width: 678px) and (max-width: 1390px) {
 
     /* Menu de Navegação */
     .secondary-menu-toggle {
@@ -836,7 +922,8 @@ footer {
     .secondary-menu-icon {
         width: 100%;
         height: auto;
-        transition: 0.2s ease; /* Animação de entrada e saída */
+        transition: 0.2s ease;
+        /* Animação de entrada e saída */
     }
 
     .secondary-menu-icon:hover {
@@ -846,18 +933,22 @@ footer {
     .secondary-menu {
         position: fixed;
         top: 0;
-        left: -50%; /* Começa fora da tela */
+        left: -50%;
+        /* Começa fora da tela */
         width: 20rem;
         height: 21rem;
         border-radius: 0 0 1rem 0;
         background-color: white;
-        z-index: 10001; /* Acima do header */
-        transition: left 0.2s ease; /* Animação de entrada e saída */
+        z-index: 10001;
+        /* Acima do header */
+        transition: left 0.2s ease;
+        /* Animação de entrada e saída */
         overflow-y: hidden;
     }
 
     .secondary-menu.active {
-        left: 0; /* Move para a tela quando ativo */
+        left: 0;
+        /* Move para a tela quando ativo */
     }
 
     .secondary-menu ul {
@@ -866,13 +957,15 @@ footer {
 
     .secondary-menu ul li {
         margin-bottom: 1rem;
-        border-bottom: 1px solid #ccc; /* Linha separadora */
+        border-bottom: 1px solid #ccc;
+        /* Linha separadora */
         padding-bottom: 1rem;
     }
 
     .secondary-menu ul li a {
         text-decoration: none;
-        color: #005200; /* Cor do texto do menu */
+        color: #005200;
+        /* Cor do texto do menu */
         font-size: 1rem;
         font-family: "Novecento WideMedium";
         display: block;
@@ -902,7 +995,8 @@ footer {
 }
 
 @media (min-width: 1390px) {
-    .secondary-menu-toggle, .secondary-menu{
+    .secondary-menu-toggle,
+    .secondary-menu {
         display: none;
     }
 }
@@ -916,9 +1010,12 @@ footer {
 /* Estilos para os quadrados e texto */
 .S1-grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
-    gap: 1rem 2rem; /* Espaçamento entre os quadrados */
-    padding: 1.5rem 6rem; /* Espaçamento interno */
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 colunas */
+    gap: 1rem 2rem;
+    /* Espaçamento entre os quadrados */
+    padding: 1.5rem 6rem;
+    /* Espaçamento interno */
 }
 
 .S1-grid-item {
@@ -928,21 +1025,28 @@ footer {
 }
 
 .S1-square {
-    position: relative; /* Permite posicionar a camada de seleção dentro dele */
+    position: relative;
+    /* Permite posicionar a camada de seleção dentro dele */
     width: 8rem;
     height: 8rem;
     border-radius: 5px;
     background-color: gray;
-    overflow: hidden; /* Garante que a camada de seleção não ultrapasse as bordas do square */
+    overflow: hidden;
+    /* Garante que a camada de seleção não ultrapasse as bordas do square */
 }
 
 .S1-square-image {
-    width: 100%; /* Ajusta a imagem para preencher a largura do quadrado */
-    height: 100%; /* Ajusta a imagem para preencher a altura do quadrado */
+    width: 100%;
+    /* Ajusta a imagem para preencher a largura do quadrado */
+    height: 100%;
+    /* Ajusta a imagem para preencher a altura do quadrado */
     border-radius: 5px;
-    object-fit: cover; /* Garante que a imagem cubra o quadrado mantendo sua proporção */
-    transition: transform 0.3s ease; /* Transição suave ao passar o mouse */
-    cursor: pointer; /* Cursor em forma de mão ao passar por cima */
+    object-fit: cover;
+    /* Garante que a imagem cubra o quadrado mantendo sua proporção */
+    transition: transform 0.3s ease;
+    /* Transição suave ao passar o mouse */
+    cursor: pointer;
+    /* Cursor em forma de mão ao passar por cima */
     pointer-events: none;
 }
 
@@ -951,9 +1055,11 @@ footer {
 }
 
 .S1-square-text {
-    color: black; /* Cor do texto */
+    color: black;
+    /* Cor do texto */
     font-family: "Novecento WideMedium";
-    margin-top: 0.5rem; /* Espaçamento acima do texto */
+    margin-top: 0.5rem;
+    /* Espaçamento acima do texto */
     font-size: 1rem;
     font-weight: 600;
 }
@@ -965,19 +1071,26 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('assets/selected.png'); /* Caminho para a imagem de seleção */
+    background-image: url('assets/selected.png');
+    /* Caminho para a imagem de seleção */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    opacity: 0; /* Inicialmente invisível */
-    transition: opacity 0.3s ease; /* Transição suave */
-    border-radius: 5px; /* Respeita o border-radius do square */
-    pointer-events: none; /* Impede que a camada de seleção intercepte eventos de clique */
-    z-index: 1; /* Coloca a camada de seleção acima da imagem do square */
+    opacity: 0;
+    /* Inicialmente invisível */
+    transition: opacity 0.3s ease;
+    /* Transição suave */
+    border-radius: 5px;
+    /* Respeita o border-radius do square */
+    pointer-events: none;
+    /* Impede que a camada de seleção intercepte eventos de clique */
+    z-index: 1;
+    /* Coloca a camada de seleção acima da imagem do square */
 }
 
 .S1-selection-layer.S1-selected {
-    opacity: 0.6; /* Visível quando selecionado */
+    opacity: 0.6;
+    /* Visível quando selecionado */
 }
 
 /* #endregion */
@@ -986,8 +1099,10 @@ footer {
 
 .S2-grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
-    padding: 1.5rem 2rem; /* Espaçamento interno */
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 colunas */
+    padding: 1.5rem 2rem;
+    /* Espaçamento interno */
 }
 
 .S2-grid-item {
@@ -997,42 +1112,57 @@ footer {
 }
 
 .S2-square {
-    position: relative; /* Permite posicionar a camada de seleção dentro dele */
+    position: relative;
+    /* Permite posicionar a camada de seleção dentro dele */
     width: 16.5rem;
     height: 20rem;
     border-radius: 10px;
     background-color: white;
-    overflow: hidden; /* Garante que a camada de seleção não ultrapasse as bordas do square */
+    overflow: hidden;
+    /* Garante que a camada de seleção não ultrapasse as bordas do square */
 }
 
 .S2-square::before {
     content: '';
     position: absolute;
-    top: 0; /* Mesma espessura da borda */
-    left: 0; /* Mesma espessura da borda */
-    right: 0; /* Mesma espessura da borda */
-    bottom: 0; /* Mesma espessura da borda */
-    border: 5px solid transparent; /* Borda transparente */
-    border-radius: 10px; /* Dobro do border-radius do container, para compensar */
-    background: linear-gradient(to top, #005100, #11B211) border-box; /* Gradiente aplicado */
-    -webkit-mask:
-      linear-gradient(#fff 0 0) padding-box, 
-      linear-gradient(#fff 0 0); /* Máscara para o gradiente */
-    -webkit-mask-composite: destination-out; /* Define como a máscara será aplicada */
-    mask-composite: exclude; /* Define como a máscara será aplicada (alternativa) */
-    z-index: 0; /* Garante que o pseudo-elemento fique abaixo do container */
+    top: 0;
+    /* Mesma espessura da borda */
+    left: 0;
+    /* Mesma espessura da borda */
+    right: 0;
+    /* Mesma espessura da borda */
+    bottom: 0;
+    /* Mesma espessura da borda */
+    border: 5px solid transparent;
+    /* Borda transparente */
+    border-radius: 10px;
+    /* Dobro do border-radius do container, para compensar */
+    background: linear-gradient(to top, #005100, #11B211) border-box;
+    /* Gradiente aplicado */
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+    /* Máscara para o gradiente */
+    -webkit-mask-composite: destination-out;
+        /* Define como a máscara será aplicada */
+    mask-composite: exclude;
+    /* Define como a máscara será aplicada (alternativa) */
+    z-index: 0;
+    /* Garante que o pseudo-elemento fique abaixo do container */
 }
 
 .S2-plan-name {
     position: absolute;
-    top: 2rem; /* Distância em relação ao topo do quadrado */
+    top: 2rem;
+    /* Distância em relação ao topo do quadrado */
     left: 50%;
-    transform: translateX(-50%); /* Centraliza o nome do plano */
+    transform: translateX(-50%);
+    /* Centraliza o nome do plano */
     color: black;
     font-family: "Novecento WideMedium";
     font-size: 1.2rem;
     font-weight: 600;
-    z-index: 2; /* Acima da camada de seleção */
+    z-index: 2;
+    /* Acima da camada de seleção */
 }
 
 /* Estilos para a camada de seleção */
@@ -1042,19 +1172,26 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('assets/selected.png'); /* Caminho para a imagem de seleção */
+    background-image: url('assets/selected.png');
+    /* Caminho para a imagem de seleção */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    opacity: 0; /* Inicialmente invisível */
-    transition: opacity 0.3s ease; /* Transição suave */
-    border-radius: 5px; /* Respeita o border-radius do square */
-    pointer-events: none; /* Impede que a camada de seleção intercepte eventos de clique */
-    z-index: 1; /* Coloca a camada de seleção acima do conteúdo do square */
+    opacity: 0;
+    /* Inicialmente invisível */
+    transition: opacity 0.3s ease;
+    /* Transição suave */
+    border-radius: 5px;
+    /* Respeita o border-radius do square */
+    pointer-events: none;
+    /* Impede que a camada de seleção intercepte eventos de clique */
+    z-index: 1;
+    /* Coloca a camada de seleção acima do conteúdo do square */
 }
 
 .S2-selection-layer.S2-selected {
-    opacity: 0.6; /* Visível quando selecionado */
+    opacity: 0.6;
+    /* Visível quando selecionado */
 }
 
 /* #endregion */
@@ -1063,9 +1200,12 @@ footer {
 
 .S3-grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
-    gap: 1rem 2rem; /* Espaçamento entre os quadrados */
-    padding: 1.5rem 6rem; /* Espaçamento interno */
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 colunas */
+    gap: 1rem 2rem;
+    /* Espaçamento entre os quadrados */
+    padding: 1.5rem 6rem;
+    /* Espaçamento interno */
 }
 
 .S3-grid-item {
@@ -1075,18 +1215,22 @@ footer {
 }
 
 .S3-square {
-    position: relative; /* Permite posicionar a camada de seleção dentro dele */
+    position: relative;
+    /* Permite posicionar a camada de seleção dentro dele */
     width: 8rem;
     height: 8rem;
     border-radius: 5px;
     background-color: gray;
-    overflow: hidden; /* Garante que a camada de seleção não ultrapasse as bordas do square */
+    overflow: hidden;
+    /* Garante que a camada de seleção não ultrapasse as bordas do square */
 }
 
 .S3-square-text {
-    color: black; /* Cor do texto */
+    color: black;
+    /* Cor do texto */
     font-family: "Novecento WideMedium";
-    margin-top: 0.5rem; /* Espaçamento acima do texto */
+    margin-top: 0.5rem;
+    /* Espaçamento acima do texto */
     font-size: 1rem;
     font-weight: 600;
 }
@@ -1098,25 +1242,34 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('assets/selected.png'); /* Caminho para a imagem de seleção */
+    background-image: url('assets/selected.png');
+    /* Caminho para a imagem de seleção */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    opacity: 0; /* Inicialmente invisível */
-    transition: opacity 0.3s ease; /* Transição suave */
-    border-radius: 5px; /* Respeita o border-radius do square */
-    pointer-events: none; /* Impede que a camada de seleção intercepte eventos de clique */
-    z-index: 1; /* Coloca a camada de seleção acima do conteúdo do square */
+    opacity: 0;
+    /* Inicialmente invisível */
+    transition: opacity 0.3s ease;
+    /* Transição suave */
+    border-radius: 5px;
+    /* Respeita o border-radius do square */
+    pointer-events: none;
+    /* Impede que a camada de seleção intercepte eventos de clique */
+    z-index: 1;
+    /* Coloca a camada de seleção acima do conteúdo do square */
 }
 
 .S3-selection-layer.S3-selected {
-    opacity: 0.6; /* Visível quando selecionado */
+    opacity: 0.6;
+    /* Visível quando selecionado */
 }
 
 /* Estilos para o subtítulo da etapa 3 */
 .content-container-title2 {
-    font-size: .85rem; /* Metade do tamanho do título (2rem / 2 = 1rem) */
-    padding: 0 0 0 3rem; /* Mesmo padding do título */
+    font-size: .85rem;
+    /* Metade do tamanho do título (2rem / 2 = 1rem) */
+    padding: 0 0 0 3rem;
+    /* Mesmo padding do título */
     color: black;
 }
 
@@ -1142,7 +1295,8 @@ footer {
 .S4-movel-image {
     width: 100%;
     height: 100%;
-    background-color: gray; /* Cor temporária até ter as imagens dos móveis */
+    background-color: gray;
+    /* Cor temporária até ter as imagens dos móveis */
     border-radius: 10px;
 }
 
@@ -1155,8 +1309,10 @@ footer {
 
 .S4-medidas-image {
     position: absolute;
-    top: 5rem; /* Distância em relação ao topo do content-container */
-    right: 2rem; /* Distância em relação à borda direita do content-container */
+    top: 5rem;
+    /* Distância em relação ao topo do content-container */
+    right: 2rem;
+    /* Distância em relação à borda direita do content-container */
     height: 10rem;
     width: auto;
 }
@@ -1199,14 +1355,16 @@ footer {
 }
 
 .S4-input-with-unit {
-   display: flex;
+    display: flex;
     align-items: center;
-    text-align: right; /* Alinha o texto à direita */
+    text-align: right;
+    /* Alinha o texto à direita */
     gap: 0.2rem
 }
 
 .S4-unit {
-    color: black; /* Cor da unidade */
+    color: black;
+    /* Cor da unidade */
     font-family: "Novecento WideMedium";
     font-size: 1rem;
 }
@@ -1216,7 +1374,8 @@ footer {
     border: 0;
     background-color: rgb(189, 189, 189);
     padding: 0.2rem;
-    text-align: center; /* Alinha o texto à direita dentro do input */
+    text-align: center;
+    /* Alinha o texto à direita dentro do input */
 }
 
 .S4-input::placeholder {
@@ -1274,7 +1433,8 @@ footer {
 .S5-movel-image {
     width: 100%;
     height: 100%;
-    background-color: gray; /* Cor temporária até ter as imagens dos móveis */
+    background-color: gray;
+    /* Cor temporária até ter as imagens dos móveis */
     border-radius: 10px;
 }
 
@@ -1311,7 +1471,8 @@ footer {
     color: black;
     font-family: "Novecento WideMedium";
     margin-right: 1rem;
-    width: 7.7rem; /* Largura fixa para os labels */
+    width: 7.7rem;
+    /* Largura fixa para os labels */
 }
 
 .S5-input {
@@ -1358,39 +1519,55 @@ footer {
 
 .S6-content {
     display: flex;
-    flex-direction: column; /* Altera para coluna */
-    align-items: flex-start; /* Alinha os itens à esquerda */
+    flex-direction: column;
+    /* Altera para coluna */
+    align-items: flex-start;
+    /* Alinha os itens à esquerda */
     padding: 2rem 3rem;
 }
 
 .S6-form-container {
     display: flex;
-    flex-direction: column; /* Mantém a direção da coluna para os itens do formulário */
+    flex-direction: column;
+    /* Mantém a direção da coluna para os itens do formulário */
     width: 70%;
-    margin: 0; /* Remove a margem automática */
-    text-align: left; /* Alinha o texto à esquerda */
+    margin: 0;
+    /* Remove a margem automática */
+    text-align: left;
+    /* Alinha o texto à esquerda */
 }
 
 .S6-input-group {
-    display: flex; /* Mantém o flexbox para alinhamento interno */
-    flex-direction: column; /* Alinha label e input em coluna */
-    margin-bottom: 0.7rem; /* Adiciona espaço entre os grupos de inputs */
-    width: 100%; /* Garante que o grupo preencha a largura do container */
+    display: flex;
+    /* Mantém o flexbox para alinhamento interno */
+    flex-direction: column;
+    /* Alinha label e input em coluna */
+    margin-bottom: 0.7rem;
+    /* Adiciona espaço entre os grupos de inputs */
+    width: 100%;
+    /* Garante que o grupo preencha a largura do container */
 }
 
 .S6-input-group label {
     color: black;
     font-family: "Novecento WideMedium";
-    margin-bottom: 0.2rem; /* Espaçamento entre o label e o input */
-    text-align: left; /* Alinha o texto à esquerda */
-    font-size: 1.3rem; /* Garante que o label não estique */
+    margin-bottom: 0.2rem;
+    /* Espaçamento entre o label e o input */
+    text-align: left;
+    /* Alinha o texto à esquerda */
+    font-size: 1.3rem;
+    /* Garante que o label não estique */
 }
 
 .S6-input {
-    width: 100%; /* Garante que os inputs ocupem a largura do container */
-    border: 0; /* Remove a borda */
-    background-color: rgb(189, 189, 189); /* Cor de fundo padrão */
-    padding: 0.2rem; /* Pequeno padding interno */
+    width: 100%;
+    /* Garante que os inputs ocupem a largura do container */
+    border: 0;
+    /* Remove a borda */
+    background-color: rgb(189, 189, 189);
+    /* Cor de fundo padrão */
+    padding: 0.2rem;
+    /* Pequeno padding interno */
     margin-bottom: 2rem;
 }
 
@@ -1400,9 +1577,12 @@ footer {
 
 .S7-content {
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    height: 100%; /* Garante que o conteúdo centralize dentro do container */
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    align-items: center;
+    /* Centraliza verticalmente */
+    height: 100%;
+    /* Garante que o conteúdo centralize dentro do container */
 }
 
 .S7-final-text {
@@ -1414,7 +1594,20 @@ footer {
 
 /* #endregion */
 
-/* Media Queries */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* #region Media Queries Gerais - Maiores */
 
 /* Media Query: 925px - 1389px */
 @media (min-width: 925px) and (max-width: 1389px) {
@@ -1428,230 +1621,312 @@ footer {
 
     /* Container Principal */
     .content-container {
-        width: 54rem; /* 60rem * 0.9 = 54rem */
-        height: 27rem; /* 30rem * 0.9 = 27rem */
-        margin-bottom: 4.5rem; /* 5rem * 0.9 = 4.5rem */
+        width: 54rem;
+        /* 60rem * 0.9 = 54rem */
+        height: 27rem;
+        /* 30rem * 0.9 = 27rem */
+        margin-bottom: 4.5rem;
+        /* 5rem * 0.9 = 4.5rem */
     }
 
     .content-container::before {
-        top: -3.5px; /* 5px * 0.9 = 4.5px */
-        left: -3.5px; /* 5px * 0.9 = 4.5px */
-        right: -3.5px; /* 5px * 0.9 = 4.5px */
-        bottom: -3.5px; /* 5px * 0.9 = 4.5px */
-        border: 4.5px solid transparent; /* 5px * 0.9 = 4.5px */
-        border-radius: 9px; /* 10px * 0.9 = 9px */
+        top: -3.5px;
+        /* 5px * 0.9 = 4.5px */
+        left: -3.5px;
+        /* 5px * 0.9 = 4.5px */
+        right: -3.5px;
+        /* 5px * 0.9 = 4.5px */
+        bottom: -3.5px;
+        /* 5px * 0.9 = 4.5px */
+        border: 4.5px solid transparent;
+        /* 5px * 0.9 = 4.5px */
+        border-radius: 9px;
+        /* 10px * 0.9 = 9px */
     }
-    
+
     /* Botão Próximo */
     .next-button {
-        bottom: -1.35rem; /* 1.5rem * 0.9 = 1.35rem */
-        right: -0.9rem; /* 1rem * 0.9 = 0.9rem */
-        border: 3.15px solid black; /* 3.5px * 0.9 = 3.15px */
-        padding: 0.45rem 1.8rem; /* 0.5rem * 0.9 = 0.45rem, 2rem * 0.9 = 1.8rem */
-        font-size: 1.08rem; /* 1.2rem * 0.9 = 1.08rem */
+        bottom: -1.35rem;
+        /* 1.5rem * 0.9 = 1.35rem */
+        right: -0.9rem;
+        /* 1rem * 0.9 = 0.9rem */
+        border: 3.15px solid black;
+        /* 3.5px * 0.9 = 3.15px */
+        padding: 0.45rem 1.8rem;
+        /* 0.5rem * 0.9 = 0.45rem, 2rem * 0.9 = 1.8rem */
+        font-size: 1.08rem;
+        /* 1.2rem * 0.9 = 1.08rem */
     }
 
     /* Títulos */
     .content-container-title1 {
-        font-size: 1.53rem; /* 1.7rem * 0.9 = 1.53rem */
-        padding: 1.35rem 0 0 2.7rem; /* 1.5rem * 0.9 = 1.35rem, 3rem * 0.9 = 2.7rem */
+        font-size: 1.53rem;
+        /* 1.7rem * 0.9 = 1.53rem */
+        padding: 1.35rem 0 0 2.7rem;
+        /* 1.5rem * 0.9 = 1.35rem, 3rem * 0.9 = 2.7rem */
     }
 
     .content-container-title2 {
-        font-size: 0.765rem; /* 0.85rem * 0.9 = 0.765rem */
-        padding: 0 0 0 2.7rem; /* 3rem * 0.9 = 2.7rem */
+        font-size: 0.765rem;
+        /* 0.85rem * 0.9 = 0.765rem */
+        padding: 0 0 0 2.7rem;
+        /* 3rem * 0.9 = 2.7rem */
     }
 
     /* --- Etapa 1 --- */
     .S1-grid-container {
-        gap: 0.9rem 1.8rem; /* 1rem * 0.9 = 0.9rem, 2rem * 0.9 = 1.8rem */
-        padding: 1.35rem 5.4rem; /* 1.5rem * 0.9 = 1.35rem, 6rem * 0.9 = 5.4rem */
+        gap: 0.9rem 1.8rem;
+        /* 1rem * 0.9 = 0.9rem, 2rem * 0.9 = 1.8rem */
+        padding: 1.35rem 5.4rem;
+        /* 1.5rem * 0.9 = 1.35rem, 6rem * 0.9 = 5.4rem */
     }
 
     .S1-square {
-        width: 7.2rem; /* 8rem * 0.9 = 7.2rem */
-        height: 7.2rem; /* 8rem * 0.9 = 7.2rem */
+        width: 7.2rem;
+        /* 8rem * 0.9 = 7.2rem */
+        height: 7.2rem;
+        /* 8rem * 0.9 = 7.2rem */
     }
 
     .S1-square-text {
-        margin-top: 0.45rem; /* 0.5rem * 0.9 = 0.45rem */
-        font-size: 0.9rem; /* 1rem * 0.9 = 0.9rem */
+        margin-top: 0.45rem;
+        /* 0.5rem * 0.9 = 0.45rem */
+        font-size: 0.9rem;
+        /* 1rem * 0.9 = 0.9rem */
     }
 
     /* --- Etapa 2 --- */
     .S2-grid-container {
-        padding: 1.35rem 1.8rem; /* 1.5rem * 0.9 = 1.35rem, 2rem * 0.9 = 1.8rem */
+        padding: 1.35rem 1.8rem;
+        /* 1.5rem * 0.9 = 1.35rem, 2rem * 0.9 = 1.8rem */
     }
 
     .S2-square {
-        width: 14.85rem; /* 16.5rem * 0.9 = 14.85rem */
-        height: 18rem; /* 20rem * 0.9 = 18rem */
+        width: 14.85rem;
+        /* 16.5rem * 0.9 = 14.85rem */
+        height: 18rem;
+        /* 20rem * 0.9 = 18rem */
     }
 
     .S2-plan-name {
-        top: 1.8rem; /* 2rem * 0.9 = 1.8rem */
-        font-size: 1.08rem; /* 1.2rem * 0.9 = 1.08rem */
+        top: 1.8rem;
+        /* 2rem * 0.9 = 1.8rem */
+        font-size: 1.08rem;
+        /* 1.2rem * 0.9 = 1.08rem */
     }
 
     /* --- Etapa 3 --- */
     .S3-grid-container {
-        gap: 0.9rem 1.8rem; /* 1rem * 0.9 = 0.9rem, 2rem * 0.9 = 1.8rem */
-        padding: 1.35rem 5.4rem; /* 1.5rem * 0.9 = 1.35rem, 6rem * 0.9 = 5.4rem */
+        gap: 0.9rem 1.8rem;
+        /* 1rem * 0.9 = 0.9rem, 2rem * 0.9 = 1.8rem */
+        padding: 1.35rem 5.4rem;
+        /* 1.5rem * 0.9 = 1.35rem, 6rem * 0.9 = 5.4rem */
     }
 
     .S3-square {
-        width: 7.2rem; /* 8rem * 0.9 = 7.2rem */
-        height: 7.2rem; /* 8rem * 0.9 = 7.2rem */
+        width: 7.2rem;
+        /* 8rem * 0.9 = 7.2rem */
+        height: 7.2rem;
+        /* 8rem * 0.9 = 7.2rem */
     }
 
     .S3-square-text {
-        margin-top: 0.45rem; /* 0.5rem * 0.9 = 0.45rem */
-        font-size: 0.9rem; /* 1rem * 0.9 = 0.9rem */
+        margin-top: 0.45rem;
+        /* 0.5rem * 0.9 = 0.45rem */
+        font-size: 0.9rem;
+        /* 1rem * 0.9 = 0.9rem */
     }
 
     /* --- Etapa 4 --- */
     .S4-content {
-        padding: 1.8rem 2.7rem; /* 2rem * 0.9 = 1.8rem, 3rem * 0.9 = 2.7rem */
+        padding: 1.8rem 2.7rem;
+        /* 2rem * 0.9 = 1.8rem, 3rem * 0.9 = 2.7rem */
     }
 
     .S4-movel-image-container {
-        width: 18rem; /* 20rem * 0.9 = 18rem */
-        height: 18rem; /* 20rem * 0.9 = 18rem */
-        margin-right: 0.9rem; /* 1rem * 0.9 = 0.9rem */
+        width: 18rem;
+        /* 20rem * 0.9 = 18rem */
+        height: 18rem;
+        /* 20rem * 0.9 = 18rem */
+        margin-right: 0.9rem;
+        /* 1rem * 0.9 = 0.9rem */
     }
 
     .S4-movel-name {
         margin-top: 23rem;
+        font-size: 1.4rem;
     }
 
     .S4-medidas-image {
-        top: 4.5rem; /* 5rem * 0.9 = 4.5rem */
-        right: 1.8rem; /* 2rem * 0.9 = 1.8rem */
-        height: 9rem; /* 10rem * 0.9 = 9rem */
+        top: 4.5rem;
+        /* 5rem * 0.9 = 4.5rem */
+        right: 1.8rem;
+        /* 2rem * 0.9 = 1.8rem */
+        height: 9rem;
+        /* 10rem * 0.9 = 9rem */
     }
 
     .S4-form-container {
-        margin-left: 1rem;
+        margin-left: .2rem;
     }
 
     .S4-form-title {
-        font-size: 1.35rem; /* 1.5rem * 0.9 = 1.35rem */
-        margin-bottom: 0.9rem; /* 1rem * 0.9 = 0.9rem */
-        margin-top: -0.9rem; /* -1rem * 0.9 = -0.9rem */
+        font-size: 1.35rem;
+        /* 1.5rem * 0.9 = 1.35rem */
+        margin-bottom: 0.9rem;
+        /* 1rem * 0.9 = 0.9rem */
+        margin-top: -0.9rem;
+        /* -1rem * 0.9 = -0.9rem */
         margin-left: -.5rem;
     }
 
     .S4-form-title-color {
-        margin-top: 1.8rem; /* 2rem * 0.9 = 1.8rem */
+        margin-top: 1.8rem;
+        /* 2rem * 0.9 = 1.8rem */
     }
 
     .S4-input-group {
-        margin-bottom: 0.45rem; /* 0.5rem * 0.9 = 0.45rem */
+        margin-bottom: 0.45rem;
+        /* 0.5rem * 0.9 = 0.45rem */
         margin-left: .4rem;
     }
 
     .S4-input-group label {
-        margin-right: -0.9rem; /* -1rem * 0.9 = -0.9rem */
+        margin-right: -0.9rem;
+        /* -1rem * 0.9 = -0.9rem */
     }
 
     .S4-unit {
-        font-size: 0.9rem; /* 1rem * 0.9 = 0.9rem */
+        font-size: 0.9rem;
+        /* 1rem * 0.9 = 0.9rem */
     }
 
     .S4-input {
-        width: 4.5rem; /* 5rem * 0.9 = 4.5rem */
-        padding: 0.18rem; /* 0.2rem * 0.9 = 0.18rem */
+        width: 4.5rem;
+        /* 5rem * 0.9 = 4.5rem */
+        padding: 0.18rem;
+        /* 0.2rem * 0.9 = 0.18rem */
     }
 
     .S4-radio-group {
-        margin-left: 1.35rem; /* 1.5rem * 0.9 = 1.35rem */
+        margin-left: 1.35rem;
+        /* 1.5rem * 0.9 = 1.35rem */
     }
 
     .S4-radio-group label {
-        margin-right: 1.8rem; /* 2rem * 0.9 = 1.8rem */
+        margin-right: 1.8rem;
+        /* 2rem * 0.9 = 1.8rem */
     }
 
     .S4-radio {
-        width: 0.9rem; /* 1rem * 0.9 = 0.9rem */
-        height: 0.9rem; /* 1rem * 0.9 = 0.9rem */
-        border: 1.8px solid black; /* 2px * 0.9 = 1.8px */
-        margin-right: 0.45rem; /* 0.5rem * 0.9 = 0.45rem */
+        width: 0.9rem;
+        /* 1rem * 0.9 = 0.9rem */
+        height: 0.9rem;
+        /* 1rem * 0.9 = 0.9rem */
+        border: 1.8px solid black;
+        /* 2px * 0.9 = 1.8px */
+        margin-right: 0.45rem;
+        /* 0.5rem * 0.9 = 0.45rem */
     }
 
     /* --- Etapa 5 --- */
     .S5-content {
-        padding: 1.8rem 2.7rem; /* 2rem * 0.9 = 1.8rem, 3rem * 0.9 = 2.7rem */
+        padding: 1.8rem 2.7rem;
+        /* 2rem * 0.9 = 1.8rem, 3rem * 0.9 = 2.7rem */
     }
 
     .S5-movel-image-container {
-        width: 18rem; /* 20rem * 0.9 = 18rem */
-        height: 18rem; /* 20rem * 0.9 = 18rem */
-        margin-right: 0.9rem; /* 1rem * 0.9 = 0.9rem */
+        width: 18rem;
+        /* 20rem * 0.9 = 18rem */
+        height: 18rem;
+        /* 20rem * 0.9 = 18rem */
+        margin-right: 0.9rem;
+        /* 1rem * 0.9 = 0.9rem */
     }
 
     .S5-movel-name {
         margin-top: 23rem;
+        font-size: 1.4rem;
     }
-    
+
     .S5-form-title-main {
-        font-size: 1.17rem; /* 1.3rem * 0.9 = 1.17rem */
-        margin-bottom: 0.63rem; /* 0.7rem * 0.9 = 0.63rem */
+        font-size: 1.17rem;
+        /* 1.3rem * 0.9 = 1.17rem */
+        margin-bottom: 0.63rem;
+        /* 0.7rem * 0.9 = 0.63rem */
     }
-    
+
     .S5-input-group {
-        margin-bottom: 0.45rem; /* 0.5rem * 0.9 = 0.45rem */
-        gap: 1.8rem; /* 2rem * 0.9 = 1.8rem */
+        margin-bottom: 0.45rem;
+        /* 0.5rem * 0.9 = 0.45rem */
+        gap: 1.8rem;
+        /* 2rem * 0.9 = 1.8rem */
         width: auto;
     }
 
-     .S5-input-group label{
+    .S5-input-group label {
         width: 6.93rem;
+        font-size: 1.3rem;
     }
 
     .S5-input {
-        width: 4.5rem; /* 5rem * 0.9 = 4.5rem */
-        padding: 0.18rem; /* 0.2rem * 0.9 = 0.18rem */
+        width: 4.5rem;
+        /* 5rem * 0.9 = 4.5rem */
+        padding: 0.18rem;
+        /* 0.2rem * 0.9 = 0.18rem */
     }
-    
+
     .S5-radio-group {
-        margin-bottom: 0.63rem; /* 0.7rem * 0.9 = 0.63rem */
+        margin-bottom: 0.63rem;
+        /* 0.7rem * 0.9 = 0.63rem */
     }
 
     .S5-radio-group label {
-        margin-right: 1.8rem; /* 2rem * 0.9 = 1.8rem */
+        margin-right: 1.8rem;
+        /* 2rem * 0.9 = 1.8rem */
     }
-    
+
     .S5-radio {
-        width: 0.9rem; /* 1rem * 0.9 = 0.9rem */
-        height: 0.9rem; /* 1rem * 0.9 = 0.9rem */
-        border: 1.8px solid black; /* 2px * 0.9 = 1.8px */
-        margin-right: 0.45rem; /* 0.5rem * 0.9 = 0.45rem */
+        width: 0.9rem;
+        /* 1rem * 0.9 = 0.9rem */
+        height: 0.9rem;
+        /* 1rem * 0.9 = 0.9rem */
+        border: 1.8px solid black;
+        /* 2px * 0.9 = 1.8px */
+        margin-right: 0.45rem;
+        /* 0.5rem * 0.9 = 0.45rem */
     }
 
     /* --- Etapa 6 --- */
 
     .S6-content {
-        padding: 1.8rem 2.7rem; /* 2rem * 0.9 = 1.8rem, 3rem * 0.9 = 2.7rem */
+        padding: 1.8rem 2.7rem;
+        /* 2rem * 0.9 = 1.8rem, 3rem * 0.9 = 2.7rem */
     }
 
     .S6-input-group {
-        margin-bottom: 0.63rem; /* 0.7rem * 0.9 = 0.63rem */
+        margin-bottom: 0.63rem;
+        /* 0.7rem * 0.9 = 0.63rem */
     }
 
     .S6-input-group label {
-        margin-bottom: 0.18rem; /* 0.2rem * 0.9 = 0.18rem */
-        font-size: 1.17rem; /* 1.3rem * 0.9 = 1.17rem */
+        margin-bottom: 0.18rem;
+        /* 0.2rem * 0.9 = 0.18rem */
+        font-size: 1.17rem;
+        /* 1.3rem * 0.9 = 1.17rem */
     }
 
     .S6-input {
-        padding: 0.18rem; /* 0.2rem * 0.9 = 0.18rem */
+        padding: 0.18rem;
+        /* 0.2rem * 0.9 = 0.18rem */
         margin-bottom: 1.8rem;
     }
 
     /* --- Etapa 7 --- */
 
     .S7-final-text {
-        font-size: 1.35rem; /* 1.5rem * 0.9 = 1.35rem */
+        font-size: 1.35rem;
+        /* 1.5rem * 0.9 = 1.35rem */
     }
 }
 
@@ -1667,107 +1942,149 @@ footer {
 
     /* Container Principal */
     .content-container {
-        width: 48rem; /* 60rem * 0.8 = 48rem */
-        height: 24rem; /* 30rem * 0.8 = 24rem */
-        margin-bottom: 4rem; /* 5rem * 0.8 = 4rem */
+        width: 48rem;
+        /* 60rem * 0.8 = 48rem */
+        height: 24rem;
+        /* 30rem * 0.8 = 24rem */
+        margin-bottom: 4rem;
+        /* 5rem * 0.8 = 4rem */
     }
 
     .content-container::before {
-        top: -2px; /* 5px * 0.8 = 4px */
-        left: -2px; /* 5px * 0.8 = 4px */
-        right: -2px; /* 5px * 0.8 = 4px */
-        bottom: -2px; /* 5px * 0.8 = 4px */
-        border: 3px solid transparent; /* 5px * 0.8 = 4px */
+        top: -2px;
+        /* 5px * 0.8 = 4px */
+        left: -2px;
+        /* 5px * 0.8 = 4px */
+        right: -2px;
+        /* 5px * 0.8 = 4px */
+        bottom: -2px;
+        /* 5px * 0.8 = 4px */
+        border: 3px solid transparent;
+        /* 5px * 0.8 = 4px */
         border-radius: 10px;
     }
-    
+
     /* Botão Próximo */
     .next-button {
-        bottom: -1.2rem; /* 1.5rem * 0.8 = 1.2rem */
-        right: -0.8rem; /* 1rem * 0.8 = 0.8rem */
-        border: 2.8px solid black; /* 3.5px * 0.8 = 2.8px */
-        padding: 0.4rem 1.6rem; /* 0.5rem * 0.8 = 0.4rem, 2rem * 0.8 = 1.6rem */
-        font-size: 0.96rem; /* 1.2rem * 0.8 = 0.96rem */
+        bottom: -1.2rem;
+        /* 1.5rem * 0.8 = 1.2rem */
+        right: -0.8rem;
+        /* 1rem * 0.8 = 0.8rem */
+        border: 2.8px solid black;
+        /* 3.5px * 0.8 = 2.8px */
+        padding: 0.4rem 1.6rem;
+        /* 0.5rem * 0.8 = 0.4rem, 2rem * 0.8 = 1.6rem */
+        font-size: 0.96rem;
+        /* 1.2rem * 0.8 = 0.96rem */
     }
 
     /* Títulos */
     .content-container-title1 {
-        font-size: 1.36rem; /* 1.7rem * 0.8 = 1.36rem */
-        padding: 1.2rem 0 0 2.4rem; /* 1.5rem * 0.8 = 1.2rem, 3rem * 0.8 = 2.4rem */
+        font-size: 1.36rem;
+        /* 1.7rem * 0.8 = 1.36rem */
+        padding: 1.2rem 0 0 2.4rem;
+        /* 1.5rem * 0.8 = 1.2rem, 3rem * 0.8 = 2.4rem */
     }
 
     .content-container-title2 {
-        font-size: 0.68rem; /* 0.85rem * 0.8 = 0.68rem */
-        padding: 0 0 0 2.4rem; /* 3rem * 0.8 = 2.4rem */
+        font-size: 0.68rem;
+        /* 0.85rem * 0.8 = 0.68rem */
+        padding: 0 0 0 2.4rem;
+        /* 3rem * 0.8 = 2.4rem */
     }
 
     /* --- Etapa 1 --- */
     .S1-grid-container {
-        gap: 0.8rem 1.6rem; /* 1rem * 0.8 = 0.8rem, 2rem * 0.8 = 1.6rem */
-        padding: 1.2rem 4.8rem; /* 1.5rem * 0.8 = 1.2rem, 6rem * 0.8 = 4.8rem */
+        gap: 0.8rem 1.6rem;
+        /* 1rem * 0.8 = 0.8rem, 2rem * 0.8 = 1.6rem */
+        padding: 1.2rem 4.8rem;
+        /* 1.5rem * 0.8 = 1.2rem, 6rem * 0.8 = 4.8rem */
     }
 
     .S1-square {
-        width: 6.4rem; /* 8rem * 0.8 = 6.4rem */
-        height: 6.4rem; /* 8rem * 0.8 = 6.4rem */
+        width: 6.4rem;
+        /* 8rem * 0.8 = 6.4rem */
+        height: 6.4rem;
+        /* 8rem * 0.8 = 6.4rem */
     }
 
     .S1-square-text {
-        margin-top: 0.4rem; /* 0.5rem * 0.8 = 0.4rem */
-        font-size: 0.8rem; /* 1rem * 0.8 = 0.8rem */
+        margin-top: 0.4rem;
+        /* 0.5rem * 0.8 = 0.4rem */
+        font-size: 0.8rem;
+        /* 1rem * 0.8 = 0.8rem */
     }
 
     /* --- Etapa 2 --- */
     .S2-grid-container {
-        padding: 1.2rem 1.6rem; /* 1.5rem * 0.8 = 1.2rem, 2rem * 0.8 = 1.6rem */
+        padding: 1.2rem 1.6rem;
+        /* 1.5rem * 0.8 = 1.2rem, 2rem * 0.8 = 1.6rem */
     }
 
     .S2-square {
-        width: 13.2rem; /* 16.5rem * 0.8 = 13.2rem */
-        height: 16rem; /* 20rem * 0.8 = 16rem */
+        width: 13.2rem;
+        /* 16.5rem * 0.8 = 13.2rem */
+        height: 16rem;
+        /* 20rem * 0.8 = 16rem */
     }
 
     .S2-plan-name {
-        top: 1.6rem; /* 2rem * 0.8 = 1.6rem */
-        font-size: .96rem; /* 1.2rem * 0.8 = 0.96rem */
+        top: 1.6rem;
+        /* 2rem * 0.8 = 1.6rem */
+        font-size: .96rem;
+        /* 1.2rem * 0.8 = 0.96rem */
     }
 
     /* --- Etapa 3 --- */
     .S3-grid-container {
-        gap: 0.8rem 1.6rem; /* 1rem * 0.8 = 0.8rem, 2rem * 0.8 = 1.6rem */
-        padding: 1.2rem 4.8rem; /* 1.5rem * 0.8 = 1.2rem, 6rem * 0.8 = 4.8rem */
+        gap: 0.8rem 1.6rem;
+        /* 1rem * 0.8 = 0.8rem, 2rem * 0.8 = 1.6rem */
+        padding: 1.2rem 4.8rem;
+        /* 1.5rem * 0.8 = 1.2rem, 6rem * 0.8 = 4.8rem */
     }
 
     .S3-square {
-        width: 6.4rem; /* 8rem * 0.8 = 6.4rem */
-        height: 6.4rem; /* 8rem * 0.8 = 6.4rem */
+        width: 6.4rem;
+        /* 8rem * 0.8 = 6.4rem */
+        height: 6.4rem;
+        /* 8rem * 0.8 = 6.4rem */
     }
 
-    .S3-square-text {
-        margin-top: 0.4rem; /* 0.5rem * 0.8 = 0.4rem */
-        font-size: 0.8rem; /* 1rem * 0.8 = 0.8rem */
+    .S3-square-text
+    {
+        margin-top: 0.4rem;
+        /* 0.5rem * 0.8 = 0.4rem */
+        font-size: 0.8rem;
+        /* 1rem * 0.8 = 0.8rem */
     }
 
     /* --- Etapa 4 --- */
     .S4-content {
-        padding: 1.6rem 2.4rem; /* 2rem * 0.8 = 1.6rem, 3rem * 0.8 = 2.4rem */
+        padding: 1.6rem 2.4rem;
+        /* 2rem * 0.8 = 1.6rem, 3rem * 0.8 = 2.4rem */
     }
 
     .S4-movel-image-container {
-        width: 16rem; /* 20rem * 0.8 = 16rem */
-        height: 16rem; /* 20rem * 0.8 = 16rem */
-        margin-right: 0.8rem; /* 1rem * 0.8 = 0.8rem */
+        width: 16rem;
+        /* 20rem * 0.8 = 16rem */
+        height: 16rem;
+        /* 20rem * 0.8 = 16rem */
+        margin-right: 0.8rem;
+        /* 1rem * 0.8 = 0.8rem */
     }
 
     .S4-movel-name {
         margin-top: 21rem;
-         font-size: 1.4rem;
+        font-size: 1.4rem;
     }
 
     .S4-medidas-image {
-        top: 4rem; /* 5rem * 0.8 = 4rem */
-        right: 1.6rem; /* 2rem * 0.8 = 1.6rem */
-        height: 8rem; /* 10rem * 0.8 = 8rem */
+        top: 4rem;
+        /* 5rem * 0.8 = 4rem */
+        right: 1.6rem;
+        /* 2rem * 0.8 = 1.6rem */
+        height: 8rem;
+        /* 10rem * 0.8 = 8rem */
     }
 
     .S4-form-container {
@@ -1776,58 +2093,77 @@ footer {
     }
 
     .S4-form-title {
-        font-size: 1.2rem; /* 1.5rem * 0.8 = 1.2rem */
-        margin-bottom: 0.8rem; /* 1rem * 0.8 = 0.8rem */
-        margin-top: -0.8rem; /* -1rem * 0.8 = -0.8rem */
+        font-size: 1.2rem;
+        /* 1.5rem * 0.8 = 1.2rem */
+        margin-bottom: 0.8rem;
+        /* 1rem * 0.8 = 0.8rem */
+        margin-top: -0.8rem;
+        /* -1rem * 0.8 = -0.8rem */
     }
 
     .S4-form-title-color {
-        margin-top: 1.6rem; /* 2rem * 0.8 = 1.6rem */
+        margin-top: 1.6rem;
+        /* 2rem * 0.8 = 1.6rem */
     }
 
     .S4-input-group {
-        margin-bottom: 0.4rem; /* 0.5rem * 0.8 = 0.4rem */
+        margin-bottom: 0.4rem;
+        /* 0.5rem * 0.8 = 0.4rem */
         gap: 1.5rem;
     }
 
     .S4-input-group label {
-        margin-right: -0.8rem; /* -1rem * 0.8 = -0.8rem */
+        margin-right: -0.8rem;
+        /* -1rem * 0.8 = -0.8rem */
     }
 
     .S4-unit {
-        font-size: 0.8rem; /* 1rem * 0.8 = 0.8rem */
+        font-size: 0.8rem;
+        /* 1rem * 0.8 = 0.8rem */
     }
 
     .S4-input {
-        width: 4rem; /* 5rem * 0.8 = 4rem */
-        padding: 0.16rem; /* 0.2rem * 0.8 = 0.16rem */
+        width: 4rem;
+        /* 5rem * 0.8 = 4rem */
+        padding: 0.16rem;
+        /* 0.2rem * 0.8 = 0.16rem */
         font-size: 0.8rem;
     }
 
     .S4-radio-group {
-        margin-left: 1.2rem; /* 1.5rem * 0.8 = 1.2rem */
+        margin-left: 1.2rem;
+        /* 1.5rem * 0.8 = 1.2rem */
     }
 
     .S4-radio-group label {
-        margin-right: 1.6rem; /* 2rem * 0.8 = 1.6rem */
+        margin-right: 1.6rem;
+        /* 2rem * 0.8 = 1.6rem */
     }
 
     .S4-radio {
-        width: 0.8rem; /* 1rem * 0.8 = 0.8rem */
-        height: 0.8rem; /* 1rem * 0.8 = 0.8rem */
-        border: 1.6px solid black; /* 2px * 0.8 = 1.6px */
-        margin-right: 0.4rem; /* 0.5rem * 0.8 = 0.4rem */
+        width: 0.8rem;
+        /* 1rem * 0.8 = 0.8rem */
+        height: 0.8rem;
+        /* 1rem * 0.8 = 0.8rem */
+        border: 1.6px solid black;
+        /* 2px * 0.8 = 1.6px */
+        margin-right: 0.4rem;
+        /* 0.5rem * 0.8 = 0.4rem */
     }
 
     /* --- Etapa 5 --- */
     .S5-content {
-        padding: 1.6rem 2.4rem; /* 2rem * 0.8 = 1.6rem, 3rem * 0.8 = 2.4rem */
+        padding: 1.6rem 2.4rem;
+        /* 2rem * 0.8 = 1.6rem, 3rem * 0.8 = 2.4rem */
     }
 
     .S5-movel-image-container {
-        width: 16rem; /* 20rem * 0.8 = 16rem */
-        height: 16rem; /* 20rem * 0.8 = 16rem */
-        margin-right: 0.8rem; /* 1rem * 0.8 = 0.8rem */
+        width: 16rem;
+        /* 20rem * 0.8 = 16rem */
+        height: 16rem;
+        /* 20rem * 0.8 = 16rem */
+        margin-right: 0.8rem;
+        /* 1rem * 0.8 = 0.8rem */
     }
 
     .S5-movel-name {
@@ -1836,61 +2172,81 @@ footer {
     }
 
     .S5-form-title-main {
-        font-size: 1.04rem; /* 1.3rem * 0.8 = 1.04rem */
-        margin-bottom: 0.56rem; /* 0.7rem * 0.8 = 0.56rem */
+        font-size: 1.04rem;
+        /* 1.3rem * 0.8 = 1.04rem */
+        margin-bottom: 0.56rem;
+        /* 0.7rem * 0.8 = 0.56rem */
     }
 
     .S5-input-group {
-        margin-bottom: 0.4rem; /* 0.5rem * 0.8 = 0.4rem */
-        gap: 1.6rem; /* 2rem * 0.8 = 1.6rem */
+        width: auto;
+        margin-bottom: 0.4rem;
+        /* 0.5rem * 0.8 = 0.4rem */
+        gap: 1.6rem;
+        /* 2rem * 0.8 = 1.6rem */
     }
-    
-    .S5-input-group label{
+
+    .S5-input-group label {
         width: 6.16rem;
+        font-size: 1.3rem;
     }
 
     .S5-input {
-        width: 4rem; /* 5rem * 0.8 = 4rem */
-        padding: 0.16rem; /* 0.2rem * 0.8 = 0.16rem */
+        width: 4rem;
+        /* 5rem * 0.8 = 4rem */
+        padding: 0.16rem;
+        /* 0.2rem * 0.8 = 0.16rem */
     }
 
     .S5-radio-group {
-        margin-bottom: 0.56rem; /* 0.7rem * 0.8 = 0.56rem */
+        margin-bottom: 0.56rem;
+        /* 0.7rem * 0.8 = 0.56rem */
     }
 
     .S5-radio-group label {
-        margin-right: 1.6rem; /* 2rem * 0.8 = 1.6rem */
+        margin-right: 1.6rem;
+        /* 2rem * 0.8 = 1.6rem */
     }
 
     .S5-radio {
-        width: 0.8rem; /* 1rem * 0.8 = 0.8rem */
-        height: 0.8rem; /* 1rem * 0.8 = 0.8rem */
-        border: 1.6px solid black; /* 2px * 0.8 = 1.6px */
-        margin-right: 0.4rem; /* 0.5rem * 0.8 = 0.4rem */
+        width: 0.8rem;
+        /* 1rem * 0.8 = 0.8rem */
+        height: 0.8rem;
+        /* 1rem * 0.8 = 0.8rem */
+        border: 1.6px solid black;
+        /* 2px * 0.8 = 1.6px */
+        margin-right: 0.4rem;
+        /* 0.5rem * 0.8 = 0.4rem */
     }
 
     /* --- Etapa 6 --- */
     .S6-content {
-        padding: 1.6rem 2.4rem; /* 2rem * 0.8 = 1.6rem, 3rem * 0.8 = 2.4rem */
+        padding: 1.6rem 2.4rem;
+        /* 2rem * 0.8 = 1.6rem, 3rem * 0.8 = 2.4rem */
     }
 
     .S6-input-group {
-        margin-bottom: 0.56rem; /* 0.7rem * 0.8 = 0.56rem */
+        margin-bottom: 0.56rem;
+        /* 0.7rem * 0.8 = 0.56rem */
     }
 
     .S6-input-group label {
-        margin-bottom: 0.16rem; /* 0.2rem * 0.8 = 0.16rem */
-        font-size: 1.04rem; /* 1.3rem * 0.8 = 1.04rem */
+        margin-bottom: 0.16rem;
+        /* 0.2rem * 0.8 = 0.16rem */
+        font-size: 1.04rem;
+        /* 1.3rem * 0.8 = 1.04rem */
     }
 
     .S6-input {
-        padding: 0.16rem; /* 0.2rem * 0.8 = 0.16rem */
+        padding: 0.16rem;
+        /* 0.2rem * 0.8 = 0.16rem */
         margin-bottom: 1.6rem;
     }
 
     /* --- Etapa 7 --- */
     .S7-final-text {
-        font-size: 1.2rem; /* 1.5rem * 0.8 = 1.2rem */
+        font-size: 1.2rem;
+        /* 1.5rem * 0.8 = 1.2rem */
     }
 }
 
@@ -1901,231 +2257,314 @@ footer {
 
     /* Container Principal */
     .content-container {
-        width: 42rem; /* 60rem * 0.7 = 42rem */
-        height: 23rem; /* 30rem * 0.7 = 21rem (ajustado para 23rem para melhor proporção) */
-        margin-bottom: 3.5rem; /* 5rem * 0.7 = 3.5rem */
+        width: 42rem;
+        /* 60rem * 0.7 = 42rem */
+        height: 23rem;
+        /* 30rem * 0.7 = 21rem (ajustado para 23rem para melhor proporção) */
+        margin-bottom: 3.5rem;
+        /* 5rem * 0.7 = 3.5rem */
     }
 
     .content-container::before {
-        top: -1.5px; /* 5px * 0.7 = 3.5px */
-        left: -1.5px; /* 5px * 0.7 = 3.5px */
-        right: -1.5px; /* 5px * 0.7 = 3.5px */
-        bottom: -1.5px; /* 5px * 0.7 = 3.5px */
-        border: 2.5px solid transparent; /* 5px * 0.7 = 3.5px */
-        border-radius: 7px; /* 10px * 0.7 = 7px */
+        top: -1.5px;
+        /* 5px * 0.7 = 3.5px */
+        left: -1.5px;
+        /* 5px * 0.7 = 3.5px */
+        right: -1.5px;
+        /* 5px * 0.7 = 3.5px */
+        bottom: -1.5px;
+        /* 5px * 0.7 = 3.5px */
+        border: 2.5px solid transparent;
+        /* 5px * 0.7 = 3.5px */
+        border-radius: 7px;
+        /* 10px * 0.7 = 7px */
     }
 
     /* Botão Próximo */
     .next-button {
-        bottom: -1.05rem; /* 1.5rem * 0.7 = 1.05rem */
-        right: -0.7rem; /* 1rem * 0.7 = 0.7rem */
-        border: 2.45px solid black; /* 3.5px * 0.7 = 2.45px */
-        padding: 0.35rem 1.4rem; /* 0.5rem * 0.7 = 0.35rem, 2rem * 0.7 = 1.4rem */
-        font-size: 0.84rem; /* 1.2rem * 0.7 = 0.84rem */
+        bottom: -1.05rem;
+        /* 1.5rem * 0.7 = 1.05rem */
+        right: -0.7rem;
+        /* 1rem * 0.7 = 0.7rem */
+        border: 2.45px solid black;
+        /* 3.5px * 0.7 = 2.45px */
+        padding: 0.35rem 1.4rem;
+        /* 0.5rem * 0.7 = 0.35rem, 2rem * 0.7 = 1.4rem */
+        font-size: 0.84rem;
+        /* 1.2rem * 0.7 = 0.84rem */
     }
 
     /* Títulos */
     .content-container-title1 {
-        font-size: 1.2rem; /* 1.7rem * 0.7 = 1.19rem (arredondado para 1.2rem) */
-        padding: 1.05rem 0 0 2.1rem; /* 1.5rem * 0.7 = 1.05rem, 3rem * 0.7 = 2.1rem */
+        font-size: 1.2rem;
+        /* 1.7rem * 0.7 = 1.19rem (arredondado para 1.2rem) */
+        padding: 1.05rem 0 0 2.1rem;
+        /* 1.5rem * 0.7 = 1.05rem, 3rem * 0.7 = 2.1rem */
     }
 
     .content-container-title2 {
-        font-size: 0.6rem; /* 0.85rem * 0.7 = 0.595rem (arredondado para 0.6rem) */
-        padding: 0 0 0 2.1rem; /* 3rem * 0.7 = 2.1rem */
+        font-size: 0.6rem;
+        /* 0.85rem * 0.7 = 0.595rem (arredondado para 0.6rem) */
+        padding: 0 0 0 2.1rem;
+        /* 3rem * 0.7 = 2.1rem */
     }
 
     /* --- Etapa 1 --- */
     .S1-grid-container {
-        gap: 0.7rem 1.4rem; /* 1rem * 0.7 = 0.7rem, 2rem * 0.7 = 1.4rem */
-        padding: 1.05rem 4.2rem; /* 1.5rem * 0.7 = 1.05rem, 6rem * 0.7 = 4.2rem */
+        gap: 0.7rem 1.4rem;
+        /* 1rem * 0.7 = 0.7rem, 2rem * 0.7 = 1.4rem */
+        padding: 1.05rem 4.2rem;
+        /* 1.5rem * 0.7 = 1.05rem, 6rem * 0.7 = 4.2rem */
     }
 
     .S1-square {
-        width: 5.6rem; /* 8rem * 0.7 = 5.6rem */
-        height: 5.6rem; /* 8rem * 0.7 = 5.6rem */
+        width: 5.6rem;
+        /* 8rem * 0.7 = 5.6rem */
+        height: 5.6rem;
+        /* 8rem * 0.7 = 5.6rem */
     }
 
     .S1-square-text {
-        margin-top: 0.35rem; /* 0.5rem * 0.7 = 0.35rem */
-        font-size: 0.7rem; /* 1rem * 0.7 = 0.7rem */
+        margin-top: 0.35rem;
+        /* 0.5rem * 0.7 = 0.35rem */
+        font-size: 0.7rem;
+        /* 1rem * 0.7 = 0.7rem */
     }
 
     /* --- Etapa 2 --- */
     .S2-grid-container {
-        padding: 1.05rem 1.4rem; /* 1.5rem * 0.7 = 1.05rem, 2rem * 0.7 = 1.4rem */
+        padding: 1.05rem 1.4rem;
+        /* 1.5rem * 0.7 = 1.05rem, 2rem * 0.7 = 1.4rem */
     }
 
     .S2-square {
-        width: 11.55rem; /* 16.5rem * 0.7 = 11.55rem */
-        height: 14rem; /* 20rem * 0.7 = 14rem */
+        width: 11.55rem;
+        /* 16.5rem * 0.7 = 11.55rem */
+        height: 14rem;
+        /* 20rem * 0.7 = 14rem */
     }
 
     .S2-plan-name {
-        top: 1.4rem; /* 2rem * 0.7 = 1.4rem */
-        font-size: 0.84rem; /* 1.2rem * 0.7 = 0.84rem */
+        top: 1.4rem;
+        /* 2rem * 0.7 = 1.4rem */
+        font-size: 0.84rem;
+        /* 1.2rem * 0.7 = 0.84rem */
     }
 
     /* --- Etapa 3 --- */
     .S3-grid-container {
-        gap: 0.7rem 1.4rem; /* 1rem * 0.7 = 0.7rem, 2rem * 0.7 = 1.4rem */
-        padding: 1.05rem 4.2rem; /* 1.5rem * 0.7 = 1.05rem, 6rem * 0.7 = 4.2rem */
+        gap: 0.7rem 1.4rem;
+        /* 1rem * 0.7 = 0.7rem, 2rem * 0.7 = 1.4rem */
+        padding: 1.05rem 4.2rem;
+        /* 1.5rem * 0.7 = 1.05rem, 6rem * 0.7 = 4.2rem */
     }
 
     .S3-square {
-        width: 5.6rem; /* 8rem * 0.7 = 5.6rem */
-        height: 5.6rem; /* 8rem * 0.7 = 5.6rem */
+        width: 5.6rem;
+        /* 8rem * 0.7 = 5.6rem */
+        height: 5.6rem;
+        /* 8rem * 0.7 = 5.6rem */
     }
 
     .S3-square-text {
-        margin-top: 0.35rem; /* 0.5rem * 0.7 = 0.35rem */
-        font-size: 0.7rem; /* 1rem * 0.7 = 0.7rem */
+        margin-top: 0.35rem;
+        /* 0.5rem * 0.7 = 0.35rem */
+        font-size: 0.7rem;
+        /* 1rem * 0.7 = 0.7rem */
     }
 
     /* --- Etapa 4 --- */
     .S4-content {
-        padding: 1.4rem 2.1rem; /* 2rem * 0.7 = 1.4rem, 3rem * 0.7 = 2.1rem */
+        padding: 1.4rem 2.1rem;
+        /* 2rem * 0.7 = 1.4rem, 3rem * 0.7 = 2.1rem */
     }
 
     .S4-movel-image-container {
-        width: 14rem; /* 20rem * 0.7 = 14rem */
-        height: 14rem; /* 20rem * 0.7 = 14rem */
-        margin-right: 0.7rem; /* 1rem * 0.7 = 0.7rem */
+        width: 14rem;
+        /* 20rem * 0.7 = 14rem */
+        height: 14rem;
+        /* 20rem * 0.7 = 14rem */
+        margin-right: 0.7rem;
+        /* 1rem * 0.7 = 0.7rem */
     }
 
     .S4-movel-name {
-        margin-top: 19rem; /* Ajuste fino */
+        margin-top: 19rem;
+        /* Ajuste fino */
         font-size: 1.3rem;
     }
 
     .S4-medidas-image {
-        top: 3.5rem; /* 5rem * 0.7 = 3.5rem */
-        right: 1.4rem; /* 2rem * 0.7 = 1.4rem */
-        height: 7rem; /* 10rem * 0.7 = 7rem */
+        top: 3.5rem;
+        /* 5rem * 0.7 = 3.5rem */
+        right: 1.4rem;
+        /* 2rem * 0.7 = 1.4rem */
+        height: 7rem;
+        /* 10rem * 0.7 = 7rem */
     }
 
     .S4-form-container {
-        margin-left: 0; /* Mantido como 0 */
+        margin-left: 0;
+        /* Mantido como 0 */
         font-size: .75rem;
     }
 
     .S4-form-title {
-        font-size: 1.05rem; /* 1.5rem * 0.7 = 1.05rem */
-        margin-bottom: 0.7rem; /* 1rem * 0.7 = 0.7rem */
-        margin-top: -0.7rem; /* -1rem * 0.7 = -0.7rem */
+        font-size: 1.05rem;
+        /* 1.5rem * 0.7 = 1.05rem */
+        margin-bottom: 0.7rem;
+        /* 1rem * 0.7 = 0.7rem */
+        margin-top: -0.7rem;
+        /* -1rem * 0.7 = -0.7rem */
     }
 
     .S4-form-title-color {
-        margin-top: 1.4rem; /* 2rem * 0.7 = 1.4rem */
+        margin-top: 1.4rem;
+        /* 2rem * 0.7 = 1.4rem */
     }
 
     .S4-input-group {
-        margin-bottom: 0.35rem; /* 0.5rem * 0.7 = 0.35rem */
+        margin-bottom: 0.35rem;
+        /* 0.5rem * 0.7 = 0.35rem */
         gap: 1rem;
     }
 
     .S4-input-group label {
-        margin-right: -0.7rem; /* -1rem * 0.7 = -0.7rem */
+        margin-right: -0.7rem;
+        /* -1rem * 0.7 = -0.7rem */
     }
 
     .S4-unit {
-        font-size: 0.7rem; /* 1rem * 0.7 = 0.7rem */
+        font-size: 0.7rem;
+        /* 1rem * 0.7 = 0.7rem */
     }
 
     .S4-input {
-        width: 3.5rem; /* 5rem * 0.7 = 3.5rem */
-        padding: 0.14rem; /* 0.2rem * 0.7 = 0.14rem */
+        width: 3.5rem;
+        /* 5rem * 0.7 = 3.5rem */
+        padding: 0.14rem;
+        /* 0.2rem * 0.7 = 0.14rem */
         font-size: 0.7rem;
     }
 
     .S4-radio-group {
-        margin-left: 1.05rem; /* 1.5rem * 0.7 = 1.05rem */
+        margin-left: 1.05rem;
+        /* 1.5rem * 0.7 = 1.05rem */
     }
 
     .S4-radio-group label {
-        margin-right: 1.4rem; /* 2rem * 0.7 = 1.4rem */
+        margin-right: 1.4rem;
+        /* 2rem * 0.7 = 1.4rem */
     }
 
     .S4-radio {
-        width: 0.7rem; /* 1rem * 0.7 = 0.7rem */
-        height: 0.7rem; /* 1rem * 0.7 = 0.7rem */
-        border: 1.4px solid black; /* 2px * 0.7 = 1.4px */
-        margin-right: 0.35rem; /* 0.5rem * 0.7 = 0.35rem */
+        width: 0.7rem;
+        /* 1rem * 0.7 = 0.7rem */
+        height: 0.7rem;
+        /* 1rem * 0.7 = 0.7rem */
+        border: 1.4px solid black;
+        /* 2px * 0.7 = 1.4px */
+        margin-right: 0.35rem;
+        /* 0.5rem * 0.7 = 0.35rem */
     }
 
     /* --- Etapa 5 --- */
     .S5-content {
-        padding: 1.4rem 2.1rem; /* 2rem * 0.7 = 1.4rem, 3rem * 0.7 = 2.1rem */
+        padding: 1.4rem 2.1rem;
+        /* 2rem * 0.7 = 1.4rem, 3rem * 0.7 = 2.1rem */
     }
 
     .S5-movel-image-container {
-        width: 14rem; /* 20rem * 0.7 = 14rem */
-        height: 14rem; /* 20rem * 0.7 = 14rem */
-        margin-right: 0.7rem; /* 1rem * 0.7 = 0.7rem */
+        width: 14rem;
+        /* 20rem * 0.7 = 14rem */
+        height: 14rem;
+        /* 20rem * 0.7 = 14rem */
+        margin-right: 0.7rem;
+        /* 1rem * 0.7 = 0.7rem */
     }
 
     .S5-movel-name {
-        margin-top: 19rem; /* Ajuste fino */
+        margin-top: 19rem;
+        /* Ajuste fino */
         font-size: 1.3rem;
     }
 
     .S5-form-title-main {
-        font-size: 0.91rem; /* 1.3rem * 0.7 = 0.91rem */
-        margin-bottom: 0.49rem; /* 0.7rem * 0.7 = 0.49rem */
+        font-size: 0.91rem;
+        /* 1.3rem * 0.7 = 0.91rem */
+        margin-bottom: 0.49rem;
+        /* 0.7rem * 0.7 = 0.49rem */
     }
 
     .S5-input-group {
-        margin-bottom: 0.35rem; /* 0.5rem * 0.7 = 0.35rem */
-        gap: 1.4rem; /* 2rem * 0.7 = 1.4rem */
+        margin-bottom: 0.35rem;
+        /* 0.5rem * 0.7 = 0.35rem */
+        gap: 1.4rem;
+        /* 2rem * 0.7 = 1.4rem */
         width: auto;
     }
 
-     .S5-input-group label{
+    .S5-input-group label {
         width: 5.39rem;
+        font-size: 1.3rem;
     }
 
     .S5-input {
-        width: 3.5rem; /* 5rem * 0.7 = 3.5rem */
-        padding: 0.14rem; /* 0.2rem * 0.7 = 0.14rem */
+        width: 3.5rem;
+        /* 5rem * 0.7 = 3.5rem */
+        padding: 0.14rem;
+        /* 0.2rem * 0.7 = 0.14rem */
     }
 
     .S5-radio-group {
-        margin-bottom: 0.49rem; /* 0.7rem * 0.7 = 0.49rem */
+        margin-bottom: 0.49rem;
+        /* 0.7rem * 0.7 = 0.49rem */
     }
 
     .S5-radio-group label {
-        margin-right: 1.4rem; /* 2rem * 0.7 = 1.4rem */
+        margin-right: 1.4rem;
+        /* 2rem * 0.7 = 1.4rem */
     }
 
     .S5-radio {
-        width: 0.7rem; /* 1rem * 0.7 = 0.7rem */
-        height: 0.7rem; /* 1rem * 0.7 = 0.7rem */
-        border: 1.4px solid black; /* 2px * 0.7 = 1.4px */
-        margin-right: 0.35rem; /* 0.5rem * 0.7 = 0.35rem */
+        width: 0.7rem;
+        /* 1rem * 0.7 = 0.7rem */
+        height: 0.7rem;
+        /* 1rem * 0.7 = 0.7rem */
+        border: 1.4px solid black;
+        /* 2px * 0.7 = 1.4px */
+        margin-right: 0.35rem;
+        /* 0.5rem * 0.7 = 0.35rem */
     }
 
     /* --- Etapa 6 --- */
     .S6-content {
-        padding: 1.4rem 2.1rem; /* 2rem * 0.7 = 1.4rem, 3rem * 0.7 = 2.1rem */
+        padding: 1.4rem 2.1rem;
+        /* 2rem * 0.7 = 1.4rem, 3rem * 0.7 = 2.1rem */
     }
 
     .S6-input-group {
-        margin-bottom: 0.49rem; /* 0.7rem * 0.7 = 0.49rem */
+        margin-bottom: 0.49rem;
+        /* 0.7rem * 0.7 = 0.49rem */
     }
 
     .S6-input-group label {
-        margin-bottom: 0.14rem; /* 0.2rem * 0.7 = 0.14rem */
-        font-size: 0.91rem; /* 1.3rem * 0.7 = 0.91rem */
+        margin-bottom: 0.14rem;
+        /* 0.2rem * 0.7 = 0.14rem */
+        font-size: 0.91rem;
+        /* 1.3rem * 0.7 = 0.91rem */
     }
 
     .S6-input {
-        padding: 0.14rem; /* 0.2rem * 0.7 = 0.14rem */
+        padding: 0.14rem;
+        /* 0.2rem * 0.7 = 0.14rem */
         margin-bottom: 1.4rem;
     }
 
     /* --- Etapa 7 --- */
     .S7-final-text {
-        font-size: 1.05rem; /* 1.5rem * 0.7 = 1.05rem */
+        font-size: 1.05rem;
+        /* 1.5rem * 0.7 = 1.05rem */
     }
 }
 
@@ -2136,237 +2575,335 @@ footer {
 
     /* Container Principal */
     .content-container {
-        width: 39rem; /* 60rem * 0.65 = 39rem */
-        height: 22rem; /* 30rem * 0.65 ≈ 19.5rem (ajustado para 22rem para melhor proporção) */
-        margin-bottom: 3.25rem; /* 5rem * 0.65 = 3.25rem */
+        width: 39rem;
+        /* 60rem * 0.65 = 39rem */
+        height: 22rem;
+        /* 30rem * 0.65 ≈ 19.5rem (ajustado para 22rem para melhor proporção) */
+        margin-bottom: 3.25rem;
+        /* 5rem * 0.65 = 3.25rem */
     }
 
     .content-container::before {
-        top: -2.25px; /* 5px * 0.65 = 3.25px */
-        left: -2.25px; /* 5px * 0.65 = 3.25px */
-        right: -2.25px; /* 5px * 0.65 = 3.25px */
-        bottom: -2.25px; /* 5px * 0.65 = 3.25px */
-        border: 2.75px solid transparent; /* 5px * 0.65 = 3.25px */
-        border-radius: 6.5px; /* 10px * 0.65 = 6.5px */
+        top: -2.25px;
+        /* 5px * 0.65 = 3.25px */
+        left: -2.25px;
+        /* 5px * 0.65 = 3.25px */
+        right: -2.25px;
+        /* 5px * 0.65 = 3.25px */
+        bottom: -2.25px;
+        /* 5px * 0.65 = 3.25px */
+        border: 2.75px solid transparent;
+        /* 5px * 0.65 = 3.25px */
+        border-radius: 6.5px;
+        /* 10px * 0.65 = 6.5px */
     }
 
     /* Botão Próximo */
     .next-button {
-        bottom: -1.05rem; /* 1.5rem * 0.7 = 1.05rem */
-        right: -0.7rem; /* 1rem * 0.7 = 0.7rem */
-        border: 2.45px solid black; /* 3.5px * 0.7 = 2.45px */
-        padding: 0.35rem 1.4rem; /* 0.5rem * 0.7 = 0.35rem, 2rem * 0.7 = 1.4rem */
-        font-size: 0.84rem; /* 1.2rem * 0.7 = 0.84rem */
+        bottom: -1.05rem;
+        /* 1.5rem * 0.7 = 1.05rem */
+        right: -0.7rem;
+        /* 1rem * 0.7 = 0.7rem */
+        border: 2.45px solid black;
+        /* 3.5px * 0.7 = 2.45px */
+        padding: 0.35rem 1.4rem;
+        /* 0.5rem * 0.7 = 0.35rem, 2rem * 0.7 = 1.4rem */
+        font-size: 0.84rem;
+        /* 1.2rem * 0.7 = 0.84rem */
     }
 
     /* Títulos */
     .content-container-title1 {
-        font-size: 1.1rem; /* 1.7rem * 0.65 ≈ 1.1rem */
-        padding: 0.975rem 0 0 1.95rem; /* 1.5rem * 0.65 = 0.975rem, 3rem * 0.65 = 1.95rem */
+        font-size: 1.1rem;
+        /* 1.7rem * 0.65 ≈ 1.1rem */
+        padding: 0.975rem 0 0 1.95rem;
+        /* 1.5rem * 0.65 = 0.975rem, 3rem * 0.65 = 1.95rem */
     }
 
     .content-container-title2 {
-        font-size: 0.55rem; /* 0.85rem * 0.65 ≈ 0.55rem */
-        padding: 0 0 0 1.95rem; /* 3rem * 0.65 = 1.95rem */
+        font-size: 0.55rem;
+        /* 0.85rem * 0.65 ≈ 0.55rem */
+        padding: 0 0 0 1.95rem;
+        /* 3rem * 0.65 = 1.95rem */
     }
 
     /* --- Etapa 1 --- */
     .S1-grid-container {
-        gap: 0.65rem 1.3rem; /* 1rem * 0.65 = 0.65rem, 2rem * 0.65 = 1.3rem */
-        padding: 0.975rem 3.9rem; /* 1.5rem * 0.65 = 0.975rem, 6rem * 0.65 = 3.9rem */
+        gap: 0.65rem 1.3rem;
+        /* 1rem * 0.65 = 0.65rem, 2rem * 0.65 = 1.3rem */
+        padding: 0.975rem 3.9rem;
+        /* 1.5rem * 0.65 = 0.975rem, 6rem * 0.65 = 3.9rem */
     }
 
     .S1-square {
-        width: 5.2rem; /* 8rem * 0.65 = 5.2rem */
-        height: 5.2rem; /* 8rem * 0.65 = 5.2rem */
+        width: 5.2rem;
+        /* 8rem * 0.65 = 5.2rem */
+        height: 5.2rem;
+        /* 8rem * 0.65 = 5.2rem */
     }
 
     .S1-square-text {
-        margin-top: 0.325rem; /* 0.5rem * 0.65 = 0.325rem */
-        font-size: 0.65rem; /* 1rem * 0.65 = 0.65rem */
+        margin-top: 0.325rem;
+        /* 0.5rem * 0.65 = 0.325rem */
+        font-size: 0.65rem;
+        /* 1rem * 0.65 = 0.65rem */
     }
 
     /* --- Etapa 2 --- */
     .S2-grid-container {
-        padding: 0.975rem 1.3rem; /* 1.5rem * 0.65 = 0.975rem, 2rem * 0.65 = 1.3rem */
+        padding: 0.975rem 1.3rem;
+        /* 1.5rem * 0.65 = 0.975rem, 2rem * 0.65 = 1.3rem */
     }
 
     .S2-square {
-        width: 10.725rem; /* 16.5rem * 0.65 = 10.725rem */
-        height: 13rem; /* 20rem * 0.65 = 13rem */
+        width: 10.725rem;
+        /* 16.5rem * 0.65 = 10.725rem */
+        height: 13rem;
+        /* 20rem * 0.65 = 13rem */
     }
 
     .S2-plan-name {
-        top: 1.3rem; /* 2rem * 0.65 = 1.3rem */
-        font-size: 0.78rem; /* 1.2rem * 0.65 = 0.78rem */
+        top: 1.3rem;
+        /* 2rem * 0.65 = 1.3rem */
+        font-size: 0.78rem;
+        /* 1.2rem * 0.65 = 0.78rem */
     }
 
     /* --- Etapa 3 --- */
     .S3-grid-container {
-        gap: 0.65rem 1.3rem; /* 1rem * 0.65 = 0.65rem, 2rem * 0.65 = 1.3rem */
-        padding: 0.975rem 3.9rem; /* 1.5rem * 0.65 = 0.975rem, 6rem * 0.65 = 3.9rem */
+        gap: 0.65rem 1.3rem;
+        /* 1rem * 0.65 = 0.65rem, 2rem * 0.65 = 1.3rem */
+        padding: 0.975rem 3.9rem;
+        /* 1.5rem * 0.65 = 0.975rem, 6rem * 0.65 = 3.9rem */
     }
 
     .S3-square {
-        width: 5.2rem; /* 8rem * 0.65 = 5.2rem */
-        height: 5.2rem; /* 8rem * 0.65 = 5.2rem */
+        width: 5.2rem;
+        /* 8rem * 0.65 = 5.2rem */
+        height: 5.2rem;
+        /* 8rem * 0.65 = 5.2rem */
     }
 
     .S3-square-text {
-        margin-top: 0.325rem; /* 0.5rem * 0.65 = 0.325rem */
-        font-size: 0.65rem; /* 1rem * 0.65 = 0.65rem */
+        margin-top: 0.325rem;
+        /* 0.5rem * 0.65 = 0.325rem */
+        font-size: 0.65rem;
+        /* 1rem * 0.65 = 0.65rem */
     }
 
     /* --- Etapa 4 --- */
     .S4-content {
-        padding: 1.3rem 1.95rem; /* 2rem * 0.65 = 1.3rem, 3rem * 0.65 = 1.95rem */
+        padding: 1.3rem 1.95rem;
+        /* 2rem * 0.65 = 1.3rem, 3rem * 0.65 = 1.95rem */
     }
 
     .S4-movel-image-container {
-        width: 13rem; /* 20rem * 0.65 = 13rem */
-        height: 13rem; /* 20rem * 0.65 = 13rem */
-        margin-right: 0.65rem; /* 1rem * 0.65 = 0.65rem */
+        width: 13rem;
+        /* 20rem * 0.65 = 13rem */
+        height: 13rem;
+        /* 20rem * 0.65 = 13rem */
+        margin-right: 0.65rem;
+        /* 1rem * 0.65 = 0.65rem */
     }
 
     .S4-movel-name {
-        margin-top: 18rem; /* Ajuste fino */
+        margin-top: 18rem;
+        /* Ajuste fino */
         font-size: 1.2rem;
     }
 
     .S4-medidas-image {
-        top: 3.25rem; /* 5rem * 0.65 = 3.25rem */
-        right: 1.3rem; /* 2rem * 0.65 = 1.3rem */
-        height: 6.5rem; /* 10rem * 0.65 = 6.5rem */
+        top: 3.25rem;
+        /* 5rem * 0.65 = 3.25rem */
+        right: 1.3rem;
+        /* 2rem * 0.65 = 1.3rem */
+        height: 6.5rem;
+        /* 10rem * 0.65 = 6.5rem */
     }
 
     .S4-form-container {
-        margin-left: 0; /* Mantido como 0 */
+        margin-left: 0;
+        /* Mantido como 0 */
         font-size: .65rem;
     }
 
     .S4-form-title {
-        font-size: 0.975rem; /* 1.5rem * 0.65 = 0.975rem */
-        margin-bottom: 0.65rem; /* 1rem * 0.65 = 0.65rem */
-        margin-top: -0.65rem; /* -1rem * 0.65 = -0.65rem */
+        font-size: 0.975rem;
+        /* 1.5rem * 0.65 = 0.975rem */
+        margin-bottom: 0.65rem;
+        /* 1rem * 0.65 = 0.65rem */
+        margin-top: -0.65rem;
+        /* -1rem * 0.65 = -0.65rem */
     }
 
     .S4-form-title-color {
-        margin-top: 1.3rem; /* 2rem * 0.65 = 1.3rem */
+        margin-top: 1.3rem;
+        /* 2rem * 0.65 = 1.3rem */
     }
 
     .S4-input-group {
-        margin-bottom: 0.325rem; /* 0.5rem * 0.65 = 0.325rem */
+        margin-bottom: 0.325rem;
+        /* 0.5rem * 0.65 = 0.325rem */
         gap: 1rem;
         margin-left: -.5rem;
     }
 
     .S4-input-group label {
-        margin-right: -0.65rem; /* -1rem * 0.65 = -0.65rem */
+        margin-right: -0.65rem;
+        /* -1rem * 0.65 = -0.65rem */
     }
 
     .S4-unit {
-        font-size: 0.65rem; /* 1rem * 0.65 = 0.65rem */
+        font-size: 0.65rem;
+        /* 1rem * 0.65 = 0.65rem */
     }
 
     .S4-input {
-        width: 3.25rem; /* 5rem * 0.65 = 3.25rem */
-        padding: 0.13rem; /* 0.2rem * 0.65 = 0.13rem */
+        width: 3.25rem;
+        /* 5rem * 0.65 = 3.25rem */
+        padding: 0.13rem;
+        /* 0.2rem * 0.65 = 0.13rem */
         font-size: 0.65rem;
     }
 
     .S4-radio-group {
-        margin-left: 0.975rem; /* 1.5rem * 0.65 = 0.975rem */
+        margin-left: 0.975rem;
+        /* 1.5rem * 0.65 = 0.975rem */
     }
 
     .S4-radio-group label {
-        margin-right: 1.3rem; /* 2rem * 0.65 = 1.3rem */
+        margin-right: 1.3rem;
+        /* 2rem * 0.65 = 1.3rem */
     }
 
     .S4-radio {
-        width: 0.65rem; /* 1rem * 0.65 = 0.65rem */
-        height: 0.65rem; /* 1rem * 0.65 = 0.65rem */
-        border: 1.3px solid black; /* 2px * 0.65 = 1.3px */
-        margin-right: 0.325rem; /* 0.5rem * 0.65 = 0.325rem */
+        width: 0.65rem;
+        /* 1rem * 0.65 = 0.65rem */
+        height: 0.65rem;
+        /* 1rem * 0.65 = 0.65rem */
+        border: 1.3px solid black;
+        /* 2px * 0.65 = 1.3px */
+        margin-right: 0.325rem;
+        /* 0.5rem * 0.65 = 0.325rem */
     }
 
     /* --- Etapa 5 --- */
     .S5-content {
-        padding: 1.3rem 1.95rem; /* 2rem * 0.65 = 1.3rem, 3rem * 0.65 = 1.95rem */
+        padding: 1.3rem 1.95rem;
+        /* 2rem * 0.65 = 1.3rem, 3rem * 0.65 = 1.95rem */
     }
 
     .S5-movel-image-container {
-        width: 13rem; /* 20rem * 0.65 = 13rem */
-        height: 13rem; /* 20rem * 0.65 = 13rem */
-        margin-right: 0.65rem; /* 1rem * 0.65 = 0.65rem */
+        width: 13rem;
+        /* 20rem * 0.65 = 13rem */
+        height: 13rem;
+                /* 20rem * 0.65 = 13rem */
+        margin-right: 0.65rem;
+        /* 1rem * 0.65 = 0.65rem */
     }
 
     .S5-movel-name {
-        margin-top: 18rem; /* Ajuste fino */
+        margin-top: 18rem;
+        /* Ajuste fino */
         font-size: 1.2rem;
     }
 
     .S5-form-title-main {
-        font-size: 0.845rem; /* 1.3rem * 0.65 = 0.845rem */
-        margin-bottom: 0.455rem; /* 0.7rem * 0.65 = 0.455rem */
+        font-size: 0.845rem;
+        /* 1.3rem * 0.65 = 0.845rem */
+        margin-bottom: 0.455rem;
+        /* 0.7rem * 0.65 = 0.455rem */
     }
 
     .S5-input-group {
-        margin-bottom: 0.325rem; /* 0.5rem * 0.65 = 0.325rem */
-        gap: 1.3rem; /* 2rem * 0.65 = 1.3rem */
+        margin-bottom: 0.325rem;
+        /* 0.5rem * 0.65 = 0.325rem */
+        gap: 1.3rem;
+        /* 2rem * 0.65 = 1.3rem */
         width: auto;
     }
 
-     .S5-input-group label{
+    .S5-input-group label {
         width: 5.005rem;
+        font-size: 1.3rem;
     }
 
     .S5-input {
-        width: 3.25rem; /* 5rem * 0.65 = 3.25rem */
-        padding: 0.13rem; /* 0.2rem * 0.65 = 0.13rem */
+        width: 3.25rem;
+        /* 5rem * 0.65 = 3.25rem */
+        padding: 0.13rem;
+        /* 0.2rem * 0.65 = 0.13rem */
     }
 
     .S5-radio-group {
-        margin-bottom: 0.455rem; /* 0.7rem * 0.65 = 0.455rem */
+        margin-bottom: 0.455rem;
+        /* 0.7rem * 0.65 = 0.455rem */
     }
 
     .S5-radio-group label {
-        margin-right: 1.3rem; /* 2rem * 0.65 = 1.3rem */
+        margin-right: 1.3rem;
+        /* 2rem * 0.65 = 1.3rem */
     }
 
     .S5-radio {
-        width: 0.65rem; /* 1rem * 0.65 = 0.65rem */
-        height: 0.65rem; /* 1rem * 0.65 = 0.65rem */
-        border: 1.3px solid black; /* 2px * 0.65 = 1.3px */
-        margin-right: 0.325rem; /* 0.5rem * 0.65 = 0.325rem */
+        width: 0.65rem;
+        /* 1rem * 0.65 = 0.65rem */
+        height: 0.65rem;
+        /* 1rem * 0.65 = 0.65rem */
+        border: 1.3px solid black;
+        /* 2px * 0.65 = 1.3px */
+        margin-right: 0.325rem;
+        /* 0.5rem * 0.65 = 0.325rem */
     }
 
     /* --- Etapa 6 --- */
     .S6-content {
-        padding: 1.3rem 1.95rem; /* 2rem * 0.65 = 1.3rem, 3rem * 0.65 = 1.95rem */
+        padding: 1.3rem 1.95rem;
+        /* 2rem * 0.65 = 1.3rem, 3rem * 0.65 = 1.95rem */
     }
 
     .S6-input-group {
-        margin-bottom: 0.455rem; /* 0.7rem * 0.65 = 0.455rem */
+        margin-bottom: 0.455rem;
+        /* 0.7rem * 0.65 = 0.455rem */
     }
 
     .S6-input-group label {
-        margin-bottom: 0.13rem; /* 0.2rem * 0.65 = 0.13rem */
-        font-size: 0.845rem; /* 1.3rem * 0.65 = 0.845rem */
+        margin-bottom: 0.13rem;
+        /* 0.2rem * 0.65 = 0.13rem */
+        font-size: 0.845rem;
+        /* 1.3rem * 0.65 = 0.845rem */
     }
 
     .S6-input {
-        padding: 0.13rem; /* 0.2rem * 0.65 = 0.13rem */
+        padding: 0.13rem;
+        /* 0.2rem * 0.65 = 0.13rem */
         margin-bottom: 1.3rem;
     }
 
     /* --- Etapa 7 --- */
     .S7-final-text {
-        font-size: 0.975rem; /* 1.5rem * 0.65 = 0.975rem */
+        font-size: 0.975rem;
+        /* 1.5rem * 0.65 = 0.975rem */
     }
 }
 
+/* #endregion*/
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* #region Media Queries Gerais - Menores */
 
 /* Media Query: 600px - 680px */
 @media (min-width: 600px) and (max-width: 680px) {
@@ -2384,15 +2921,17 @@ footer {
 
     /* Container Principal */
     .content-container {
-        width: 90vw; /* 90% da largura da viewport */
-        max-width: none; /* Remove a largura máxima anterior */
+        width: 90vw;
+        /* 90% da largura da viewport */
+        max-width: none;
+        /* Remove a largura máxima anterior */
         height: auto;
         margin-bottom: 3rem;
-        margin-left: 5vw; /* Centraliza o container */
     }
 
     .padrao {
-        display: none; /* Remove os padrões do fundo */
+        display: none;
+        /* Remove os padrões do fundo */
     }
 
     .content-container::before {
@@ -2405,70 +2944,83 @@ footer {
     }
 
     /* Altura dinâmica para as etapas com grades */
-    .S1-grid-container, .S3-grid-container {
+    .S1-grid-container,
+    .S3-grid-container {
         display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Mantém 3 colunas */
-        gap: 1.5rem 3rem;
-        padding: 1rem 4rem;
+        grid-template-columns: repeat(3, 1fr);
+        /* Mantém 3 colunas */
+        gap: 1.5rem 2rem;
+        padding: 1rem 3rem;
     }
 
-    .S1-square, .S3-square {
-        width: calc((90vw - 10vw - 6rem) / 3); /* Ajusta a largura dos quadrados */
-        height: calc((90vw - 10vw - 6rem) / 3); /* Ajusta a altura dos quadrados */
+    .S1-square,
+    .S3-square {
+        width: calc((90vw - 10vw - 6rem) / 3);
+        /* Ajusta a largura dos quadrados */
+        height: calc((90vw - 10vw - 6rem) / 3);
+        /* Ajusta a altura dos quadrados */
     }
-    
+
     .S2-grid-container {
-         grid-template-columns: repeat(1, 1fr); /* 1 coluna para melhor visualização */
-         gap: 1rem;
-         padding: 1.5rem 5rem; /* Ajuste no padding */
+        padding: 1rem;
+        /* Ajuste no padding */
+        padding-bottom: 2rem;
     }
 
-     .S2-square {
-         width: 100%;
-         max-width: calc(90vw - 10vw - 3rem); /* Ajusta a largura máxima */
-         height: auto; /* Altura automática para manter a proporção */
-         padding-bottom: 1rem; /* Espaçamento na parte inferior para o texto */
+    .S2-square {
+        width: 10rem;
+        max-width: calc(90vw - 10vw - 3rem);
+        /* Ajusta a largura máxima */
+        height: 15rem;
+        /* Altura automática para manter a proporção */
     }
+
+    .S2-plan-name {
+        position: static;
+        text-align: center;
+        padding-top: 1rem;
+        /* Distância em relação ao topo do quadrado */
+        left: 0;
+        transform: translateX(0%);
+        /* Centraliza o nome do plano */
+        font-size: 1rem;
+    }
+
 
     /* Botão Próximo */
     .next-button {
-        bottom: -1.05rem; /* 1.5rem * 0.7 = 1.05rem */
-        right: -0.7rem; /* 1rem * 0.7 = 0.7rem */
-        border: 2.45px solid black; /* 3.5px * 0.7 = 2.45px */
-        padding: 0.35rem 1.4rem; /* 0.5rem * 0.7 = 0.35rem, 2rem * 0.7 = 1.4rem */
-        font-size: 0.84rem; /* 1.2rem * 0.7 = 0.84rem */
+        bottom: -1.05rem;
+        right: -0.7rem;
+        border: 2.45px solid black;
+        padding: 0.30rem 1.4rem;
+        font-size: 0.9rem;
     }
 
     /* Títulos */
     .content-container-title1 {
-        font-size: 1rem;
-        padding: 0.9rem 0 0 1.8rem;
+        text-align: center;
+        font-size: 1.4rem;
+        padding: 0.9rem 0 0;
     }
 
     .content-container-title2 {
-        font-size: 0.5rem;
+        font-size: 0.7rem;
         padding: 0 0 0 1.8rem;
     }
 
     /* --- Etapa 1 e 3 --- */
 
-    .S1-square-text, .S3-square-text {
+    .S1-square-text,
+    .S3-square-text {
         margin-top: 0.3rem;
-        font-size: 0.6rem;
-    }
-
-    /* --- Etapa 2 --- */
-    
-    .S2-plan-name {
-        top: 1.5rem;
-        font-size: 1rem;
-        margin: 0 1rem;
+        font-size: 0.84rem;
     }
 
     /* --- Etapa 4 --- */
     .S4-content {
         padding: 1.2rem 1.8rem;
-        flex-direction: column; /* Mudança para coluna */
+        flex-direction: column;
+        /* Mudança para coluna */
     }
 
     .S4-movel-image-container {
@@ -2481,32 +3033,36 @@ footer {
     }
 
     .S4-movel-image {
-       width: calc(90vw - 10vw - 3.6rem); /* Ajusta a largura da imagem */
-       height: calc(90vw - 10vw - 3.6rem); /* Ajusta a altura da imagem */
-       max-width: 18rem;
-       max-height: 18rem;
+        width: calc(90vw - 10vw - 3.6rem);
+        /* Ajusta a largura da imagem */
+        height: calc(90vw - 10vw - 3.6rem);
+        /* Ajusta a altura da imagem */
+        max-width: 18rem;
+        max-height: 18rem;
     }
 
     .S4-movel-name {
-        margin-top: 1rem;
+        margin-top: 22rem;
         margin-bottom: 1rem;
         font-size: 1.3rem;
         text-align: center;
     }
 
     .S4-medidas-image {
-        display: none; /* Oculta a imagem de medidas */
+        margin-top: 19rem;
     }
 
     .S4-form-container {
-        width: 100%;
+        width: 9.3rem;
         text-align: left;
-        margin-left: 0;
-        align-items: flex-start;
+        align-items: left;
+        padding-right: 65%;
+        margin-top: 2rem;
+        margin-left: 2rem;
     }
 
     .S4-form-title {
-        font-size: 1.1rem;
+        font-size: 1rem;
         margin-bottom: 0.6rem;
         margin-top: 0;
         margin-left: 0;
@@ -2519,41 +3075,41 @@ footer {
     .S4-input-group {
         margin-bottom: 0.3rem;
         gap: .4rem;
-        margin-left: 0;
+        margin-left: 2rem;
         width: 100%;
-        justify-content: space-between;
+        justify-content: right;
+
     }
 
     .S4-input-group label {
         margin-right: 0;
-        font-size: .8rem;
+        font-size: 1rem;
     }
 
     .S4-unit {
-        font-size: 0.7rem;
+        font-size: 1rem;
     }
 
     .S4-input {
         width: 3rem;
         padding: 0.12rem;
-        font-size: 0.7rem;
+        font-size: 1rem;
     }
 
     .S4-radio-group {
         margin-left: 0;
-        width: 100%;
+        width: 15rem;
         margin-bottom: 2rem;
-        justify-content: space-between;
     }
 
     .S4-radio-group label {
         margin-right: 1.2rem;
-         font-size: .9rem;
+        font-size: 1rem;
     }
 
     .S4-radio {
-        width: 0.6rem;
-        height: 0.6rem;
+        width: 0.84rem;
+        height: 0.84rem;
         border: 1.2px solid black;
         margin-right: 0.3rem;
     }
@@ -2561,40 +3117,42 @@ footer {
     /* --- Etapa 5 --- */
     .S5-content {
         padding: 1.2rem 1.8rem;
-        flex-direction: column; /* Mudança para coluna */
+        flex-direction: column;
+        /* Mudança para coluna */
     }
 
     .S5-movel-image-container {
-       width: 100%;
+        width: 100%;
         height: auto;
         margin-right: 0;
-        margin-bottom: 1rem;
+        margin-bottom: 3rem;
         justify-content: center;
     }
 
     .S5-movel-image {
-        width: calc(90vw - 10vw - 3.6rem); /* Ajusta a largura da imagem */
-        height: calc(90vw - 10vw - 3.6rem); /* Ajusta a altura da imagem */
+        width: calc(90vw - 10vw - 3.6rem);
+        /* Ajusta a largura da imagem */
+        height: calc(90vw - 10vw - 3.6rem);
+        /* Ajusta a altura da imagem */
         max-width: 18rem;
         max-height: 18rem;
     }
 
     .S5-movel-name {
-       margin-top: 0;
-        margin-bottom: 1rem;
+        margin-top: 22rem;
         font-size: 1.3rem;
         text-align: center;
     }
 
     .S5-form-container {
-       width: 100%;
+        width: auto;
         text-align: left;
         margin-left: 0;
-        align-items: flex-start;
+        padding-bottom: 1rem;
     }
 
     .S5-form-title-main {
-        font-size: 0.9rem;
+        font-size: 1.2rem;
         margin-bottom: 0.42rem;
         margin-top: 0;
         text-align: left;
@@ -2606,9 +3164,10 @@ footer {
         width: 100%;
         justify-content: space-between;
     }
-     .S5-input-group label{
-         font-size: .9rem;
-         width: 5.5rem;
+
+    .S5-input-group label {
+        font-size: 1.2rem;
+        width: 5.5rem;
     }
 
     .S5-input {
@@ -2618,19 +3177,17 @@ footer {
 
     .S5-radio-group {
         margin-bottom: 0.42rem;
-        margin-left: -.5rem;
         width: 100%;
-        justify-content: space-between;
     }
 
     .S5-radio-group label {
         margin-right: 1.2rem;
-         font-size: .9rem;
+        font-size: 1.2rem;
     }
 
     .S5-radio {
-        width: 0.6rem;
-        height: 0.6rem;
+        width: 0.84rem;
+        height: 0.84rem;
         border: 1.2px solid black;
         margin-right: 0.3rem;
         margin-left: 0;
@@ -2647,7 +3204,7 @@ footer {
 
     .S6-input-group label {
         margin-bottom: 0.12rem;
-        font-size: 0.9rem;
+        font-size: 1.2rem;
     }
 
     .S6-input {
@@ -2657,7 +3214,7 @@ footer {
 
     /* --- Etapa 7 --- */
     .S7-final-text {
-        font-size: 0.9rem;
+        font-size: 1.2rem;
     }
 }
 
@@ -2677,15 +3234,17 @@ footer {
 
     /* Container Principal */
     .content-container {
-        width: 90vw; /* Mantém a largura responsiva */
-        max-width: none; /* Reduz a largura máxima */
+        width: 90vw;
+        /* Mantém a largura responsiva */
+        max-width: none;
+        /* Reduz a largura máxima */
         height: auto;
         margin-bottom: 2.5rem;
-        margin-left: 5vw; /* Centraliza o container */
     }
 
     .padrao {
-        display: none; /* Remove os padrões do fundo */
+        display: none;
+        /* Remove os padrões do fundo */
     }
 
     .content-container::before {
@@ -2698,70 +3257,83 @@ footer {
     }
 
     /* Altura dinâmica para as etapas com grades */
-    .S1-grid-container, .S3-grid-container {
+    .S1-grid-container,
+    .S3-grid-container {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Ajusta para 2 colunas */
+        grid-template-columns: repeat(2, 1fr);
+        /* Ajusta para 2 colunas */
         gap: 1.5rem 3rem;
         padding: 0.8rem 4rem;
     }
 
-    .S1-square, .S3-square {
-        width: calc((90vw - 10vw - 9rem) / 2); /* Mantém o tamanho dos quadrados */
-        height: calc((90vw - 10vw - 9rem) / 2); /* Mantém o tamanho dos quadrados */
+    .S1-square,
+    .S3-square {
+        width: calc((90vw - 10vw - 9rem) / 2);
+        /* Mantém o tamanho dos quadrados */
+        height: calc((90vw - 10vw - 9rem) / 2);
+        /* Mantém o tamanho dos quadrados */
     }
 
     .S2-grid-container {
-         grid-template-columns: repeat(1, 1fr); /* 1 coluna */
-         gap: 1rem;
-         padding: 1.5rem 3rem; /* Ajuste no padding */
+        grid-template-columns: repeat(1, 1fr);
+        /* 1 coluna */
+        gap: 1rem;
+        padding: 1.5rem 3rem;
+        /* Ajuste no padding */
     }
 
     .S2-square {
-         width: 100%;
-         max-width: calc(90vw - 10vw - 2rem); /* Ajusta a largura máxima */
-         height: auto; /* Altura automática para manter a proporção */
-         padding-bottom: 1rem; /* Espaçamento na parte inferior para o texto */
+        width: 80%;
+        max-width: calc(90vw - 10vw - 2rem);
+        /* Ajusta a largura máxima */
+        height: 20rem;
+        /* Altura automática para manter a proporção */
+        padding-bottom: 1rem;
+        /* Espaçamento na parte inferior para o texto */
     }
 
     /* Botão Próximo */
     .next-button {
-        bottom: -1.05rem; 
-        right: -0.7rem; 
-        border: 2.45px solid black; 
-        padding: 0.30rem 1.4rem; 
-        font-size: 0.64rem; 
+        bottom: -1.05rem;
+        right: -0.7rem;
+        border: 2.45px solid black;
+        padding: 0.30rem 1.4rem;
+        font-size: 0.9rem;
     }
 
     /* Títulos */
     .content-container-title1 {
-        font-size: 0.9rem;
-        padding: 0.75rem 0 0 1.5rem;
+        text-align: center;
+        font-size: 1.2rem;
+        padding: 0.75rem 0 0;
     }
 
     .content-container-title2 {
-        font-size: 0.45rem;
+        font-size: 0.6rem;
         padding: 0 0 0 1.5rem;
     }
 
     /* --- Etapa 1 e 3 --- */
 
-    .S1-square-text, .S3-square-text {
+    .S1-square-text,
+    .S3-square-text {
         margin-top: 0.25rem;
-        font-size: 0.6rem;
+        font-size: 0.84rem;
     }
 
     /* --- Etapa 2 --- */
 
     .S2-plan-name {
         top: 1.6rem;
-        font-size: 1rem;
+        font-size: 1.2rem;
         margin: 0 .5rem;
     }
 
     /* --- Etapa 4 --- */
     .S4-content {
         padding: 1rem 1.5rem;
-        flex-direction: column; /* Mantido como coluna */
+        flex-direction: column;
+        /* Mantido como coluna */
     }
 
     .S4-movel-image-container {
@@ -2774,27 +3346,33 @@ footer {
     }
 
     .S4-movel-image {
-        width: calc(90vw - 10vw - 3rem); /* Ajusta a largura da imagem */
-        height: calc(90vw - 10vw - 3rem); /* Ajusta a altura da imagem */
+        width: calc(90vw - 10vw - 3rem);
+        /* Ajusta a largura da imagem */
+        height: calc(90vw - 10vw - 3rem);
+        /* Ajusta a altura da imagem */
         max-width: 15rem;
         max-height: 15rem;
     }
 
     .S4-movel-name {
-        margin-top: 1rem;
+        margin-top: 18rem;
         margin-bottom: 0.8rem;
         font-size: 1.2rem;
         text-align: center;
     }
 
     .S4-medidas-image {
-        display: none; /* Oculta a imagem de medidas */
+        height: 28vw;
+        top: 20rem;
+        right: 1rem;
     }
 
     .S4-form-container {
-        width: 100%;
+        width: 10.5rem;
         text-align: left;
-        margin-left: 0;
+        margin-top: 2rem;
+        margin-right: 60%;
+        margin-left: 3rem;
         align-items: flex-start;
     }
 
@@ -2814,22 +3392,22 @@ footer {
         gap: .3rem;
         margin-left: 0;
         width: 100%;
-        justify-content: space-between;
+        justify-content: right;
     }
 
     .S4-input-group label {
         margin-right: 0;
-         font-size: .8rem;
+        font-size: 1rem;
     }
 
     .S4-unit {
-        font-size: 0.6rem;
+        font-size: 1rem;
     }
 
     .S4-input {
         width: 2.5rem;
         padding: 0.1rem;
-        font-size: 0.6rem;
+        font-size: 1rem;
     }
 
     .S4-radio-group {
@@ -2841,12 +3419,12 @@ footer {
 
     .S4-radio-group label {
         margin-right: 1rem;
-        font-size: .8rem;
+        font-size: 1rem;
     }
 
     .S4-radio {
-        width: 0.5rem;
-        height: 0.5rem;
+        width: 0.7rem;
+        height: 0.7rem;
         border: 1px solid black;
         margin-right: 0.25rem;
     }
@@ -2854,7 +3432,8 @@ footer {
     /* --- Etapa 5 --- */
     .S5-content {
         padding: 1rem 1.5rem;
-        flex-direction: column; /* Mantido como coluna */
+        flex-direction: column;
+        /* Mantido como coluna */
     }
 
     .S5-movel-image-container {
@@ -2866,28 +3445,31 @@ footer {
     }
 
     .S5-movel-image {
-        width: calc(90vw - 10vw - 3rem); /* Ajusta a largura da imagem */
-        height: calc(90vw - 10vw - 3rem); /* Ajusta a altura da imagem */
+        width: calc(90vw - 10vw - 3rem);
+        /* Ajusta a largura da imagem */
+        height: calc(90vw - 10vw - 3rem);
+        /* Ajusta a altura da imagem */
         max-width: 15rem;
         max-height: 15rem;
     }
 
     .S5-movel-name {
-       margin-top: 0;
-        margin-bottom: 0.8rem;
+        margin-top: 18.5rem;
         font-size: 1.2rem;
         text-align: center;
     }
 
     .S5-form-container {
-        width: 100%;
+        width: auto;
         text-align: left;
+        margin-top: 1.8rem;
         margin-left: 0;
+        padding-bottom: 1rem;
         align-items: flex-start;
     }
 
     .S5-form-title-main {
-        font-size: 0.8rem;
+        font-size: 1.1rem;
         margin-bottom: 0.35rem;
         margin-top: 0;
     }
@@ -2895,13 +3477,13 @@ footer {
     .S5-input-group {
         margin-bottom: 0.25rem;
         gap: 1rem;
-         width: 100%;
-         justify-content: space-between;
+        width: 100%;
+        justify-content: space-between;
     }
-    
-    .S5-input-group label{
-        font-size: .8rem;
-         width: 5.5rem;
+
+    .S5-input-group label {
+        font-size: 1.1rem;
+        width: 5.5rem;
     }
 
     .S5-input {
@@ -2911,19 +3493,17 @@ footer {
 
     .S5-radio-group {
         margin-bottom: 0.35rem;
-        margin-left: -.5rem;
         width: 100%;
-        justify-content: space-between;
     }
 
     .S5-radio-group label {
         margin-right: 1rem;
-        font-size: .8rem;
+        font-size: 1.1rem;
     }
 
     .S5-radio {
-        width: 0.5rem;
-        height: 0.5rem;
+        width: 0.7rem;
+        height: 0.7rem;
         border: 1px solid black;
         margin-right: 0.25rem;
         margin-left: 0;
@@ -2940,7 +3520,7 @@ footer {
 
     .S6-input-group label {
         margin-bottom: 0.1rem;
-        font-size: 0.8rem;
+        font-size: 1.1rem;
     }
 
     .S6-input {
@@ -2950,7 +3530,7 @@ footer {
 
     /* --- Etapa 7 --- */
     .S7-final-text {
-        font-size: 0.8rem;
+        font-size: 1.1rem;
     }
 }
 
@@ -2970,15 +3550,17 @@ footer {
 
     /* Container Principal */
     .content-container {
-        width: 90vw; /* Mantém a largura responsiva */
-        max-width: none; /* Reduz ainda mais a largura máxima */
+        width: 90vw;
+        /* Mantém a largura responsiva */
+        max-width: none;
+        /* Reduz ainda mais a largura máxima */
         height: auto;
         margin-bottom: 2rem;
-        margin-left: 5vw;
     }
 
     .padrao {
-        display: none; /* Remove os padrões do fundo */
+        display: none;
+        /* Remove os padrões do fundo */
     }
 
     .content-container::before {
@@ -2991,63 +3573,73 @@ footer {
     }
 
     /* Altura dinâmica para as etapas com grades */
-    .S1-grid-container, .S3-grid-container {
+    .S1-grid-container,
+    .S3-grid-container {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Mantém 2 colunas */
+        grid-template-columns: repeat(2, 1fr);
+        /* Mantém 2 colunas */
         gap: 1rem 2rem;
         padding: 0.7rem 3rem;
     }
 
-    .S1-square, .S3-square {
-        width: calc((90vw - 10vw - 8rem) / 2); /* Reduz o tamanho dos quadrados */
-        height: calc((90vw - 10vw - 8rem) / 2); /* Reduz o tamanho dos quadrados */
+    .S1-square,
+    .S3-square {
+        width: calc((90vw - 10vw - 8rem) / 2);
+        /* Reduz o tamanho dos quadrados */
+        height: calc((90vw - 10vw - 8rem) / 2);
+        /* Reduz o tamanho dos quadrados */
     }
 
     .S2-grid-container {
-         grid-template-columns: repeat(1, 1fr); /* 1 coluna */
-         gap: 1rem;
-         padding: 1.5rem 2rem; /* Ajuste no padding */
+        grid-template-columns: repeat(1, 1fr);
+        /* 1 coluna */
+        gap: 1rem;
+        padding: 1.5rem 2rem;
+        /* Ajuste no padding */
     }
 
-     .S2-square {
-         width: 100%;
-         max-width: calc(90vw - 10vw - 1rem); /* Ajusta a largura máxima */
-         height: auto;
-         padding-bottom: .8rem;
+    .S2-square {
+        width: 80%;
+        max-width: calc(90vw - 10vw - 1rem);
+        /* Ajusta a largura máxima */
+        height: 20rem;
+        padding-bottom: .8rem;
     }
 
     /* Botão Próximo */
     .next-button {
-        bottom: -1.05rem; 
-        right: -0.7rem; 
+        bottom: -1.05rem;
+        right: -0.7rem;
         border: 2.45px solid black;
-        padding: 0.30rem 1.4rem; 
-        font-size: 0.64rem; 
+        padding: 0.30rem 1.4rem;
+        font-size: 0.9rem;
     }
 
     /* Títulos */
     .content-container-title1 {
-        font-size: 0.8rem;
-        padding: 0.6rem 0 0 1.2rem;
+        text-align: center;
+        font-size: 1rem;
+        padding: 0.6rem 0 0;
     }
 
     .content-container-title2 {
-        font-size: 0.4rem;
+        font-size: 0.6rem;
         padding: 0 0 0 1.2rem;
     }
 
     /* --- Etapa 1 e 3 --- */
 
-    .S1-square-text, .S3-square-text {
+    .S1-square-text,
+    .S3-square-text {
         margin-top: 0.2rem;
-        font-size: 0.55rem;
+        font-size: 0.84rem;
     }
 
     /* --- Etapa 2 --- */
 
     .S2-plan-name {
         top: 1.6rem;
-        font-size: 0.9rem;
+        font-size: 1.2rem;
         margin: 0 .5rem;
     }
 
@@ -3067,32 +3659,37 @@ footer {
     }
 
     .S4-movel-image {
-        width: calc(90vw - 10vw - 2.4rem); /* Ajusta a largura da imagem */
-        height: calc(90vw - 10vw - 2.4rem); /* Ajusta a altura da imagem */
+        width: calc(90vw - 10vw - 2.4rem);
+        /* Ajusta a largura da imagem */
+        height: calc(90vw - 10vw - 2.4rem);
+        /* Ajusta a altura da imagem */
         max-width: 13rem;
         max-height: 13rem;
     }
 
     .S4-movel-name {
-        margin-top: 1rem;
+        margin-top: 16rem;
         margin-bottom: 0.7rem;
-        font-size: 1rem;
+        font-size: 1.1rem;
         text-align: center;
     }
 
     .S4-medidas-image {
-       display: none;
+        margin-top: 23.5rem;
+        right: auto;
     }
 
     .S4-form-container {
-        width: 100%;
+        width: auto;
         text-align: left;
+        margin-top: 2rem;
         margin-left: 0;
         align-items: flex-start;
+        padding-bottom: 10rem;
     }
 
     .S4-form-title {
-        font-size: .9rem;
+        font-size: 1.1rem;
         margin-bottom: 0.4rem;
         margin-top: 0;
         margin-left: 0;
@@ -3103,43 +3700,43 @@ footer {
     }
 
     .S4-input-group {
-        margin-bottom: 0.2rem;  
+        margin-bottom: 0.2rem;
         gap: .2rem;
         margin-left: 0;
         width: 100%;
-        justify-content: space-between;
+        justify-content: right;
     }
 
     .S4-input-group label {
         margin-right: 0;
-        font-size: .7rem;
+        font-size: 1rem;
     }
 
     .S4-unit {
-        font-size: 0.5rem;
+        font-size: 0.8rem;
     }
 
     .S4-input {
         width: 2rem;
         padding: 0.08rem;
-        font-size: 0.5rem;
+        font-size: 0.8rem;
     }
 
     .S4-radio-group {
-         margin-left: 0;
-         width: 100%;
-         margin-bottom: 1.5rem;
-         justify-content: space-between;
+        margin-left: 0;
+        width: 100%;
+        margin-bottom: 1.5rem;
+        justify-content: space-between;
     }
 
     .S4-radio-group label {
         margin-right: 0.8rem;
-        font-size: .7rem;
+        font-size: 1rem;
     }
 
     .S4-radio {
-        width: 0.4rem;
-        height: 0.4rem;
+        width: 0.6rem;
+        height: 0.6rem;
         border: 0.8px solid black;
         margin-right: 0.2rem;
     }
@@ -3154,33 +3751,36 @@ footer {
         width: 100%;
         height: auto;
         margin-right: 0;
-        margin-bottom: 0.7rem;
+        margin-bottom: 2rem;
         justify-content: center;
     }
 
     .S5-movel-image {
-        width: calc(90vw - 10vw - 2.4rem); /* Ajusta a largura da imagem */
-        height: calc(90vw - 10vw - 2.4rem); /* Ajusta a altura da imagem */
+        width: calc(90vw - 10vw - 2.4rem);
+        /* Ajusta a largura da imagem */
+        height: calc(90vw - 10vw - 2.4rem);
+        /* Ajusta a altura da imagem */
         max-width: 13rem;
         max-height: 13rem;
     }
 
     .S5-movel-name {
-        margin-top: 0;
+        margin-top: 15.5rem;
         margin-bottom: 0.7rem;
-        font-size: 1rem;
+        font-size: 1.1rem;
         text-align: center;
     }
 
     .S5-form-container {
-        width: 100%;
+        width: auto;
         text-align: left;
         margin-left: 0;
         align-items: flex-start;
+        padding-bottom: 1rem;
     }
 
     .S5-form-title-main {
-        font-size: 0.7rem;
+        font-size: 1rem;
         margin-bottom: 0.3rem;
         margin-top: 0;
     }
@@ -3191,10 +3791,10 @@ footer {
         width: 100%;
         justify-content: space-between;
     }
-    
-    .S5-input-group label{
-        font-size: .7rem;
-         width: 5.5rem;
+
+    .S5-input-group label {
+        font-size: 1rem;
+        width: 5.5rem;
     }
 
     .S5-input {
@@ -3204,19 +3804,17 @@ footer {
 
     .S5-radio-group {
         margin-bottom: 0.3rem;
-         margin-left: -.5rem;
-         width: 100%;
-         justify-content: space-between;
+        width: 100%;
     }
 
     .S5-radio-group label {
         margin-right: 0.8rem;
-        font-size: .7rem;
+        font-size: 1rem;
     }
 
     .S5-radio {
-        width: 0.4rem;
-        height: 0.4rem;
+        width: 0.6rem;
+        height: 0.6rem;
         border: 0.8px solid black;
         margin-right: 0.2rem;
         margin-left: 0;
@@ -3231,9 +3829,9 @@ footer {
         margin-bottom: 0.3rem;
     }
 
-    .S6-input-group label {
+        .S6-input-group label {
         margin-bottom: 0.08rem;
-        font-size: 0.7rem;
+        font-size: 1rem;
     }
 
     .S6-input {
@@ -3243,7 +3841,7 @@ footer {
 
     /* --- Etapa 7 --- */
     .S7-final-text {
-        font-size: 0.7rem;
+        font-size: 1rem;
     }
 }
 
@@ -3263,11 +3861,12 @@ footer {
 
     /* Container Principal */
     .content-container {
-        width: 90vw; /* Mantém a largura responsiva */
-        max-width: none; /* Reduz ainda mais a largura máxima */
+        width: 90vw;
+        /* Mantém a largura responsiva */
+        max-width: none;
+        /* Reduz ainda mais a largura máxima */
         height: auto;
         margin-bottom: 1.5rem;
-        margin-left: 5vw;
     }
 
     .padrao {
@@ -3284,63 +3883,73 @@ footer {
     }
 
     /* Altura dinâmica para as etapas com grades */
-    .S1-grid-container, .S3-grid-container {
+    .S1-grid-container,
+    .S3-grid-container {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Mantém 2 colunas */
+        grid-template-columns: repeat(2, 1fr);
+        /* Mantém 2 colunas */
         gap: 1rem;
         padding: 0.5rem 2rem;
     }
 
-    .S1-square, .S3-square {
-        width: calc((90vw - 10vw - 4rem - 2rem) / 2); /* Reduz o tamanho dos quadrados */
-        height: calc((90vw - 10vw - 4rem - 2rem) / 2); /* Reduz o tamanho dos quadrados */
+    .S1-square,
+    .S3-square {
+        width: calc((90vw - 10vw - 4rem - 2rem) / 2);
+        /* Reduz o tamanho dos quadrados */
+        height: calc((90vw - 10vw - 4rem - 2rem) / 2);
+        /* Reduz o tamanho dos quadrados */
     }
 
     .S2-grid-container {
-         grid-template-columns: repeat(1, 1fr); /* Mantém 1 coluna */
-         gap: 1rem;
-         padding: 1rem; /* Ajuste no padding */
+        grid-template-columns: repeat(1, 1fr);
+        /* Mantém 1 coluna */
+        gap: 1rem;
+        padding: 1rem;
+        /* Ajuste no padding */
+        padding-bottom: 1.5rem;
     }
 
-     .S2-square {
-         width: 100%;
-         max-width: calc(90vw - 10vw - 2rem);
-        height: auto;
+    .S2-square {
+        width: 80%;
+        max-width: calc(90vw - 10vw - 2rem);
+        height: 15rem;
         padding-bottom: .5rem;
     }
 
     /* Botão Próximo */
     .next-button {
-        bottom: -1.05rem; 
-        right: -0.7rem; 
-        border: 2.45px solid black; 
+        bottom: -1.6rem;
+        right: -0.7rem;
+        border: 3px solid black;
         padding: 0.30rem 1.4rem;
-        font-size: 0.64rem; 
+        font-size: 1rem;
     }
 
     /* Títulos */
     .content-container-title1 {
-        font-size: 0.7rem;
-        padding: 0.45rem 0 0 0.9rem;
+        text-align: center;
+        font-size: 1.2rem;
+        padding: 0.45rem 0 0rem;
     }
 
     .content-container-title2 {
-        font-size: 0.35rem;
+        font-size: 0.55rem;
         padding: 0 0 0 0.9rem;
     }
 
     /* --- Etapa 1 e 3 --- */
 
-    .S1-square-text, .S3-square-text {
+    .S1-square-text,
+    .S3-square-text {
         margin-top: 0.15rem;
-        font-size: 0.5rem;
+        font-size: 0.84rem;
     }
 
     /* --- Etapa 2 --- */
 
     .S2-plan-name {
         top: 1rem;
-        font-size: 0.8rem;
+        font-size: 1.2rem;
         margin: 0 .3rem;
     }
 
@@ -3354,38 +3963,43 @@ footer {
         width: 100%;
         height: auto;
         margin-right: 0;
-	        margin-bottom: 0.6rem;
+        margin-bottom: 0.6rem;
         display: flex;
         justify-content: center;
     }
 
     .S4-movel-image {
-        width: calc(90vw - 10vw - 1.8rem); /* Ajusta a largura da imagem */
-        height: calc(90vw - 10vw - 1.8rem); /* Ajusta a altura da imagem */
+        width: calc(90vw - 10vw - 1.8rem);
+        /* Ajusta a largura da imagem */
+        height: calc(90vw - 10vw - 1.8rem);
+        /* Ajusta a altura da imagem */
         max-width: 12rem;
         max-height: 12rem;
     }
 
     .S4-movel-name {
-        margin-top: .5rem;
+        margin-top: 14.5rem;
         margin-bottom: 0.6rem;
-        font-size: 0.9rem;
+        font-size: 1.1rem;
         text-align: center;
     }
 
     .S4-medidas-image {
-        display: none;
+        margin-top: 22.5rem;
+        right: auto;
     }
 
     .S4-form-container {
-        width: 100%;
+        width: auto;
         text-align: left;
         margin-left: 0;
+        margin-top: 1.5rem;
+        margin-bottom: 10rem;
         align-items: flex-start;
     }
 
     .S4-form-title {
-        font-size: 0.7rem;
+        font-size: 1.1rem;
         margin-bottom: 0.3rem;
         margin-top: 0;
         margin-left: 0;
@@ -3400,22 +4014,22 @@ footer {
         gap: 0.1rem;
         margin-left: 0;
         width: 100%;
-        justify-content: space-between;
+        justify-content: right;
     }
 
     .S4-input-group label {
         margin-right: 0;
-        font-size: .6rem;
+        font-size: 1rem;
     }
 
     .S4-unit {
-        font-size: 0.4rem;
+        font-size: 0.8rem;
     }
 
     .S4-input {
         width: 1.8rem;
         padding: 0.06rem;
-        font-size: 0.4rem;
+        font-size: 0.8rem;
     }
 
     .S4-radio-group {
@@ -3427,12 +4041,12 @@ footer {
 
     .S4-radio-group label {
         margin-right: 0.6rem;
-        font-size: .6rem;
+        font-size: 1rem;
     }
 
     .S4-radio {
-        width: 0.3rem;
-        height: 0.3rem;
+        width: 0.5rem;
+        height: 0.5rem;
         border: 0.6px solid black;
         margin-right: 0.15rem;
     }
@@ -3447,33 +4061,36 @@ footer {
         width: 100%;
         height: auto;
         margin-right: 0;
-        margin-bottom: 0.6rem;
+        margin-bottom: 2rem;
         justify-content: center;
     }
 
     .S5-movel-image {
-        width: calc(90vw - 10vw - 1.8rem); /* Ajusta a largura da imagem */
-        height: calc(90vw - 10vw - 1.8rem); /* Ajusta a altura da imagem */
+        width: calc(90vw - 10vw - 1.8rem);
+        /* Ajusta a largura da imagem */
+        height: calc(90vw - 10vw - 1.8rem);
+        /* Ajusta a altura da imagem */
         max-width: 12rem;
         max-height: 12rem;
     }
 
     .S5-movel-name {
-        margin-top: 0;
+        margin-top: 14rem;
         margin-bottom: 0.6rem;
-        font-size: 0.9rem;
+        font-size: 1.1rem;
         text-align: center;
     }
 
     .S5-form-container {
-        width: 100%;
+        width: auto;
         text-align: left;
         margin-left: 0;
+        padding-bottom: 1rem;
         align-items: flex-start;
     }
 
     .S5-form-title-main {
-        font-size: 0.6rem;
+        font-size: 1rem;
         margin-bottom: 0.2rem;
         margin-top: 0;
     }
@@ -3484,10 +4101,10 @@ footer {
         width: 100%;
         justify-content: space-between;
     }
-    
-    .S5-input-group label{
-        font-size: .6rem;
-         width: 5.5rem;
+
+    .S5-input-group label {
+        font-size: 1rem;
+        width: 5.5rem;
     }
 
     .S5-input {
@@ -3497,22 +4114,20 @@ footer {
 
     .S5-radio-group {
         margin-bottom: 0.2rem;
-         margin-left: -.5rem;
-         width: 100%;
-         justify-content: space-between;
+        width: 100%;
     }
 
     .S5-radio-group label {
         margin-right: 0.6rem;
-        font-size: .6rem;
+        font-size: 1rem;
     }
 
     .S5-radio {
-        width: 0.3rem;
-        height: 0.3rem;
+        width: 0.5rem;
+        height: 0.5rem;
         border: 0.6px solid black;
         margin-right: 0.15rem;
-         margin-left: 0;
+        margin-left: 0;
     }
 
     /* --- Etapa 6 --- */
@@ -3526,7 +4141,7 @@ footer {
 
     .S6-input-group label {
         margin-bottom: 0.06rem;
-        font-size: 0.6rem;
+        font-size: 1rem;
     }
 
     .S6-input {
@@ -3536,11 +4151,11 @@ footer {
 
     /* --- Etapa 7 --- */
     .S7-final-text {
-        font-size: 0.6rem;
+        font-size: 1rem;
     }
 }
 
-
+/* #endregion */
 
 
 
@@ -3577,15 +4192,18 @@ footer {
 #debug-info {
     display: none;
     background-color: black;
-    color: #00ff00; /* Verde Matrix */
-    font-family: 'Courier New', Courier, monospace; /* Fonte monoespaçada */
+    color: #00ff00;
+    /* Verde Matrix */
+    font-family: 'Courier New', Courier, monospace;
+    /* Fonte monoespaçada */
     padding: 50px;
     margin-top: 20px;
     font-size: 0.9rem;
 }
 
 #debug-info p {
-    margin: 0 0 5px 0; /* Espaçamento inferior */
+    margin: 0 0 5px 0;
+    /* Espaçamento inferior */
 }
 
 #debug-info .section-title {
@@ -3593,13 +4211,16 @@ footer {
     margin-top: 15px;
     margin-bottom: 10px;
     font-size: 1.1rem;
-    text-decoration: underline; /* Sublinhado para destacar */
+    text-decoration: underline;
+    /* Sublinhado para destacar */
 }
 
 #debug-info .movel-info {
-    margin-bottom: 15px; /* Espaçamento entre informações de cada móvel */
+    margin-bottom: 15px;
+    /* Espaçamento entre informações de cada móvel */
     padding-left: 10px;
-    border-left: 2px solid #00ff00; /* Linha vertical para separar */
+    border-left: 2px solid #00ff00;
+    /* Linha vertical para separar */
 }
 
 /* #endregion */

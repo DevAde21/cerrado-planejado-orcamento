@@ -87,42 +87,6 @@ function enviarOrcamento() {
 }
 // #endregion
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // #region Base
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -1149,18 +1113,4 @@ function calcularValorMovel(comodo, movel, altura, largura, comprimento, cor, nu
 }
 
 // #endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
