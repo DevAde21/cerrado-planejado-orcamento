@@ -299,8 +299,9 @@ header {
     }
 
     .logo img {
-        height: 1.6rem;
+        height: 1.8rem;
         margin-right: .5rem;
+        padding-top: .1rem;
     }
 
     .logo-text {
@@ -351,8 +352,9 @@ header {
     }
 
     .logo img {
-        height: 1.6rem;
+        height: 1.8rem;
         margin-right: .5rem;
+        padding-top: .1rem;
     }
 
     .logo-text {
@@ -1804,7 +1806,7 @@ footer {
     }
 
     .S4-form-container {
-        margin-left: .2rem;
+        margin-left: .7rem;
     }
 
     .S4-form-title {
@@ -1846,7 +1848,7 @@ footer {
     }
 
     .S4-radio-group {
-        margin-left: 1.35rem;
+        margin-left: -.35rem;
         /* 1.5rem * 0.9 = 1.35rem */
     }
 
@@ -1862,7 +1864,7 @@ footer {
         /* 1rem * 0.9 = 0.9rem */
         border: 1.8px solid black;
         /* 2px * 0.9 = 1.8px */
-        margin-right: 0.45rem;
+        margin: 0 0.45rem 0 0;
         /* 0.5rem * 0.9 = 0.45rem */
     }
 
@@ -2168,7 +2170,7 @@ footer {
     }
 
     .S4-radio-group {
-        margin-left: 1.2rem;
+        margin-left: 0;
         /* 1.5rem * 0.8 = 1.2rem */
     }
 
@@ -2184,7 +2186,7 @@ footer {
         /* 1rem * 0.8 = 0.8rem */
         border: 1.6px solid black;
         /* 2px * 0.8 = 1.6px */
-        margin-right: 0.4rem;
+        margin: 0 0.4rem 0 0;
         /* 0.5rem * 0.8 = 0.4rem */
     }
 
@@ -2485,7 +2487,7 @@ footer {
     }
 
     .S4-radio-group {
-        margin-left: 1.05rem;
+        margin-left: 0;
         /* 1.5rem * 0.7 = 1.05rem */
     }
 
@@ -2501,7 +2503,7 @@ footer {
         /* 1rem * 0.7 = 0.7rem */
         border: 1.4px solid black;
         /* 2px * 0.7 = 1.4px */
-        margin-right: 0.35rem;
+        margin: 0 0.35rem 0 0;
         /* 0.5rem * 0.7 = 0.35rem */
     }
 
@@ -2804,7 +2806,7 @@ footer {
     }
 
     .S4-radio-group {
-        margin-left: 0.975rem;
+        margin-left: 0;
         /* 1.5rem * 0.65 = 0.975rem */
     }
 
@@ -2820,7 +2822,7 @@ footer {
         /* 1rem * 0.65 = 0.65rem */
         border: 1.3px solid black;
         /* 2px * 0.65 = 1.3px */
-        margin-right: 0.325rem;
+        margin: 0 0.325rem 0 0;
         /* 0.5rem * 0.65 = 0.325rem */
     }
 
@@ -3132,7 +3134,7 @@ footer {
         width: 0.84rem;
         height: 0.84rem;
         border: 1.2px solid black;
-        margin-right: 0.3rem;
+        margin: 0 0.3rem 0 0;
     }
 
     /* --- Etapa 5 --- */
@@ -3436,7 +3438,6 @@ footer {
         margin-left: 0;
         width: 100%;
         margin-bottom: 1.5rem;
-        justify-content: space-between;
     }
 
     .S4-radio-group label {
@@ -3448,7 +3449,7 @@ footer {
         width: 0.7rem;
         height: 0.7rem;
         border: 1px solid black;
-        margin-right: 0.25rem;
+        margin: 0 0.25rem 0 0;
     }
 
     /* --- Etapa 5 --- */
@@ -3758,10 +3759,10 @@ footer {
     }
 
     .S4-radio {
-        width: 0.6rem;
-        height: 0.6rem;
+        width: 0.7rem;
+        height: 0.7rem;
         border: 0.8px solid black;
-        margin-right: 0.2rem;
+        margin: 0 0.2rem 0 0;
     }
 
     /* --- Etapa 5 --- */
@@ -3912,7 +3913,7 @@ footer {
         grid-template-columns: repeat(2, 1fr);
         /* Mantém 2 colunas */
         gap: 1rem;
-        padding: 0.5rem 2rem;
+        padding: 0.5rem 2rem 2rem;
     }
 
     .S1-square,
@@ -3958,7 +3959,7 @@ footer {
     .content-container-title2 {
         text-align: center;
         font-size: 0.6rem;
-        padding: 0;
+        padding: 0 0 .5rem 0;
     }
 
     /* --- Etapa 1 e 3 --- */
@@ -3969,6 +3970,9 @@ footer {
         font-size: 0.84rem;
     }
 
+    .S1-square-text {
+        margin-bottom: .2rem;
+    }
     /* --- Etapa 2 --- */
 
     .S2-plan-name {
@@ -4069,10 +4073,10 @@ footer {
     }
 
     .S4-radio {
-        width: 0.5rem;
-        height: 0.5rem;
+        width: 0.7rem;
+        height: 0.7rem;
         border: 0.6px solid black;
-        margin-right: 0.15rem;
+        margin: 0 0.15rem 0 0;
     }
 
     /* --- Etapa 5 --- */
