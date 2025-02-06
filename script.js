@@ -889,12 +889,14 @@ function createStep4Content(container, isSubtitleVisible) {
         <div class="content-container-title1">
             Forneça mais detalhes do móvel:
         </div>
-        <div class="content-container-title2" style="display: ${isSubtitleVisible ? 'block' : 'none'}">
+        <div class="content-container-title2" style="display: ${
+          isSubtitleVisible ? "block" : "none"
+        }">
             Aqui você pode adicionar campos de formulário, imagens, etc. (Parte 1)
         </div>
         <div class="S4-content">
             <div class="S4-movel-image-container">
-                <div class="S4-movel-image"></div> <!-- Container para a imagem do móvel -->
+                <div class="S4-movel-image"></div>
                 <p class="S4-movel-name">${movelAtual}</p>
             </div>
             <img src="assets/medidas.png" alt="Medidas" class="S4-medidas-image">
@@ -903,22 +905,22 @@ function createStep4Content(container, isSubtitleVisible) {
                 <div class="S4-input-group">
                     <label for="altura">Altura:</label>
                     <div class="S4-input-with-unit">
-                       <input type="text" id="altura" name="altura" class="S4-input" placeholder="0,0" autocomplete="off">
-                       <span class="S4-unit">Cm</span>
+                        <input type="text" id="altura" name="altura" class="S4-input" placeholder="0,0" autocomplete="off">
+                        <span class="S4-unit">Cm</span>
                     </div>
                 </div>
                 <div class="S4-input-group">
                     <label for="largura">Largura:</label>
                     <div class="S4-input-with-unit">
-                       <input type="text" id="largura" name="largura" class="S4-input" placeholder="0,0" autocomplete="off">
-                       <span class="S4-unit">Cm</span>
+                        <input type="text" id="largura" name="largura" class="S4-input" placeholder="0,0" autocomplete="off">
+                        <span class="S4-unit">Cm</span>
                     </div>
                 </div>
                 <div class="S4-input-group">
                     <label for="comprimento">Comprimento:</label>
                     <div class="S4-input-with-unit">
-                       <input type="text" id="comprimento" name="comprimento" class="S4-input" placeholder="0,0" autocomplete="off">
-                       <span class="S4-unit">Cm</span>
+                        <input type="text" id="comprimento" name="comprimento" class="S4-input" placeholder="0,0" autocomplete="off">
+                        <span class="S4-unit">Cm</span>
                     </div>
                 </div>
                 <p class="S4-form-title S4-form-title-color">Cor:</p>
@@ -932,9 +934,196 @@ function createStep4Content(container, isSubtitleVisible) {
         </div>
     `;
   
-  // Configura o botão "Próximo"
-  setupNextButton();
-}
+    setupNextButton();
+  }
+  
+  // Modifique a função setupNextButton
+  function setupNextButton() {
+    const contentContainer = document.querySelector(
+      ".container-wrapper .content-container"
+    );
+    const nextButton = document.createElement("button");
+  
+    if (currentStep === 6) {
+      nextButton.textContent = "Enviar Orçamento"; // Texto do botão para a etapa 6
+    } else if (currentStep === 7) {
+      nextButton.textContent = "Voltar ao inicio"; // Texto do botão para a etapa 7
+    } else {
+      nextButton.textContent = "Próximo"; // Texto padrão para outras etapas
+    }
+  
+    nextButton.classList.add("next-button");
+  
+    nextButton.addEventListener("click", () => {
+      if (currentStep === 1) {
+        // Etapa 1: Validar cômodo selecionado
+        if (!localStorage.getItem("comodoSelecionado")) {
+          alert("Por favor, selecione um cômodo.");
+          return;
+        }
+        currentStep = 2;
+      } else if (currentStep === 2) {
+        //Etapa 2: validar o plano selecionado
+        if (!localStorage.getItem("planoSelecionado")) {
+          alert("Por favor, selecione um plano de acabamento.");
+          return;
+        }
+        currentStep = 3;
+      } else if (currentStep === 3) {
+        // Etapa 3: Armazenar os móveis selecionados e ir para a etapa 4
+        moveisSelecionados = JSON.parse(
+          localStorage.getItem("moveisSelecionados") || "[]"
+        );
+        if (moveisSelecionados.length === 0) {
+          alert("Selecione pelo menos um móvel.");
+          return;
+        }
+        movelAtualIndex = 0; // Inicia o índice do móvel atual
+        currentStep = 4; // Vai para a etapa 4
+      } else if (currentStep === 4) {
+        // Etapa 4: Salvar altura, largura, comprimento e cor no localStorage
+        let altura = document.getElementById("altura").value;
+        let largura = document.getElementById("largura").value;
+        let comprimento = document.getElementById("comprimento").value;
+  
+        // Substituir vírgula por ponto nos valores dos inputs
+        altura = altura.replace(",", ".");
+        largura = largura.replace(",", ".");
+        comprimento = comprimento.replace(",", ".");
+  
+        const corBranco = document.getElementById("branco");
+        const corOutro = document.getElementById("outro");
+        const cor = corBranco.checked
+          ? "branco"
+          : corOutro.checked
+          ? "outro"
+          : null;
+  
+        // Validar dados
+        if (!altura) {
+          alert("Por favor, preencha a altura.");
+          return;
+        }
+        if (!largura) {
+          alert("Por favor, preencha a largura.");
+          return;
+        }
+        if (!comprimento) {
+          alert("Por favor, preencha o comprimento.");
+          return;
+        }
+        if (!corBranco.checked && !corOutro.checked) {
+          alert("Por favor, selecione a cor do móvel.");
+          return;
+        }
+  
+        // Salvar os valores no localStorage
+        localStorage.setItem(`altura_movel_${movelAtualIndex}`, altura);
+        localStorage.setItem(`largura_movel_${movelAtualIndex}`, largura);
+        localStorage.setItem(`comprimento_movel_${movelAtualIndex}`, comprimento);
+        localStorage.setItem(`cor_movel_${movelAtualIndex}`, cor);
+  
+        currentStep = 5;
+      } else if (currentStep === 5) {
+        // Etapa 5: Validar se os campos da etapa foram preenchidos corretamente
+        const gavetaSimRadio = document.querySelector("#gaveta_sim");
+        const gavetaNaoRadio = document.querySelector("#gaveta_nao");
+        const numGavetasInput = document.querySelector("#num_gavetas");
+  
+        const portasSimRadio = document.querySelector("#portas_sim");
+        const portasNaoRadio = document.querySelector("#portas_nao");
+        const numPortasInput = document.querySelector("#num_portas");
+  
+        if (!gavetaSimRadio.checked && !gavetaNaoRadio.checked) {
+          alert("Por favor, selecione se o móvel possui gavetas.");
+          return;
+        }
+        if (gavetaSimRadio.checked && !numGavetasInput.value) {
+          alert("Por favor, especifique o número de gavetas.");
+          return;
+        }
+  
+        if (!portasSimRadio.checked && !portasNaoRadio.checked) {
+          alert("Por favor, selecione se o móvel possui portas.");
+          return;
+        }
+  
+        if (portasSimRadio.checked && !numPortasInput.value) {
+          alert("Por favor, especifique o número de portas.");
+          return;
+        }
+        // Etapa 5: Salvar quantidade de gavetas e portas no localStorage
+        const numGavetas = gavetaSimRadio.checked
+          ? document.getElementById("num_gavetas").value
+          : 0;
+        const numPortas = portasSimRadio.checked
+          ? document.getElementById("num_portas").value
+          : 0;
+  
+        // Salvar os valores no localStorage
+        localStorage.setItem(`num_gavetas_movel_${movelAtualIndex}`, numGavetas);
+        localStorage.setItem(`num_portas_movel_${movelAtualIndex}`, numPortas);
+  
+        // Etapa 5: Verifica se há mais móveis para detalhar
+        if (movelAtualIndex < moveisSelecionados.length - 1) {
+          // Ainda há móveis para detalhar, avança para o próximo móvel e volta para a etapa 4
+          movelAtualIndex++;
+          currentStep = 4;
+        } else {
+          // Todos os móveis foram detalhados, avança para a etapa 6
+          currentStep = 6;
+        }
+      } else if (currentStep === 6) {
+        // Etapa 6: Validação do formulário
+        const nome = document.getElementById("nome").value;
+        const email = document.getElementById("email").value;
+        let telefone = document.getElementById("telefone").value;
+      // Formate o telefone removendo os caracteres não numéricos
+          telefone = telefone.replace(/\D/g, ''); // Remover todos os caracteres não numéricos
+  
+          // Em seguida, remova espaços em branco, se houver
+          telefone = telefone.trim();
+  
+        if (!nome) {
+          alert("Por favor, insira seu nome.");
+          return;
+        }
+        if (!email) {
+          alert("Por favor, insira seu e-mail.");
+          return;
+        }
+        if (!telefone || telefone.replace(/\D/g, "").length !== 11) {
+          alert("Por favor, insira um telefone válido com 11 dígitos.");
+          return;
+        }
+  
+        currentStep = 7;
+  
+        // Envia o orçamento
+        enviarOrcamento();
+      } else if (currentStep === 7) {
+        //**2. Limpeza do localStorage ao pressionar "Voltar ao início"**
+        localStorage.clear();
+        currentStep = 1;
+      } else {
+        // Para as outras etapas, apenas incrementa o currentStep
+        currentStep++;
+      }
+  
+      // Se currentStep exceder o totalSteps, volta para a etapa 1
+      if (currentStep > totalSteps) {
+        currentStep = 1;
+      }
+  
+      updateStepDisplay();
+    });
+  
+    // Inserir o botão dentro do content-container, antes do final
+    contentContainer.appendChild(nextButton);
+  }
+  
+  // Inicializa a exibição da etapa 1
+  updateStepDisplay();
 
 // Etapa 5 - "Forneça mais detalhes do móvel - Pt.2"
 function createStep5Content(container, isSubtitleVisible) {

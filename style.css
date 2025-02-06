@@ -2975,7 +2975,7 @@ footer {
         grid-template-columns: repeat(3, 1fr);
         /* Mantém 3 colunas */
         gap: 1.5rem 2rem;
-        padding: 1rem 3rem;
+        padding: 1.5rem 3rem;
     }
 
     .S1-square,
@@ -3286,7 +3286,7 @@ footer {
         grid-template-columns: repeat(2, 1fr);
         /* Ajusta para 2 colunas */
         gap: 1.5rem 3rem;
-        padding: 0.8rem 4rem;
+        padding: 1.5rem 4rem;
     }
 
     .S1-square,
@@ -3301,7 +3301,7 @@ footer {
         grid-template-columns: repeat(1, 1fr);
         /* 1 coluna */
         gap: 1rem;
-        padding: 1.5rem 3rem;
+        padding: 1.5rem 4rem 2.5rem;
         /* Ajuste no padding */
     }
 
@@ -3602,7 +3602,7 @@ footer {
         grid-template-columns: repeat(2, 1fr);
         /* Mantém 2 colunas */
         gap: 1rem 2rem;
-        padding: 0.7rem 3rem;
+        padding: 1.5rem 3rem;
     }
 
     .S1-square,
@@ -3617,7 +3617,7 @@ footer {
         grid-template-columns: repeat(1, 1fr);
         /* 1 coluna */
         gap: 1rem;
-        padding: 1.5rem 2rem;
+        padding: 1.5rem 3rem 2.5rem;
         /* Ajuste no padding */
     }
 
@@ -3913,7 +3913,7 @@ footer {
         grid-template-columns: repeat(2, 1fr);
         /* Mantém 2 colunas */
         gap: 1rem;
-        padding: 0.5rem 2rem 2rem;
+        padding: 1rem 2rem 2rem;
     }
 
     .S1-square,
@@ -3928,9 +3928,7 @@ footer {
         grid-template-columns: repeat(1, 1fr);
         /* Mantém 1 coluna */
         gap: 1rem;
-        padding: 1rem;
-        /* Ajuste no padding */
-        padding-bottom: 1.5rem;
+        padding: 1rem 2rem 2rem;
     }
 
     .S2-square {
