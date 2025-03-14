@@ -52,7 +52,7 @@ function enviarOrcamento() {
     generalInfo.push(valorTotal.toFixed(2)); // Adiciona o valor total às informações gerais
 
     // Envia os dados para o Google Apps Script
-    const scriptURL = "https://script.google.com/macros/s/AKfycbxK9exFV4vei1YdMJWIvH2n4HvytPKCeueF4w0WJe0o9xCIwg38oMpgAg61yfYnJTD-/exec"; // Substitua pela URL do seu web app
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyCa_-vU1rfhZRTA6S6MrVJsKSH9eL8pH1fCPY2EFJIf0RUW_zMMbGU3iG24-0v-Ic/exec"; // Substitua pela URL do seu web app
 
     // Estrutura os dados para envio
     const postData = {
@@ -753,46 +753,74 @@ function createStep2Content(container, isSubtitleVisible) {
         </div>
         <div class="S2-grid-container">
             <div class="S2-grid-item">
-                <div class="S2-square" data-plano="essencial">
-                    <div class="S2-plan-name">Essencial</div>
+                <div class="S2-plan-block" data-plano="light">
                     <div class="S2-selection-layer"></div>
+                    <div class="S2-plan-content">
+                        <div class="S2-plan-title">Light</div>
+                        <ul class="S2-plan-description">
+                            <li>Puxadores no perfil G ou 2 pontos convencionais.</li>
+                            <li>Ferragens básicas.</li>
+                            <li>MDF padrão.</li>
+                            <li>Corrediças comuns.</li>
+                            <li>Acabamento excelente.</li>
+                            <li>Entrega rápida.</li>
+                        </ul>
+                    </div>
                 </div>
-                
             </div>
             <div class="S2-grid-item">
-                <div class="S2-square" data-plano="intermediario">
-                    <div class="S2-plan-name">Intermediário</div>
+                <div class="S2-plan-block" data-plano="essence">
                     <div class="S2-selection-layer"></div>
+                    <div class="S2-plan-content">
+                        <div class="S2-plan-title">Essence</div>
+                        <ul class="S2-plan-description">
+                            <li>Puxadores passantes, ocultos ou facetados.</li>
+                            <li>Ferragens FGVTN.</li>
+                            <li>MDF padrão.</li>
+                            <li>Corrediças comuns.</li>
+                            <li>Acabamento excelente.</li>
+                            <li>Entrega em tempo médio.</li>
+                        </ul>
+                    </div>
                 </div>
-                
             </div>
             <div class="S2-grid-item">
-                <div class="S2-square" data-plano="premium">
-                    <div class="S2-plan-name">Premium</div>
+                <div class="S2-plan-block" data-plano="premium">
                     <div class="S2-selection-layer"></div>
+                    <div class="S2-plan-content">
+                        <div class="S2-plan-title">Premium</div>
+                        <ul class="S2-plan-description">
+                            <li>Todos os puxadores (exceto padrão G).</li>
+                            <li>Ferragens Blum.</li>
+                            <li>MDF Laka (opcional).</li>
+                            <li>Corrediças ocultas com amortecedor.</li>
+                            <li>Acabamento fino.</li>
+                            <li>Iluminação LED embutida.</li>
+                            <li>Tempo de entrega maior, com maior dedicação.</li>
+                        </ul>
+                    </div>
                 </div>
-                
             </div>
         </div>
     `;
 
     // Adiciona o event listener para a seleção dos quadrados
-    const squares = container.querySelectorAll('.S2-square');
-    squares.forEach(square => {
-        square.addEventListener('click', () => {
+    const planBlocks = container.querySelectorAll('.S2-plan-block'); // Changed selector
+    planBlocks.forEach(planBlock => { // Changed variable name
+        planBlock.addEventListener('click', () => {
             // Desmarca todos os quadrados
             document.querySelectorAll('.S2-selection-layer').forEach(layer => {
                 layer.classList.remove('S2-selected');
             });
 
             // Marca o quadrado clicado
-            const selectionLayer = square.querySelector('.S2-selection-layer');
+            const selectionLayer = planBlock.querySelector('.S2-selection-layer');
             if (selectionLayer) {
                 selectionLayer.classList.add('S2-selected');
             }
 
             // Armazena a seleção do plano na localStorage
-            localStorage.setItem('planoSelecionado', square.dataset.plano);
+            localStorage.setItem('planoSelecionado', planBlock.dataset.plano);
 
             // Atualiza o debug visual
             updateDebugInfo();

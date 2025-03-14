@@ -1072,6 +1072,11 @@ footer {
     background-color: gray;
     overflow: hidden;
     /* Garante que a camada de seleção não ultrapasse as bordas do square */
+    transition: transform 0.3s ease; /* Hover effect added here */
+}
+
+.S1-square:hover { /* Hover effect style */
+    transform: scale(1.05);
 }
 
 .S1-square-image {
@@ -1082,15 +1087,7 @@ footer {
     border-radius: 5px;
     object-fit: cover;
     /* Garante que a imagem cubra o quadrado mantendo sua proporção */
-    transition: transform 0.3s ease;
-    /* Transição suave ao passar o mouse */
-    cursor: pointer;
-    /* Cursor em forma de mão ao passar por cima */
     pointer-events: none;
-}
-
-.S1-square-image:hover {
-    transform: scale(1.1);
 }
 
 .S1-square-text {
@@ -1138,10 +1135,16 @@ footer {
 
 .S2-grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* 3 colunas */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
     padding: 1.5rem 2rem;
-    /* Espaçamento interno */
+    gap: 2rem; /* Spacing between plan blocks */
+    justify-items: center; /* Center items in grid cells */
+}
+
+@media (max-width: 680px) {
+    .S2-grid-container {
+        grid-template-columns: 1fr; /* Stack cards in a single column below 680px */
+    }
 }
 
 .S2-grid-item {
@@ -1150,59 +1153,83 @@ footer {
     align-items: center;
 }
 
-.S2-square {
-    position: relative;
-    /* Permite posicionar a camada de seleção dentro dele */
-    width: 16.5rem;
-    height: 20rem;
+.S2-plan-block {
+    position: relative; /* For selection layer positioning */
+    width: 100%; /* Take full width of grid item */
     border-radius: 10px;
     background-color: white;
     overflow: hidden;
-    /* Garante que a camada de seleção não ultrapasse as bordas do square */
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Hover effect */
+    display: flex; /* To make cards equal height */
+    flex-direction: column; /* To stack content vertically */
+    height: 100%; /* Ensure full height within grid item */
 }
 
-.S2-square::before {
+.S2-plan-block:hover {
+    transform: scale(1.03);
+}
+
+.S2-plan-block::before {
     content: '';
     position: absolute;
     top: 0;
-    /* Mesma espessura da borda */
     left: 0;
-    /* Mesma espessura da borda */
     right: 0;
-    /* Mesma espessura da borda */
     bottom: 0;
-    /* Mesma espessura da borda */
     border: 5px solid transparent;
-    /* Borda transparente */
     border-radius: 10px;
-    /* Dobro do border-radius do container, para compensar */
     background: linear-gradient(to top, #005100, #11B211) border-box;
-    /* Gradiente aplicado */
-    -webkit-mask: linear-gradient(#fff 0 0) padding-box,
-        linear-gradient(#fff 0 0);
-    /* Máscara para o gradiente */
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: destination-out;
-        /* Define como a máscara será aplicada */
     mask-composite: exclude;
-    /* Define como a máscara será aplicada (alternativa) */
     z-index: 0;
-    /* Garante que o pseudo-elemento fique abaixo do container */
 }
 
-.S2-plan-name {
-    position: absolute;
-    top: 2rem;
-    /* Distância em relação ao topo do quadrado */
-    left: 50%;
-    transform: translateX(-50%);
-    /* Centraliza o nome do plano */
+.S2-plan-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1; /* Allow content to take available space for equal height cards */
+    display: flex;
+    flex-direction: column;
+}
+
+.S2-plan-title {
     color: black;
     font-family: "Novecento WideMedium";
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    z-index: 2;
-    /* Acima da camada de seleção */
+    margin-bottom: 1rem;
 }
+
+.S2-plan-description {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; /* Description takes remaining space */
+    display: flex;
+    flex-direction: column;
+}
+
+.S2-plan-description li {
+    color: black;
+    font-family: Arial, sans-serif; /* Changed to Arial or a readable font */
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    padding-bottom: 0.5rem; /* Add padding for visual space */
+    border-bottom: 1px solid #59595988; /* Separator line */
+}
+
+.S2-plan-description li:last-child {
+    border-bottom: none; /* Remove separator from the last item */
+    padding-bottom: 0; /* No padding at the bottom of last item */
+    margin-bottom: 0; /* No margin at the bottom of last item */
+}
+
 
 /* Estilos para a camada de seleção */
 .S2-selection-layer {
@@ -1212,28 +1239,19 @@ footer {
     width: 100%;
     height: 100%;
     background-image: url('assets/selected.png');
-    /* Caminho para a imagem de seleção */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     opacity: 0;
-    /* Inicialmente invisível */
     transition: opacity 0.3s ease;
-    /* Transição suave */
     border-radius: 5px;
-    /* Respeita o border-radius do square */
     pointer-events: none;
-    /* Impede que a camada de seleção intercepte eventos de clique */
     z-index: 1;
-    /* Coloca a camada de seleção acima do conteúdo do square */
 }
 
 .S2-selection-layer.S2-selected {
     opacity: 0.6;
-    /* Visível quando selecionado */
 }
-
-/* #endregion */
 
 /* #region Content - Step 3 - "Escolha o móvel" */
 
@@ -1262,6 +1280,11 @@ footer {
     background-color: gray;
     overflow: hidden;
     /* Garante que a camada de seleção não ultrapasse as bordas do square */
+    transition: transform 0.3s ease; /* Hover effect added here */
+}
+
+.S3-square:hover { /* Hover effect style */
+    transform: scale(1.05);
 }
 
 .S3-square-text {
@@ -1633,18 +1656,7 @@ footer {
 
 /* #endregion */
 
-
-
-
-
-
-
-
-
-
-
-
-
+/* Media Queries */
 
 /* #region Media Queries Gerais - Maiores */
 
@@ -1743,15 +1755,28 @@ footer {
     .S2-square {
         width: 14.85rem;
         /* 16.5rem * 0.9 = 14.85rem */
-        height: 18rem;
-        /* 20rem * 0.9 = 18rem */
+        height: 100%; /* Ajuste para 100% para igualdade de altura */
     }
 
     .S2-plan-name {
-        top: 1.8rem;
-        /* 2rem * 0.9 = 1.8rem */
         font-size: 1.08rem;
         /* 1.2rem * 0.9 = 1.08rem */
+    }
+
+    .S2-grid-container{
+        justify-self: center;
+        width: 96%;
+        padding: 1;
+        gap: 1rem;
+    }
+
+    .S2-grid-item{
+        width: 100%;
+    }
+
+    .S2-plan-block {
+        width: 100%; /* Take full width of grid item */
+        padding: 0;
     }
 
     /* --- Etapa 3 --- */
@@ -1962,7 +1987,6 @@ footer {
     }
 
     /* --- Etapa 7 --- */
-
     .S7-final-text {
         font-size: 1.35rem;
         /* 1.5rem * 0.9 = 1.35rem */
@@ -1972,144 +1996,110 @@ footer {
 /* Media Query: 800px - 925px */
 @media (min-width: 800px) and (max-width: 925px) {
 
-    .section-title {
-        margin: 1rem 0;
-        font-size: 3rem;
-    }
-
     /* --- Container Principal e Conteúdo --- */
 
     /* Container Principal */
     .content-container {
         width: 48rem;
-        /* 60rem * 0.8 = 48rem */
         height: 24rem;
-        /* 30rem * 0.8 = 24rem */
         margin-bottom: 4rem;
-        /* 5rem * 0.8 = 4rem */
     }
 
     .content-container::before {
-        top: -2px;
-        /* 5px * 0.8 = 4px */
-        left: -2px;
-        /* 5px * 0.8 = 4px */
-        right: -2px;
-        /* 5px * 0.8 = 4px */
-        bottom: -2px;
-        /* 5px * 0.8 = 4px */
         border: 3px solid transparent;
-        /* 5px * 0.8 = 4px */
-        border-radius: 10px;
     }
 
     /* Botão Próximo */
     .next-button {
-        bottom: -1.2rem;
-        /* 1.5rem * 0.8 = 1.2rem */
-        right: -0.8rem;
-        /* 1rem * 0.8 = 0.8rem */
         border: 2.8px solid black;
-        /* 3.5px * 0.8 = 2.8px */
         padding: 0.4rem 1.6rem;
-        /* 0.5rem * 0.8 = 0.4rem, 2rem * 0.8 = 1.6rem */
         font-size: 0.96rem;
-        /* 1.2rem * 0.8 = 0.96rem */
     }
 
     /* Títulos */
     .content-container-title1 {
         font-size: 1.36rem;
-        /* 1.7rem * 0.8 = 1.36rem */
         padding: 1.2rem 0 0 2.4rem;
-        /* 1.5rem * 0.8 = 1.2rem, 3rem * 0.8 = 2.4rem */
     }
 
     .content-container-title2 {
         font-size: 0.68rem;
-        /* 0.85rem * 0.8 = 0.68rem */
         padding: 0 0 0 2.4rem;
-        /* 3rem * 0.8 = 2.4rem */
     }
 
     /* --- Etapa 1 --- */
     .S1-grid-container {
         gap: 0.8rem 1.6rem;
-        /* 1rem * 0.8 = 0.8rem, 2rem * 0.8 = 1.6rem */
         padding: 1.2rem 4.8rem;
-        /* 1.5rem * 0.8 = 1.2rem, 6rem * 0.8 = 4.8rem */
     }
 
     .S1-square {
         width: 6.4rem;
-        /* 8rem * 0.8 = 6.4rem */
         height: 6.4rem;
-        /* 8rem * 0.8 = 6.4rem */
     }
 
     .S1-square-text {
         margin-top: 0.4rem;
-        /* 0.5rem * 0.8 = 0.4rem */
         font-size: 0.8rem;
-        /* 1rem * 0.8 = 0.8rem */
     }
 
     /* --- Etapa 2 --- */
     .S2-grid-container {
         padding: 1.2rem 1.6rem;
-        /* 1.5rem * 0.8 = 1.2rem, 2rem * 0.8 = 1.6rem */
     }
 
     .S2-square {
         width: 13.2rem;
-        /* 16.5rem * 0.8 = 13.2rem */
-        height: 16rem;
-        /* 20rem * 0.8 = 16rem */
+        height: 100%; /* Ajuste para 100% para igualdade de altura */
     }
 
     .S2-plan-name {
-        top: 1.6rem;
-        /* 2rem * 0.8 = 1.6rem */
         font-size: .96rem;
-        /* 1.2rem * 0.8 = 0.96rem */
+    }
+
+    .S2-grid-container{
+        justify-self: center;
+        display: flex;
+        width: 96%;
+        padding: 1;
+        gap: 1rem;
+    }
+
+    .S2-grid-item{
+        width: 50%;
+    }
+
+    .S2-plan-block {
+        width: 100%; /* Take full width of grid item */
+        padding: 0;
     }
 
     /* --- Etapa 3 --- */
     .S3-grid-container {
         gap: 0.8rem 1.6rem;
-        /* 1rem * 0.8 = 0.8rem, 2rem * 0.8 = 1.6rem */
         padding: 1.2rem 4.8rem;
-        /* 1.5rem * 0.8 = 1.2rem, 6rem * 0.8 = 4.8rem */
     }
 
     .S3-square {
         width: 6.4rem;
-        /* 8rem * 0.8 = 6.4rem */
         height: 6.4rem;
-        /* 8rem * 0.8 = 6.4rem */
     }
 
     .S3-square-text
     {
         margin-top: 0.4rem;
-        /* 0.5rem * 0.8 = 0.4rem */
         font-size: 0.8rem;
-        /* 1rem * 0.8 = 0.8rem */
     }
 
     /* --- Etapa 4 --- */
     .S4-content {
         padding: 1.6rem 2.4rem;
-        /* 2rem * 0.8 = 1.6rem, 3rem * 0.8 = 2.4rem */
     }
 
     .S4-movel-image-container {
         width: 16rem;
-        /* 20rem * 0.8 = 16rem */
         height: 16rem;
-        /* 20rem * 0.8 = 16rem */
         margin-right: 0.8rem;
-        /* 1rem * 0.8 = 0.8rem */
     }
 
     .S4-movel-name {
@@ -2119,90 +2109,63 @@ footer {
 
     .S4-medidas-image {
         top: 4rem;
-        /* 5rem * 0.8 = 4rem */
         right: 1.6rem;
-        /* 2rem * 0.8 = 1.6rem */
         height: 8rem;
-        /* 10rem * 0.8 = 8rem */
     }
 
     .S4-form-container {
-        margin-left: 0;
         font-size: .8rem;
     }
 
     .S4-form-title {
         font-size: 1.2rem;
-        /* 1.5rem * 0.8 = 1.2rem */
         margin-bottom: 0.8rem;
-        /* 1rem * 0.8 = 0.8rem */
         margin-top: -0.8rem;
-        /* -1rem * 0.8 = -0.8rem */
     }
 
     .S4-form-title-color {
         margin-top: 1.6rem;
-        /* 2rem * 0.8 = 1.6rem */
     }
 
     .S4-input-group {
         margin-bottom: 0.4rem;
-        /* 0.5rem * 0.8 = 0.4rem */
-        gap: 1.5rem;
     }
 
     .S4-input-group label {
         margin-right: -0.8rem;
-        /* -1rem * 0.8 = -0.8rem */
     }
 
     .S4-unit {
         font-size: 0.8rem;
-        /* 1rem * 0.8 = 0.8rem */
     }
 
     .S4-input {
         width: 4rem;
-        /* 5rem * 0.8 = 4rem */
         padding: 0.16rem;
-        /* 0.2rem * 0.8 = 0.16rem */
         font-size: 0.8rem;
     }
 
     .S4-radio-group {
         margin-left: 0;
-        /* 1.5rem * 0.8 = 1.2rem */
     }
 
     .S4-radio-group label {
         margin-right: 1.6rem;
-        /* 2rem * 0.8 = 1.6rem */
     }
 
     .S4-radio {
-        width: 0.8rem;
-        /* 1rem * 0.8 = 0.8rem */
-        height: 0.8rem;
-        /* 1rem * 0.8 = 0.8rem */
         border: 1.6px solid black;
-        /* 2px * 0.8 = 1.6px */
-        margin: 0 0.4rem 0 0;
-        /* 0.5rem * 0.8 = 0.4rem */
     }
 
     /* --- Etapa 5 --- */
     .S5-content {
         padding: 1.6rem 2.4rem;
-        /* 2rem * 0.8 = 1.6rem, 3rem * 0.8 = 2.4rem */
     }
 
     .S5-movel-image-container {
         width: 16rem;
-        /* 20rem * 0.8 = 16rem */
         height: 16rem;
-        /* 20rem * 0.8 = 16rem */
         margin-right: 0.8rem;
-        /* 1rem * 0.8 = 0.8rem */
     }
 
     .S5-movel-name {
@@ -2212,17 +2175,13 @@ footer {
 
     .S5-form-title-main {
         font-size: 1.04rem;
-        /* 1.3rem * 0.8 = 1.04rem */
         margin-bottom: 0.56rem;
-        /* 0.7rem * 0.8 = 0.56rem */
     }
 
     .S5-input-group {
         width: auto;
         margin-bottom: 0.4rem;
-        /* 0.5rem * 0.8 = 0.4rem */
         gap: 1.6rem;
-        /* 2rem * 0.8 = 1.6rem */
     }
 
     .S5-input-group label {
@@ -2232,60 +2191,43 @@ footer {
 
     .S5-input {
         width: 4rem;
-        /* 5rem * 0.8 = 4rem */
         padding: 0.16rem;
-        /* 0.2rem * 0.8 = 0.16rem */
     }
 
     .S5-radio-group {
         margin-bottom: 0.56rem;
-        /* 0.7rem * 0.8 = 0.56rem */
     }
 
     .S5-radio-group label {
         margin-right: 1.6rem;
-        /* 2rem * 0.8 = 1.6rem */
     }
 
     .S5-radio {
-        width: 0.8rem;
-        /* 1rem * 0.8 = 0.8rem */
-        height: 0.8rem;
-        /* 1rem * 0.8 = 0.8rem */
         border: 1.6px solid black;
-        /* 2px * 0.8 = 1.6px */
-        margin-right: 0.4rem;
-        /* 0.5rem * 0.8 = 0.4rem */
     }
 
     /* --- Etapa 6 --- */
     .S6-content {
         padding: 1.6rem 2.4rem;
-        /* 2rem * 0.8 = 1.6rem, 3rem * 0.8 = 2.4rem */
     }
 
     .S6-input-group {
         margin-bottom: 0.56rem;
-        /* 0.7rem * 0.8 = 0.56rem */
     }
 
     .S6-input-group label {
         margin-bottom: 0.16rem;
-        /* 0.2rem * 0.8 = 0.16rem */
         font-size: 1.04rem;
-        /* 1.3rem * 0.8 = 1.04rem */
     }
 
     .S6-input {
         padding: 0.16rem;
-        /* 0.2rem * 0.8 = 0.16rem */
         margin-bottom: 1.6rem;
     }
 
     /* --- Etapa 7 --- */
     .S7-final-text {
         font-size: 1.2rem;
-        /* 1.5rem * 0.8 = 1.2rem */
     }
 }
 
@@ -2297,250 +2239,188 @@ footer {
     /* Container Principal */
     .content-container {
         width: 42rem;
-        /* 60rem * 0.7 = 42rem */
         height: 23rem;
-        /* 30rem * 0.7 = 21rem (ajustado para 23rem para melhor proporção) */
         margin-bottom: 3.5rem;
-        /* 5rem * 0.7 = 3.5rem */
     }
 
     .content-container::before {
-        top: -1.5px;
-        /* 5px * 0.7 = 3.5px */
-        left: -1.5px;
-        /* 5px * 0.7 = 3.5px */
-        right: -1.5px;
-        /* 5px * 0.7 = 3.5px */
-        bottom: -1.5px;
-        /* 5px * 0.7 = 3.5px */
         border: 2.5px solid transparent;
-        /* 5px * 0.7 = 3.5px */
-        border-radius: 7px;
-        /* 10px * 0.7 = 7px */
     }
 
     /* Botão Próximo */
     .next-button {
-        bottom: -1.05rem;
-        /* 1.5rem * 0.7 = 1.05rem */
-        right: -0.7rem;
-        /* 1rem * 0.7 = 0.7rem */
         border: 2.45px solid black;
-        /* 3.5px * 0.7 = 2.45px */
         padding: 0.35rem 1.4rem;
-        /* 0.5rem * 0.7 = 0.35rem, 2rem * 0.7 = 1.4rem */
         font-size: 0.84rem;
-        /* 1.2rem * 0.7 = 0.84rem */
     }
 
     /* Títulos */
     .content-container-title1 {
         font-size: 1.2rem;
-        /* 1.7rem * 0.7 = 1.19rem (arredondado para 1.2rem) */
         padding: 1.05rem 0 0 2.1rem;
-        /* 1.5rem * 0.7 = 1.05rem, 3rem * 0.7 = 2.1rem */
     }
 
     .content-container-title2 {
         font-size: 0.6rem;
-        /* 0.85rem * 0.7 = 0.595rem (arredondado para 0.6rem) */
         padding: 0 0 0 2.1rem;
-        /* 3rem * 0.7 = 2.1rem */
     }
 
     /* --- Etapa 1 --- */
     .S1-grid-container {
         gap: 0.7rem 1.4rem;
-        /* 1rem * 0.7 = 0.7rem, 2rem * 0.7 = 1.4rem */
         padding: 1.05rem 4.2rem;
-        /* 1.5rem * 0.7 = 1.05rem, 6rem * 0.7 = 4.2rem */
     }
 
     .S1-square {
         width: 5.6rem;
-        /* 8rem * 0.7 = 5.6rem */
         height: 5.6rem;
-        /* 8rem * 0.7 = 5.6rem */
     }
 
     .S1-square-text {
         margin-top: 0.35rem;
-        /* 0.5rem * 0.7 = 0.35rem */
         font-size: 0.7rem;
-        /* 1rem * 0.7 = 0.7rem */
     }
 
     /* --- Etapa 2 --- */
     .S2-grid-container {
         padding: 1.05rem 1.4rem;
-        /* 1.5rem * 0.7 = 1.05rem, 2rem * 0.7 = 1.4rem */
     }
 
     .S2-square {
         width: 11.55rem;
-        /* 16.5rem * 0.7 = 11.55rem */
-        height: 14rem;
-        /* 20rem * 0.7 = 14rem */
+        height: 100%; /* Ajuste para 100% para igualdade de altura */
     }
 
     .S2-plan-name {
-        top: 1.4rem;
-        /* 2rem * 0.7 = 1.4rem */
         font-size: 0.84rem;
-        /* 1.2rem * 0.7 = 0.84rem */
+    }
+
+    .S2-grid-container{
+        justify-self: center;
+        display: flex;
+        width: 96%;
+        padding: 1;
+        gap: 1rem;
+    }
+
+    .S2-grid-item{
+        width: 50%;
+    }
+
+    .S2-plan-block {
+        width: 100%; /* Take full width of grid item */
+        padding: 0;
     }
 
     /* --- Etapa 3 --- */
     .S3-grid-container {
         gap: 0.7rem 1.4rem;
-        /* 1rem * 0.7 = 0.7rem, 2rem * 0.7 = 1.4rem */
         padding: 1.05rem 4.2rem;
-        /* 1.5rem * 0.7 = 1.05rem, 6rem * 0.7 = 4.2rem */
     }
 
     .S3-square {
         width: 5.6rem;
-        /* 8rem * 0.7 = 5.6rem */
         height: 5.6rem;
-        /* 8rem * 0.7 = 5.6rem */
     }
 
-    .S3-square-text {
+    .S3-square-text
+    {
         margin-top: 0.35rem;
-        /* 0.5rem * 0.7 = 0.35rem */
         font-size: 0.7rem;
-        /* 1rem * 0.7 = 0.7rem */
     }
 
     /* --- Etapa 4 --- */
     .S4-content {
         padding: 1.4rem 2.1rem;
-        /* 2rem * 0.7 = 1.4rem, 3rem * 0.7 = 2.1rem */
     }
 
     .S4-movel-image-container {
         width: 14rem;
-        /* 20rem * 0.7 = 14rem */
         height: 14rem;
-        /* 20rem * 0.7 = 14rem */
         margin-right: 0.7rem;
-        /* 1rem * 0.7 = 0.7rem */
     }
 
     .S4-movel-name {
         margin-top: 19rem;
-        /* Ajuste fino */
         font-size: 1.3rem;
     }
 
     .S4-medidas-image {
         top: 3.5rem;
-        /* 5rem * 0.7 = 3.5rem */
         right: 1.4rem;
-        /* 2rem * 0.7 = 1.4rem */
         height: 7rem;
-        /* 10rem * 0.7 = 7rem */
     }
 
     .S4-form-container {
-        margin-left: 0;
-        /* Mantido como 0 */
         font-size: .75rem;
     }
 
     .S4-form-title {
         font-size: 1.05rem;
-        /* 1.5rem * 0.7 = 1.05rem */
         margin-bottom: 0.7rem;
-        /* 1rem * 0.7 = 0.7rem */
         margin-top: -0.7rem;
-        /* -1rem * 0.7 = -0.7rem */
     }
 
     .S4-form-title-color {
         margin-top: 1.4rem;
-        /* 2rem * 0.7 = 1.4rem */
     }
 
     .S4-input-group {
         margin-bottom: 0.35rem;
-        /* 0.5rem * 0.7 = 0.35rem */
         gap: 1rem;
     }
 
     .S4-input-group label {
         margin-right: -0.7rem;
-        /* -1rem * 0.7 = -0.7rem */
     }
 
     .S4-unit {
         font-size: 0.7rem;
-        /* 1rem * 0.7 = 0.7rem */
     }
 
     .S4-input {
         width: 3.5rem;
-        /* 5rem * 0.7 = 3.5rem */
         padding: 0.14rem;
-        /* 0.2rem * 0.7 = 0.14rem */
         font-size: 0.7rem;
     }
 
     .S4-radio-group {
         margin-left: 0;
-        /* 1.5rem * 0.7 = 1.05rem */
     }
 
     .S4-radio-group label {
         margin-right: 1.4rem;
-        /* 2rem * 0.7 = 1.4rem */
     }
 
     .S4-radio {
-        width: 0.7rem;
-        /* 1rem * 0.7 = 0.7rem */
-        height: 0.7rem;
-        /* 1rem * 0.7 = 0.7rem */
         border: 1.4px solid black;
-        /* 2px * 0.7 = 1.4px */
-        margin: 0 0.35rem 0 0;
-        /* 0.5rem * 0.7 = 0.35rem */
     }
 
     /* --- Etapa 5 --- */
     .S5-content {
         padding: 1.4rem 2.1rem;
-        /* 2rem * 0.7 = 1.4rem, 3rem * 0.7 = 2.1rem */
     }
 
     .S5-movel-image-container {
         width: 14rem;
-        /* 20rem * 0.7 = 14rem */
         height: 14rem;
-        /* 20rem * 0.7 = 14rem */
         margin-right: 0.7rem;
-        /* 1rem * 0.7 = 0.7rem */
     }
 
     .S5-movel-name {
         margin-top: 19rem;
-        /* Ajuste fino */
         font-size: 1.3rem;
     }
 
     .S5-form-title-main {
         font-size: 0.91rem;
-        /* 1.3rem * 0.7 = 0.91rem */
         margin-bottom: 0.49rem;
-        /* 0.7rem * 0.7 = 0.49rem */
     }
 
     .S5-input-group {
-        margin-bottom: 0.35rem;
-        /* 0.5rem * 0.7 = 0.35rem */
-        gap: 1.4rem;
-        /* 2rem * 0.7 = 1.4rem */
         width: auto;
+        margin-bottom: 0.4rem;
+        gap: 1.4rem;
     }
 
     .S5-input-group label {
@@ -2550,60 +2430,43 @@ footer {
 
     .S5-input {
         width: 3.5rem;
-        /* 5rem * 0.7 = 3.5rem */
         padding: 0.14rem;
-        /* 0.2rem * 0.7 = 0.14rem */
     }
 
     .S5-radio-group {
         margin-bottom: 0.49rem;
-        /* 0.7rem * 0.7 = 0.49rem */
     }
 
     .S5-radio-group label {
         margin-right: 1.4rem;
-        /* 2rem * 0.7 = 1.4rem */
     }
 
     .S5-radio {
-        width: 0.7rem;
-        /* 1rem * 0.7 = 0.7rem */
-        height: 0.7rem;
-        /* 1rem * 0.7 = 0.7rem */
         border: 1.4px solid black;
-        /* 2px * 0.7 = 1.4px */
-        margin-right: 0.35rem;
-        /* 0.5rem * 0.7 = 0.35rem */
     }
 
     /* --- Etapa 6 --- */
     .S6-content {
         padding: 1.4rem 2.1rem;
-        /* 2rem * 0.7 = 1.4rem, 3rem * 0.7 = 2.1rem */
     }
 
     .S6-input-group {
         margin-bottom: 0.49rem;
-        /* 0.7rem * 0.7 = 0.49rem */
     }
 
     .S6-input-group label {
         margin-bottom: 0.14rem;
-        /* 0.2rem * 0.7 = 0.14rem */
         font-size: 0.91rem;
-        /* 1.3rem * 0.7 = 0.91rem */
     }
 
     .S6-input {
         padding: 0.14rem;
-        /* 0.2rem * 0.7 = 0.14rem */
         margin-bottom: 1.4rem;
     }
 
     /* --- Etapa 7 --- */
     .S7-final-text {
         font-size: 1.05rem;
-        /* 1.5rem * 0.7 = 1.05rem */
     }
 }
 
@@ -2615,251 +2478,187 @@ footer {
     /* Container Principal */
     .content-container {
         width: 39rem;
-        /* 60rem * 0.65 = 39rem */
         height: 22rem;
-        /* 30rem * 0.65 ≈ 19.5rem (ajustado para 22rem para melhor proporção) */
         margin-bottom: 3.25rem;
-        /* 5rem * 0.65 = 3.25rem */
     }
 
     .content-container::before {
-        top: -2.25px;
-        /* 5px * 0.65 = 3.25px */
-        left: -2.25px;
-        /* 5px * 0.65 = 3.25px */
-        right: -2.25px;
-        /* 5px * 0.65 = 3.25px */
-        bottom: -2.25px;
-        /* 5px * 0.65 = 3.25px */
         border: 2.75px solid transparent;
-        /* 5px * 0.65 = 3.25px */
-        border-radius: 6.5px;
-        /* 10px * 0.65 = 6.5px */
     }
 
     /* Botão Próximo */
     .next-button {
-        bottom: -1.05rem;
-        /* 1.5rem * 0.7 = 1.05rem */
-        right: -0.7rem;
-        /* 1rem * 0.7 = 0.7rem */
         border: 2.45px solid black;
-        /* 3.5px * 0.7 = 2.45px */
         padding: 0.35rem 1.4rem;
-        /* 0.5rem * 0.7 = 0.35rem, 2rem * 0.7 = 1.4rem */
         font-size: 0.84rem;
-        /* 1.2rem * 0.7 = 0.84rem */
     }
 
     /* Títulos */
     .content-container-title1 {
         font-size: 1.1rem;
-        /* 1.7rem * 0.65 ≈ 1.1rem */
         padding: 0.975rem 0 0 1.95rem;
-        /* 1.5rem * 0.65 = 0.975rem, 3rem * 0.65 = 1.95rem */
     }
 
     .content-container-title2 {
         font-size: 0.55rem;
-        /* 0.85rem * 0.65 ≈ 0.55rem */
         padding: 0 0 0 1.95rem;
-        /* 3rem * 0.65 = 1.95rem */
     }
 
     /* --- Etapa 1 --- */
     .S1-grid-container {
         gap: 0.65rem 1.3rem;
-        /* 1rem * 0.65 = 0.65rem, 2rem * 0.65 = 1.3rem */
         padding: 0.975rem 3.9rem;
-        /* 1.5rem * 0.65 = 0.975rem, 6rem * 0.65 = 3.9rem */
     }
 
     .S1-square {
         width: 5.2rem;
-        /* 8rem * 0.65 = 5.2rem */
         height: 5.2rem;
-        /* 8rem * 0.65 = 5.2rem */
     }
 
     .S1-square-text {
         margin-top: 0.325rem;
-        /* 0.5rem * 0.65 = 0.325rem */
         font-size: 0.65rem;
-        /* 1rem * 0.65 = 0.65rem */
     }
 
     /* --- Etapa 2 --- */
     .S2-grid-container {
         padding: 0.975rem 1.3rem;
-        /* 1.5rem * 0.65 = 0.975rem, 2rem * 0.65 = 1.3rem */
     }
 
     .S2-square {
         width: 10.725rem;
-        /* 16.5rem * 0.65 = 10.725rem */
-        height: 13rem;
-        /* 20rem * 0.65 = 13rem */
+        height: 100%; /* Ajuste para 100% para igualdade de altura */
     }
 
     .S2-plan-name {
-        top: 1.3rem;
-        /* 2rem * 0.65 = 1.3rem */
         font-size: 0.78rem;
-        /* 1.2rem * 0.65 = 0.78rem */
     }
 
     /* --- Etapa 3 --- */
     .S3-grid-container {
         gap: 0.65rem 1.3rem;
-        /* 1rem * 0.65 = 0.65rem, 2rem * 0.65 = 1.3rem */
         padding: 0.975rem 3.9rem;
-        /* 1.5rem * 0.65 = 0.975rem, 6rem * 0.65 = 3.9rem */
     }
 
     .S3-square {
         width: 5.2rem;
-        /* 8rem * 0.65 = 5.2rem */
         height: 5.2rem;
-        /* 8rem * 0.65 = 5.2rem */
     }
 
     .S3-square-text {
         margin-top: 0.325rem;
-        /* 0.5rem * 0.65 = 0.325rem */
         font-size: 0.65rem;
-        /* 1rem * 0.65 = 0.65rem */
+    }
+
+    .S2-grid-container{
+        justify-self: center;
+        display: flex;
+        width: 96%;
+        padding: 1;
+        gap: 1rem;
+    }
+
+    .S2-grid-item{
+        width: 50%;
+    }
+
+    .S2-plan-block {
+        width: 100%; /* Take full width of grid item */
+        padding: 0;
     }
 
     /* --- Etapa 4 --- */
     .S4-content {
         padding: 1.3rem 1.95rem;
-        /* 2rem * 0.65 = 1.3rem, 3rem * 0.65 = 1.95rem */
     }
 
     .S4-movel-image-container {
         width: 13rem;
-        /* 20rem * 0.65 = 13rem */
         height: 13rem;
-        /* 20rem * 0.65 = 13rem */
         margin-right: 0.65rem;
-        /* 1rem * 0.65 = 0.65rem */
     }
 
     .S4-movel-name {
         margin-top: 18rem;
-        /* Ajuste fino */
         font-size: 1.2rem;
     }
 
     .S4-medidas-image {
         top: 3.25rem;
-        /* 5rem * 0.65 = 3.25rem */
         right: 1.3rem;
-        /* 2rem * 0.65 = 1.3rem */
         height: 6.5rem;
-        /* 10rem * 0.65 = 6.5rem */
     }
 
     .S4-form-container {
-        margin-left: 0;
-        /* Mantido como 0 */
         font-size: .65rem;
     }
 
     .S4-form-title {
         font-size: 0.975rem;
-        /* 1.5rem * 0.65 = 0.975rem */
         margin-bottom: 0.65rem;
-        /* 1rem * 0.65 = 0.65rem */
         margin-top: -0.65rem;
-        /* -1rem * 0.65 = -0.65rem */
     }
 
     .S4-form-title-color {
         margin-top: 1.3rem;
-        /* 2rem * 0.65 = 1.3rem */
     }
 
     .S4-input-group {
         margin-bottom: 0.325rem;
-        /* 0.5rem * 0.65 = 0.325rem */
         gap: 1rem;
-        margin-left: -.5rem;
     }
 
     .S4-input-group label {
         margin-right: -0.65rem;
-        /* -1rem * 0.65 = -0.65rem */
     }
 
     .S4-unit {
         font-size: 0.65rem;
-        /* 1rem * 0.65 = 0.65rem */
     }
 
     .S4-input {
         width: 3.25rem;
-        /* 5rem * 0.65 = 3.25rem */
         padding: 0.13rem;
-        /* 0.2rem * 0.65 = 0.13rem */
         font-size: 0.65rem;
     }
 
     .S4-radio-group {
         margin-left: 0;
-        /* 1.5rem * 0.65 = 0.975rem */
     }
 
     .S4-radio-group label {
         margin-right: 1.3rem;
-        /* 2rem * 0.65 = 1.3rem */
     }
 
     .S4-radio {
-        width: 0.65rem;
-        /* 1rem * 0.65 = 0.65rem */
-        height: 0.65rem;
-        /* 1rem * 0.65 = 0.65rem */
         border: 1.3px solid black;
-        /* 2px * 0.65 = 1.3px */
-        margin: 0 0.325rem 0 0;
-        /* 0.5rem * 0.65 = 0.325rem */
     }
 
     /* --- Etapa 5 --- */
     .S5-content {
         padding: 1.3rem 1.95rem;
-        /* 2rem * 0.65 = 1.3rem, 3rem * 0.65 = 1.95rem */
     }
 
     .S5-movel-image-container {
         width: 13rem;
-        /* 20rem * 0.65 = 13rem */
         height: 13rem;
-                /* 20rem * 0.65 = 13rem */
         margin-right: 0.65rem;
-        /* 1rem * 0.65 = 0.65rem */
     }
 
     .S5-movel-name {
         margin-top: 18rem;
-        /* Ajuste fino */
         font-size: 1.2rem;
     }
 
     .S5-form-title-main {
         font-size: 0.845rem;
-        /* 1.3rem * 0.65 = 0.845rem */
         margin-bottom: 0.455rem;
-        /* 0.7rem * 0.65 = 0.455rem */
     }
 
     .S5-input-group {
-        margin-bottom: 0.325rem;
-        /* 0.5rem * 0.65 = 0.325rem */
-        gap: 1.3rem;
-        /* 2rem * 0.65 = 1.3rem */
         width: auto;
+        margin-bottom: 0.325rem;
+        gap: 1.3rem;
     }
 
     .S5-input-group label {
@@ -2869,60 +2668,43 @@ footer {
 
     .S5-input {
         width: 3.25rem;
-        /* 5rem * 0.65 = 3.25rem */
         padding: 0.13rem;
-        /* 0.2rem * 0.65 = 0.13rem */
     }
 
     .S5-radio-group {
         margin-bottom: 0.455rem;
-        /* 0.7rem * 0.65 = 0.455rem */
     }
 
     .S5-radio-group label {
         margin-right: 1.3rem;
-        /* 2rem * 0.65 = 1.3rem */
     }
 
     .S5-radio {
-        width: 0.65rem;
-        /* 1rem * 0.65 = 0.65rem */
-        height: 0.65rem;
-        /* 1rem * 0.65 = 0.65rem */
         border: 1.3px solid black;
-        /* 2px * 0.65 = 1.3px */
-        margin-right: 0.325rem;
-        /* 0.5rem * 0.65 = 0.325rem */
     }
 
     /* --- Etapa 6 --- */
     .S6-content {
         padding: 1.3rem 1.95rem;
-        /* 2rem * 0.65 = 1.3rem, 3rem * 0.65 = 1.95rem */
     }
 
     .S6-input-group {
         margin-bottom: 0.455rem;
-        /* 0.7rem * 0.65 = 0.455rem */
     }
 
     .S6-input-group label {
         margin-bottom: 0.13rem;
-        /* 0.2rem * 0.65 = 0.13rem */
         font-size: 0.845rem;
-        /* 1.3rem * 0.65 = 0.845rem */
     }
 
     .S6-input {
         padding: 0.13rem;
-        /* 0.2rem * 0.65 = 0.13rem */
         margin-bottom: 1.3rem;
     }
 
     /* --- Etapa 7 --- */
     .S7-final-text {
         font-size: 0.975rem;
-        /* 1.5rem * 0.65 = 0.975rem */
     }
 }
 
@@ -2931,7 +2713,7 @@ footer {
 /* #region Media Queries Gerais - Menores */
 
 /* Media Query: 600px - 680px */
-@media (min-width: 600px) and (max-width: 680px) {
+@media (min-width: 381px) and (max-width: 680px) {
 
     body {
         padding-top: 2.5rem;
@@ -2947,98 +2729,67 @@ footer {
     /* Container Principal */
     .content-container {
         width: 90vw;
-        /* 90% da largura da viewport */
         max-width: none;
-        /* Remove a largura máxima anterior */
         height: auto;
         margin-bottom: 3rem;
     }
 
     .padrao {
         display: none;
-        /* Remove os padrões do fundo */
     }
 
     .content-container::before {
         border-radius: 6px;
-        top: -5px;
-        left: -5px;
-        right: -5px;
-        bottom: -5px;
         border: 5px solid transparent;
     }
 
     /* Altura dinâmica para as etapas com grades */
     .S1-grid-container,
     .S3-grid-container {
-        display: grid;
         grid-template-columns: repeat(3, 1fr);
-        /* Mantém 3 colunas */
-        gap: 1.5rem 2rem;
         padding: 1.5rem 3rem;
     }
 
     .S1-square,
     .S3-square {
         width: calc((90vw - 10vw - 6rem) / 3);
-        /* Ajusta a largura dos quadrados */
         height: calc((90vw - 10vw - 6rem) / 3);
-        /* Ajusta a altura dos quadrados */
     }
 
     .S2-grid-container {
         padding: 1rem;
-        /* Ajuste no padding */
         padding-bottom: 2rem;
     }
 
     .S2-square {
         width: 10rem;
         max-width: calc(90vw - 10vw - 3rem);
-        /* Ajusta a largura máxima */
-        height: 15rem;
-        /* Altura automática para manter a proporção */
+        height: 100%; /* Ajuste para 100% para igualdade de altura */
     }
 
     .S2-plan-name {
-        position: static;
-        text-align: center;
-        padding-top: 1rem;
-        /* Distância em relação ao topo do quadrado */
-        left: 0;
-        transform: translateX(0%);
-        /* Centraliza o nome do plano */
         font-size: 1rem;
     }
 
 
     /* Botão Próximo */
     .next-button {
-        bottom: -1.05rem;
-        right: -0.7rem;
-        border: 2.45px solid black;
-        padding: 0.30rem 1.4rem;
         font-size: 0.9rem;
     }
 
     /* Títulos */
     .content-container-title1 {
-        text-align: center;
         font-size: 1.4rem;
-        padding: 0.9rem 0 0;
     }
 
     .content-container-title2 {
-        text-align: center;
         font-size: 0.7rem;
-        padding: 0;
     }
 
     /* --- Etapa 1 e 3 --- */
 
     .S1-square-text,
     .S3-square-text {
-        margin-top: 0.3rem;
         font-size: 0.84rem;
     }
 
@@ -3046,32 +2797,19 @@ footer {
     .S4-content {
         padding: 1.2rem 1.8rem;
         flex-direction: column;
-        /* Mudança para coluna */
     }
 
     .S4-movel-image-container {
-        width: 100%;
-        height: auto;
-        margin-right: 0;
         margin-bottom: 1rem;
-        display: flex;
-        justify-content: center;
     }
 
     .S4-movel-image {
-        width: calc(90vw - 10vw - 3.6rem);
-        /* Ajusta a largura da imagem */
-        height: calc(90vw - 10vw - 3.6rem);
-        /* Ajusta a altura da imagem */
         max-width: 18rem;
         max-height: 18rem;
     }
 
     .S4-movel-name {
-        margin-top: 22rem;
-        margin-bottom: 1rem;
         font-size: 1.3rem;
-        text-align: center;
     }
 
     .S4-medidas-image {
@@ -3079,9 +2817,6 @@ footer {
     }
 
     .S4-form-container {
-        width: auto;
-        text-align: left;
-        align-items: left;
         padding-right: 65%;
         margin-top: 2rem;
         margin-left: 3rem;
@@ -3089,9 +2824,6 @@ footer {
 
     .S4-form-title {
         font-size: 1rem;
-        margin-bottom: 0.6rem;
-        margin-top: 0;
-        margin-left: 0;
     }
 
     .S4-form-title-color {
@@ -3099,13 +2831,6 @@ footer {
     }
 
     .S4-input-group {
-        width: 88%;
-        justify-content: right;
-        gap: .3rem;
-    }
-
-    .S4-input-group label {
-        margin-right: 0;
         font-size: 1rem;
     }
 
@@ -3114,106 +2839,58 @@ footer {
     }
 
     .S4-input {
-        width: 3rem;
-        padding: 0.12rem;
         font-size: 1rem;
     }
 
     .S4-radio-group {
-        margin-left: 0;
         width: 15rem;
-        margin-bottom: 2rem;
     }
 
     .S4-radio-group label {
-        margin-right: 1.2rem;
         font-size: 1rem;
     }
 
     .S4-radio {
-        width: 0.84rem;
-        height: 0.84rem;
         border: 1.2px solid black;
-        margin: 0 0.3rem 0 0;
     }
 
     /* --- Etapa 5 --- */
     .S5-content {
         padding: 1.2rem 1.8rem;
         flex-direction: column;
-        /* Mudança para coluna */
     }
 
     .S5-movel-image-container {
-        width: 100%;
-        height: auto;
-        margin-right: 0;
         margin-bottom: 3rem;
-        justify-content: center;
     }
 
     .S5-movel-image {
-        width: calc(90vw - 10vw - 3.6rem);
-        /* Ajusta a largura da imagem */
-        height: calc(90vw - 10vw - 3.6rem);
-        /* Ajusta a altura da imagem */
         max-width: 18rem;
         max-height: 18rem;
     }
 
     .S5-movel-name {
-        margin-top: 22rem;
         font-size: 1.3rem;
-        text-align: center;
     }
 
     .S5-form-container {
-        width: auto;
-        text-align: left;
-        margin-left: 0;
         padding-bottom: 1rem;
     }
 
     .S5-form-title-main {
         font-size: 1.2rem;
-        margin-bottom: 0.42rem;
-        margin-top: 0;
-        text-align: left;
-    }
-
-    .S5-input-group {
-        margin-bottom: 0.3rem;
-        gap: 1.2rem;
-        width: 100%;
-        justify-content: space-between;
     }
 
     .S5-input-group label {
         font-size: 1.2rem;
-        width: 5.5rem;
-    }
-
-    .S5-input {
-        width: 3rem;
-        padding: 0.12rem;
-    }
-
-    .S5-radio-group {
-        margin-bottom: 0.42rem;
-        width: 100%;
     }
 
     .S5-radio-group label {
-        margin-right: 1.2rem;
         font-size: 1.2rem;
     }
 
     .S5-radio {
-        width: 0.84rem;
-        height: 0.84rem;
         border: 1.2px solid black;
-        margin-right: 0.3rem;
-        margin-left: 0;
     }
 
     /* --- Etapa 6 --- */
@@ -3221,18 +2898,8 @@ footer {
         padding: 1.2rem 1.8rem;
     }
 
-    .S6-input-group {
-        margin-bottom: 0.42rem;
-    }
-
     .S6-input-group label {
-        margin-bottom: 0.12rem;
         font-size: 1.2rem;
-    }
-
-    .S6-input {
-        padding: 0.12rem;
-        margin-bottom: 1.2rem;
     }
 
     /* --- Etapa 7 --- */
@@ -3242,7 +2909,7 @@ footer {
 }
 
 /* Media Query: 490px - 600px */
-@media (min-width: 490px) and (max-width: 600px) {
+@media (min-width: 381px) and (max-width: 600px) {
 
     body {
         padding-top: 2.5rem;
@@ -3258,614 +2925,378 @@ footer {
     /* Container Principal */
     .content-container {
         width: 90vw;
-        /* Mantém a largura responsiva */
         max-width: none;
-        /* Reduz a largura máxima */
         height: auto;
-        margin-bottom: 2.5rem;
+        margin-bottom: 3rem;
     }
 
     .padrao {
         display: none;
-        /* Remove os padrões do fundo */
     }
 
     .content-container::before {
-        border-radius: 5px;
-        top: -5px;
-        left: -5px;
-        right: -5px;
-        bottom: -5px;
+        border-radius: 6px;
         border: 5px solid transparent;
     }
 
     /* Altura dinâmica para as etapas com grades */
     .S1-grid-container,
     .S3-grid-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        /* Ajusta para 2 colunas */
-        gap: 1.5rem 3rem;
-        padding: 1.5rem 4rem;
-    }
-
-    .S1-square,
-    .S3-square {
-        width: calc((90vw - 10vw - 9rem) / 2);
-        /* Mantém o tamanho dos quadrados */
-        height: calc((90vw - 10vw - 9rem) / 2);
-        /* Mantém o tamanho dos quadrados */
-    }
-
-    .S2-grid-container {
-        grid-template-columns: repeat(1, 1fr);
-        /* 1 coluna */
-        gap: 1rem;
-        padding: 1.5rem 4rem 2.5rem;
-        /* Ajuste no padding */
-    }
-
-    .S2-square {
-        width: 80%;
-        max-width: calc(90vw - 10vw - 2rem);
-        /* Ajusta a largura máxima */
-        height: 20rem;
-        /* Altura automática para manter a proporção */
-        padding-bottom: 1rem;
-        /* Espaçamento na parte inferior para o texto */
-    }
-
-    /* Botão Próximo */
-    .next-button {
-        bottom: -1.05rem;
-        right: -0.7rem;
-        border: 2.45px solid black;
-        padding: 0.30rem 1.4rem;
-        font-size: 0.9rem;
-    }
-
-    /* Títulos */
-    .content-container-title1 {
-        text-align: center;
-        font-size: 1.2rem;
-        padding: 0.75rem 0 0;
-    }
-
-    .content-container-title2 {
-        text-align: center;
-        font-size: 0.6rem;
-        padding: 0;
-    }
-
-    /* --- Etapa 1 e 3 --- */
-
-    .S1-square-text,
-    .S3-square-text {
-        margin-top: 0.25rem;
-        font-size: 0.84rem;
-    }
-
-    /* --- Etapa 2 --- */
-
-    .S2-plan-name {
-        top: 1.6rem;
-        font-size: 1.2rem;
-        margin: 0 .5rem;
-    }
-
-    /* --- Etapa 4 --- */
-    .S4-content {
-        padding: 1rem 1.5rem;
-        flex-direction: column;
-        /* Mantido como coluna */
-    }
-
-    .S4-movel-image-container {
-        width: 100%;
-        height: auto;
-        margin-right: 0;
-        margin-bottom: 0.8rem;
-        display: flex;
-        justify-content: center;
-    }
-
-    .S4-movel-image {
-        width: calc(90vw - 10vw - 3rem);
-        /* Ajusta a largura da imagem */
-        height: calc(90vw - 10vw - 3rem);
-        /* Ajusta a altura da imagem */
-        max-width: 15rem;
-        max-height: 15rem;
-    }
-
-    .S4-movel-name {
-        margin-top: 18rem;
-        margin-bottom: 0.8rem;
-        font-size: 1.2rem;
-        text-align: center;
-    }
-
-    .S4-medidas-image {
-        height: 26vw;
-        top: 20rem;
-        right: 1rem;
-    }
-
-    .S4-form-container {
-        width: auto;
-        text-align: left;
-        margin-top: 2rem;
-        margin-right: 60%;
-        margin-left: 1.5rem;
-        align-items: flex-start;
-    }
-
-    .S4-form-title {
-        font-size: 1rem;
-        margin-bottom: 0.5rem;
-        margin-top: 0;
-        margin-left: 0;
-    }
-
-    .S4-form-title-color {
-        margin-top: 0.8rem;
-    }
-
-    .S4-input-group {
-        margin-bottom: 0.5rem;
-        gap: .3rem;
-        margin-left: 0;
-        width: 100%;
-        justify-content: right;
-    }
-
-    .S4-input-group label {
-        margin-right: 0;
-        font-size: 1rem;
-    }
-
-    .S4-unit {
-        font-size: 1rem;
-    }
-
-    .S4-input {
-        width: 2.5rem;
-        padding: 0.1rem;
-        font-size: 1rem;
-    }
-
-    .S4-radio-group {
-        margin-left: 0;
-        width: 100%;
-        margin-bottom: 1.5rem;
-    }
-
-    .S4-radio-group label {
-        margin-right: 1rem;
-        font-size: 1rem;
-    }
-
-    .S4-radio {
-        width: 0.7rem;
-        height: 0.7rem;
-        border: 1px solid black;
-        margin: 0 0.25rem 0 0;
-    }
-
-    /* --- Etapa 5 --- */
-    .S5-content {
-        padding: 1rem 1.5rem;
-        flex-direction: column;
-        /* Mantido como coluna */
-    }
-
-    .S5-movel-image-container {
-        width: 100%;
-        height: auto;
-        margin-right: 0;
-        margin-bottom: 0.8rem;
-        justify-content: center;
-    }
-
-    .S5-movel-image {
-        width: calc(90vw - 10vw - 3rem);
-        /* Ajusta a largura da imagem */
-        height: calc(90vw - 10vw - 3rem);
-        /* Ajusta a altura da imagem */
-        max-width: 15rem;
-        max-height: 15rem;
-    }
-
-    .S5-movel-name {
-        margin-top: 18.5rem;
-        font-size: 1.2rem;
-        text-align: center;
-    }
-
-    .S5-form-container {
-        width: auto;
-        text-align: left;
-        margin-top: 1.8rem;
-        margin-left: 0;
-        padding-bottom: 1rem;
-        align-items: flex-start;
-    }
-
-    .S5-form-title-main {
-        font-size: 1.1rem;
-        margin-bottom: 0.35rem;
-        margin-top: 0;
-    }
-
-    .S5-input-group {
-        margin-bottom: 0.25rem;
-        gap: 1rem;
-        width: 100%;
-        justify-content: space-between;
-    }
-
-    .S5-input-group label {
-        font-size: 1.1rem;
-        width: 5.5rem;
-    }
-
-    .S5-input {
-        width: 2.5rem;
-        padding: 0.1rem;
-    }
-
-    .S5-radio-group {
-        margin-bottom: 0.35rem;
-        width: 100%;
-    }
-
-    .S5-radio-group label {
-        margin-right: 1rem;
-        font-size: 1.1rem;
-    }
-
-    .S5-radio {
-        width: 0.7rem;
-        height: 0.7rem;
-        border: 1px solid black;
-        margin-right: 0.25rem;
-        margin-left: 0;
-    }
-
-    /* --- Etapa 6 --- */
-    .S6-content {
-        padding: 1rem 1.5rem;
-    }
-
-    .S6-input-group {
-        margin-bottom: 0.35rem;
-    }
-
-    .S6-input-group label {
-        margin-bottom: 0.1rem;
-        font-size: 1.1rem;
-    }
-
-    .S6-input {
-        padding: 0.1rem;
-        margin-bottom: 1rem;
-    }
-
-    /* --- Etapa 7 --- */
-    .S7-final-text {
-        font-size: 1.1rem;
-    }
-}
-
-/* Media Query: 380px - 490px */
-@media (min-width: 380px) and (max-width: 490px) {
-
-    body {
-        padding-top: 2.5rem;
-    }
-
-    .section-title {
-        margin: 1rem 0;
-        font-size: 2rem;
-    }
-
-    /* --- Container Principal e Conteúdo --- */
-
-    /* Container Principal */
-    .content-container {
-        width: 90vw;
-        /* Mantém a largura responsiva */
-        max-width: none;
-        /* Reduz ainda mais a largura máxima */
-        height: auto;
-        margin-bottom: 2rem;
-    }
-
-    .padrao {
-        display: none;
-        /* Remove os padrões do fundo */
-    }
-
-    .content-container::before {
-        border-radius: 4px;
-        top: -5px;
-        left: -5px;
-        right: -5px;
-        bottom: -5px;
-        border: 5px solid transparent;
-    }
-
-    /* Altura dinâmica para as etapas com grades */
-    .S1-grid-container,
-    .S3-grid-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        /* Mantém 2 colunas */
-        gap: 1rem 2rem;
+        grid-template-columns: repeat(3, 1fr);
         padding: 1.5rem 3rem;
     }
 
     .S1-square,
     .S3-square {
-        width: calc((90vw - 10vw - 8rem) / 2);
-        /* Reduz o tamanho dos quadrados */
-        height: calc((90vw - 10vw - 8rem) / 2);
-        /* Reduz o tamanho dos quadrados */
+        width: calc((90vw - 10vw - 6rem) / 3);
+        height: calc((90vw - 10vw - 6rem) / 3);
     }
 
     .S2-grid-container {
-        grid-template-columns: repeat(1, 1fr);
-        /* 1 coluna */
-        gap: 1rem;
-        padding: 1.5rem 3rem 2.5rem;
-        /* Ajuste no padding */
+        padding: 1rem;
+        padding-bottom: 2rem;
     }
 
     .S2-square {
-        width: 80%;
-        max-width: calc(90vw - 10vw - 1rem);
-        /* Ajusta a largura máxima */
-        height: 20rem;
-        padding-bottom: .8rem;
+        width: 10rem;
+        max-width: calc(90vw - 10vw - 3rem);
+        height: 100%; /* Ajuste para 100% para igualdade de altura */
     }
+
+    .S2-plan-name {
+        font-size: 1rem;
+    }
+
 
     /* Botão Próximo */
     .next-button {
-        bottom: -1.05rem;
-        right: -0.7rem;
-        border: 2.45px solid black;
-        padding: 0.30rem 1.4rem;
         font-size: 0.9rem;
     }
 
     /* Títulos */
     .content-container-title1 {
-        text-align: center;
-        font-size: 1rem;
-        padding: 0.6rem 0 0;
+        font-size: 1.4rem;
     }
 
     .content-container-title2 {
-        text-align: center;
-        font-size: 0.5rem;
-        padding: 0;
+        font-size: 0.7rem;
     }
 
     /* --- Etapa 1 e 3 --- */
 
     .S1-square-text,
     .S3-square-text {
-        margin-top: 0.2rem;
         font-size: 0.84rem;
-    }
-
-    /* --- Etapa 2 --- */
-
-    .S2-plan-name {
-        top: 1.6rem;
-        font-size: 1.2rem;
-        margin: 0 .5rem;
     }
 
     /* --- Etapa 4 --- */
     .S4-content {
-        padding: 0.8rem 1.2rem;
+        padding: 1.2rem 1.8rem;
         flex-direction: column;
     }
 
     .S4-movel-image-container {
-        width: 100%;
-        height: auto;
-        margin-right: 0;
-        margin-bottom: 0.7rem;
-        display: flex;
-        justify-content: center;
+        margin-bottom: 1rem;
     }
 
     .S4-movel-image {
-        width: calc(90vw - 10vw - 2.4rem);
-        /* Ajusta a largura da imagem */
-        height: calc(90vw - 10vw - 2.4rem);
-        /* Ajusta a altura da imagem */
-        max-width: 13rem;
-        max-height: 13rem;
+        max-width: 18rem;
+        max-height: 18rem;
     }
 
     .S4-movel-name {
-        margin-top: 16rem;
-        margin-bottom: 0.7rem;
-        font-size: 1.1rem;
-        text-align: center;
+        font-size: 1.3rem;
     }
 
     .S4-medidas-image {
-        margin-top: 24.5rem;
-        right: auto;
+        margin-top: 19rem;
     }
 
     .S4-form-container {
-        width: auto;
-        text-align: left;
+        padding-right: 65%;
         margin-top: 2rem;
-        margin-left: 0;
-        align-items: flex-start;
-        padding-bottom: 10rem;
+        margin-left: 3rem;
     }
 
     .S4-form-title {
-        font-size: 1.1rem;
-        margin-bottom: 0.5rem;
-        margin-top: 0;
-        margin-left: 0;
+        font-size: 1rem;
     }
 
     .S4-form-title-color {
-        margin-top: 0.6rem;
+        margin-top: 1rem;
     }
 
     .S4-input-group {
-        margin-bottom: 0.5rem;
-        gap: .2rem;
-        margin-left: 0;
-        width: 100%;
-        justify-content: right;
-    }
-
-    .S4-input-group label {
-        margin-right: 0;
         font-size: 1rem;
     }
 
     .S4-unit {
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
 
     .S4-input {
-        width: 2rem;
-        padding: 0.08rem;
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
 
     .S4-radio-group {
-        margin-left: 0;
-        width: 100%;
-        margin-bottom: 1.5rem;
-        justify-content: space-between;
+        width: 15rem;
     }
 
     .S4-radio-group label {
-        margin-right: 0.8rem;
         font-size: 1rem;
     }
 
     .S4-radio {
-        width: 0.7rem;
-        height: 0.7rem;
-        border: 0.8px solid black;
-        margin: 0 0.2rem 0 0;
+        border: 1.2px solid black;
     }
 
     /* --- Etapa 5 --- */
     .S5-content {
-        padding: 0.8rem 1.2rem;
+        padding: 1.2rem 1.8rem;
         flex-direction: column;
     }
 
     .S5-movel-image-container {
-        width: 100%;
-        height: auto;
-        margin-right: 0;
-        margin-bottom: 2rem;
-        justify-content: center;
+        margin-bottom: 3rem;
     }
 
     .S5-movel-image {
-        width: calc(90vw - 10vw - 2.4rem);
-        /* Ajusta a largura da imagem */
-        height: calc(90vw - 10vw - 2.4rem);
-        /* Ajusta a altura da imagem */
-        max-width: 13rem;
-        max-height: 13rem;
+        max-width: 18rem;
+        max-height: 18rem;
     }
 
     .S5-movel-name {
-        margin-top: 15.5rem;
-        margin-bottom: 0.7rem;
-        font-size: 1.1rem;
-        text-align: center;
+        font-size: 1.3rem;
     }
 
     .S5-form-container {
-        width: auto;
-        text-align: left;
-        margin-left: 0;
-        align-items: flex-start;
         padding-bottom: 1rem;
     }
 
     .S5-form-title-main {
-        font-size: 1rem;
-        margin-bottom: 0.3rem;
-        margin-top: 0;
-    }
-
-    .S5-input-group {
-        margin-bottom: 0.2rem;
-        gap: 0.8rem;
-        width: 100%;
-        justify-content: space-between;
+        font-size: 1.2rem;
     }
 
     .S5-input-group label {
-        font-size: 1rem;
-        width: 5.5rem;
-    }
-
-    .S5-input {
-        width: 2rem;
-        padding: 0.08rem;
-    }
-
-    .S5-radio-group {
-        margin-bottom: 0.3rem;
-        width: 100%;
+        font-size: 1.2rem;
     }
 
     .S5-radio-group label {
-        margin-right: 0.8rem;
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     .S5-radio {
-        width: 0.6rem;
-        height: 0.6rem;
-        border: 0.8px solid black;
-        margin-right: 0.2rem;
-        margin-left: 0;
+        border: 1.2px solid black;
     }
 
     /* --- Etapa 6 --- */
     .S6-content {
-        padding: 0.8rem 1.2rem;
+        padding: 1.2rem 1.8rem;
     }
 
-    .S6-input-group {
-        margin-bottom: 0.3rem;
-    }
-
-        .S6-input-group label {
-        margin-bottom: 0.08rem;
-        font-size: 1rem;
-    }
-
-    .S6-input {
-        padding: 0.08rem;
-        margin-bottom: 0.8rem;
+    .S6-input-group label {
+        font-size: 1.2rem;
     }
 
     /* --- Etapa 7 --- */
     .S7-final-text {
+        font-size: 1.2rem;
+    }
+}
+
+/* Media Query: 380px - 490px */
+@media (min-width: 320px) and (max-width: 490px) {
+
+    body {
+        padding-top: 2.5rem;
+    }
+
+    .section-title {
+        margin: 1rem 0;
+        font-size: 2rem;
+    }
+
+    /* --- Container Principal e Conteúdo --- */
+
+    /* Container Principal */
+    .content-container {
+        width: 90vw;
+        max-width: none;
+        height: auto;
+        margin-bottom: 3rem;
+    }
+
+    .padrao {
+        display: none;
+    }
+
+    .content-container::before {
+        border-radius: 6px;
+        border: 5px solid transparent;
+    }
+
+    /* Altura dinâmica para as etapas com grades */
+    .S1-grid-container,
+    .S3-grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 1.5rem 3rem;
+    }
+
+    .S1-square,
+    .S3-square {
+        width: calc((90vw - 10vw - 6rem) / 3);
+        height: calc((90vw - 10vw - 6rem) / 3);
+    }
+
+    .S2-grid-container {
+        padding: 1rem;
+        padding-bottom: 2rem;
+    }
+
+    .S2-square {
+        width: 10rem;
+        max-width: calc(90vw - 10vw - 3rem);
+        height: 100%; /* Ajuste para 100% para igualdade de altura */
+    }
+
+    .S2-plan-name {
         font-size: 1rem;
+    }
+
+
+    /* Botão Próximo */
+    .next-button {
+        font-size: 0.9rem;
+    }
+
+    /* Títulos */
+    .content-container-title1 {
+        font-size: 1.4rem;
+    }
+
+    .content-container-title2 {
+        font-size: 0.7rem;
+    }
+
+    /* --- Etapa 1 e 3 --- */
+
+    .S1-square-text,
+    .S3-square-text {
+        font-size: 0.84rem;
+    }
+
+    /* --- Etapa 4 --- */
+    .S4-content {
+        padding: 1.2rem 1.8rem;
+        flex-direction: column;
+    }
+
+    .S4-movel-image-container {
+        margin-bottom: 1rem;
+    }
+
+    .S4-movel-image {
+        max-width: 18rem;
+        max-height: 18rem;
+    }
+
+    .S4-movel-name {
+        font-size: 1.3rem;
+    }
+
+    .S4-medidas-image {
+        margin-top: 19rem;
+    }
+
+    .S4-form-container {
+        padding-right: 65%;
+        margin-top: 2rem;
+        margin-left: 3rem;
+    }
+
+    .S4-form-title {
+        font-size: 1rem;
+    }
+
+    .S4-form-title-color {
+        margin-top: 1rem;
+    }
+
+    .S4-input-group {
+        font-size: 1rem;
+    }
+
+    .S4-unit {
+        font-size: 1rem;
+    }
+
+    .S4-input {
+        font-size: 1rem;
+    }
+
+    .S4-radio-group {
+        width: 15rem;
+    }
+
+    .S4-radio-group label {
+        font-size: 1rem;
+    }
+
+    .S4-radio {
+        border: 1.2px solid black;
+    }
+
+    /* --- Etapa 5 --- */
+    .S5-content {
+        padding: 1.2rem 1.8rem;
+        flex-direction: column;
+    }
+
+    .S5-movel-image-container {
+        margin-bottom: 3rem;
+    }
+
+    .S5-movel-image {
+        max-width: 18rem;
+        max-height: 18rem;
+    }
+
+    .S5-movel-name {
+        font-size: 1.3rem;
+    }
+
+    .S5-form-container {
+        padding-bottom: 1rem;
+    }
+
+    .S5-form-title-main {
+        font-size: 1.2rem;
+    }
+
+    .S5-input-group label {
+        font-size: 1.2rem;
+    }
+
+    .S5-radio-group label {
+        font-size: 1.2rem;
+    }
+
+    .S5-radio {
+        border: 1.2px solid black;
+    }
+
+    /* --- Etapa 6 --- */
+    .S6-content {
+        padding: 1.2rem 1.8rem;
+    }
+
+    .S6-input-group label {
+        font-size: 1.2rem;
+    }
+
+    /* --- Etapa 7 --- */
+    .S7-final-text {
+        font-size: 1.2rem;
     }
 }
 
@@ -3934,7 +3365,7 @@ footer {
     .S2-square {
         width: 80%;
         max-width: calc(90vw - 10vw - 2rem);
-        height: 15rem;
+        height: 100%; /* Ajuste para 100% para igualdade de altura */
         padding-bottom: .5rem;
     }
 
@@ -3974,7 +3405,6 @@ footer {
     /* --- Etapa 2 --- */
 
     .S2-plan-name {
-        top: 1rem;
         font-size: 1.2rem;
         margin: 0 .3rem;
     }
@@ -3986,28 +3416,16 @@ footer {
     }
 
     .S4-movel-image-container {
-        width: 100%;
-        height: auto;
-        margin-right: 0;
         margin-bottom: 0.6rem;
-        display: flex;
-        justify-content: center;
     }
 
     .S4-movel-image {
-        width: calc(90vw - 10vw - 1.8rem);
-        /* Ajusta a largura da imagem */
-        height: calc(90vw - 10vw - 1.8rem);
-        /* Ajusta a altura da imagem */
         max-width: 12rem;
         max-height: 12rem;
     }
 
     .S4-movel-name {
-        margin-top: 14.5rem;
-        margin-bottom: 0.6rem;
         font-size: 1.1rem;
-        text-align: center;
     }
 
     .S4-medidas-image {
@@ -4016,35 +3434,19 @@ footer {
     }
 
     .S4-form-container {
-        width: auto;
-        text-align: left;
-        margin-left: 0;
         margin-top: 2rem;
         margin-bottom: 10rem;
-        align-items: flex-start;
     }
 
     .S4-form-title {
         font-size: 1.1rem;
-        margin-bottom: 0.5rem;
-        margin-top: 0;
-        margin-left: 0;
     }
 
     .S4-form-title-color {
         margin-top: 0.4rem;
     }
 
-    .S4-input-group {
-        margin-bottom: 0.4rem;
-        gap: 0.1rem;
-        margin-left: 0;
-        width: 100%;
-        justify-content: right;
-    }
-
     .S4-input-group label {
-        margin-right: 0;
         font-size: 1rem;
     }
 
@@ -4053,28 +3455,15 @@ footer {
     }
 
     .S4-input {
-        width: 1.8rem;
-        padding: 0.06rem;
         font-size: 0.8rem;
     }
 
-    .S4-radio-group {
-        margin-left: 0;
-        width: 100%;
-        margin-bottom: 1.5rem;
-        justify-content: space-between;
-    }
-
     .S4-radio-group label {
-        margin-right: 0.6rem;
         font-size: 1rem;
     }
 
     .S4-radio {
-        width: 0.7rem;
-        height: 0.7rem;
         border: 0.6px solid black;
-        margin: 0 0.15rem 0 0;
     }
 
     /* --- Etapa 5 --- */
@@ -4084,76 +3473,36 @@ footer {
     }
 
     .S5-movel-image-container {
-        width: 100%;
-        height: auto;
-        margin-right: 0;
         margin-bottom: 2rem;
-        justify-content: center;
     }
 
     .S5-movel-image {
-        width: calc(90vw - 10vw - 1.8rem);
-        /* Ajusta a largura da imagem */
-        height: calc(90vw - 10vw - 1.8rem);
-        /* Ajusta a altura da imagem */
         max-width: 12rem;
         max-height: 12rem;
     }
 
     .S5-movel-name {
-        margin-top: 14rem;
-        margin-bottom: 0.6rem;
         font-size: 1.1rem;
-        text-align: center;
     }
 
     .S5-form-container {
-        width: auto;
-        text-align: left;
-        margin-left: 0;
         padding-bottom: 1rem;
-        align-items: flex-start;
     }
 
     .S5-form-title-main {
         font-size: 1rem;
-        margin-bottom: 0.2rem;
-        margin-top: 0;
-    }
-
-    .S5-input-group {
-        margin-bottom: 0.15rem;
-        gap: 0.6rem;
-        width: 100%;
-        justify-content: space-between;
     }
 
     .S5-input-group label {
         font-size: 1rem;
-        width: 5.5rem;
-    }
-
-    .S5-input {
-        width: 1.8rem;
-        padding: 0.06rem;
-    }
-
-    .S5-radio-group {
-        margin-bottom: 0.2rem;
-        width: 100%;
     }
 
     .S5-radio-group label {
-        margin-right: 0.6rem;
         font-size: 1rem;
     }
 
     .S5-radio {
-        width: 0.5rem;
-        height: 0.5rem;
         border: 0.6px solid black;
-        margin-right: 0.15rem;
-        margin-left: 0;
     }
 
     /* --- Etapa 6 --- */
@@ -4161,18 +3510,8 @@ footer {
         padding: 0.6rem 0.9rem;
     }
 
-    .S6-input-group {
-        margin-bottom: 0.2rem;
-    }
-
     .S6-input-group label {
-        margin-bottom: 0.06rem;
         font-size: 1rem;
-    }
-
-    .S6-input {
-        padding: 0.06rem;
-        margin-bottom: 0.6rem;
     }
 
     /* --- Etapa 7 --- */
